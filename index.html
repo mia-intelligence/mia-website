@@ -86,6 +86,229 @@
 
   .nav-cta:hover { background: var(--bleu-moyen) !important; }
 
+ /* ===== SECTION CAPSULE IA ===== */
+  .section-capsule {
+    padding: 6rem;
+    background: var(--bleu-tres-fonce);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-capsule::before {
+    content: "";
+    position: absolute;
+    left: -120px;
+    bottom: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(122,144,189,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .capsule-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .capsule-badge {
+    display: inline-block;
+    background: var(--bleu-moyen);
+    color: white;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .section-capsule .section-tag {
+    color: rgba(255,255,255,0.5);
+  }
+
+  .section-capsule .section-tag::before {
+    background: rgba(255,255,255,0.3);
+  }
+
+  .section-capsule h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .section-capsule h2 em {
+    font-style: italic;
+    color: var(--bleu-moyen);
+  }
+
+  .capsule-desc {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.65);
+    max-width: 540px;
+    margin-bottom: 3rem;
+  }
+
+  .capsule-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .capsule-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .capsule-card:hover {
+    background: rgba(255,255,255,0.09);
+    border-color: var(--bleu-moyen);
+    transform: translateY(-3px);
+  }
+
+  .capsule-card-meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bleu-moyen);
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .capsule-card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin: 0.5rem 0;
+  }
+
+  .capsule-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.35;
+    color: white;
+  }
+
+  .capsule-card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.55);
+    flex: 1;
+  }
+
+  .capsule-lire {
+    font-size: 0.82rem;
+    color: var(--bleu-moyen);
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .capsule-card:hover .capsule-lire {
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .section-capsule { padding: 4rem 2rem; }
+    .section-capsule h2 { font-size: 2.1rem; }
+    .capsule-cards { grid-template-columns: 1fr; }
+  }
+
+ /* ===== MENU BURGER ===== */
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.4rem;
+    background: none;
+    border: none;
+    z-index: 200;
+  }
+
+  .nav-burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--bleu-fonce);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .nav-burger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-burger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-burger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(16px);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-mobile.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-mobile a {
+    text-decoration: none;
+    color: var(--bleu-fonce);
+    font-size: 1.5rem;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+
+  .nav-mobile a:hover { color: var(--bleu-moyen); }
+
+  .nav-mobile .nav-cta-mobile {
+    background: var(--bleu-fonce);
+    color: white !important;
+    padding: 0.9rem 2.2rem;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+  }
+    
   /* ===== HERO ===== */
   .hero {
     min-height: 100vh;
@@ -840,6 +1063,8 @@
 
   @media (max-width: 768px) {
     .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .nav-mobile.open { display: flex; }
     .hero { grid-template-columns: 1fr; }
     .hero-right { height: 350px; }
     .hero-left { padding: 6rem 2rem 3rem; }
@@ -852,7 +1077,9 @@
     footer { padding: 3rem 2rem 2rem; }
     .section-niveaux, .section-formations, .section-cta { padding: 4rem 2rem; }
   }
-</style>
+    </style>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%233d5080'/><text x='50' y='68' font-family='serif' font-size='48' font-weight='bold' fill='white' text-anchor='middle'>M</text></svg>">
+<link rel="alternate icon" href="data:image/png;base64,iVBORw0KGgo=">
 </head>
 <body>
 
@@ -868,8 +1095,21 @@
     <li><a href="je-maitrise.html">Je maîtrise</a></li>
     <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="nav-cta">Prendre rendez-vous</a></li>
   </ul>
+  <!-- Burger button -->
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
-
+<!-- Menu mobile overlay -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#apropos" class="nav-mobile-link">Qui suis-je ?</a>
+  <a href="#niveaux" class="nav-mobile-link">Je comprends</a>
+  <a href="#automatise" class="nav-mobile-link">J'automatise</a>
+  <a href="#formations" class="nav-mobile-link">Je maîtrise</a>
+  <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="nav-cta-mobile">Prendre rendez-vous</a>
+</div>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
@@ -1004,6 +1244,25 @@
   </div>
 </section>
 
+<!-- CAPSULE IA -->
+<section class="section-capsule" id="capsule-ia">
+  <div class="capsule-inner">
+    <div class="capsule-badge">Nouveau</div>
+    <p class="section-tag">Veille & Décryptage</p>
+    <h2>Capsule IA —<br><em>Le rendez-vous mensuel</em></h2>
+    <p class="capsule-desc">Je décrypte. Je partage. Sans filtre.<br>Chaque mois, les actualités IA qui comptent vraiment pour votre activité — analysées par une experte terrain.</p>
+    <div class="capsule-cards">
+      <a href="capsule-ia-1.html" class="capsule-card">
+        <div class="capsule-card-meta">Épisode 1 · Janvier — Février 2026</div>
+        <img src="assets/images/capsule-ia-1-bd.png" alt="Capsule IA #1 — Janvier Février 2026" class="capsule-card-img" onerror="this.style.display='none'">
+        <h3>En 2 mois, l'IA a bougé plus vite que beaucoup d'entreprises en 2 ans</h3>
+        <p>ChatGPT, Claude, Gemini, Perplexity — ce qui s'est vraiment passé et ce que ça change pour vous.</p>
+        <span class="capsule-lire">Lire l'analyse →</span>
+      </a>
+    </div>
+  </div>
+</section>
+  
 <!-- FORMATIONS -->
 <section class="section-formations" id="formations">
   <div class="section-header">
