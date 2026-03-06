@@ -790,4 +790,23 @@
   <div class="footer-bottom">
     <span>© 2025 MIA — Médiation Intelligence Appliquée</span>
     <div class="footer-legal-links">
-      <a href="mentions-legales.html
+      <a href="mentions-légaux.html"/a>
+        <script>
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('navMobile');
+  const mobileLinks = document.querySelectorAll('.nav-mobile-link, .nav-cta-mobile');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.style.display = 'flex';
+    setTimeout(() => mobileMenu.classList.toggle('open'), 10);
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      setTimeout(() => { mobileMenu.style.display = ''; }, 300);
+    });
+  });
+</script>
