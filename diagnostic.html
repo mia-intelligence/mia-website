@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mon entreprise est-elle prête pour l'IA ? — MIA</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<link rel="apple-touch-icon" href="https://github.com/mia-intelligence/mia-website/blob/main/assets/images/mia-favicon.png">
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F2ZTMXY1S1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F2ZTMXY1S1');
+</script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -949,12 +956,12 @@ body {
           <span class="price-label">— Diagnostic Express · 1h</span>
         </div>
       </div>
-      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" class="btn-rdv" target="_blank">
+      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" class="btn-rdv" target="_blank" onclick="gtag('event', 'clic_rdv', { event_category: 'conversion', event_label: 'Bouton Réserver diagnostic' })">
         Réserver mon diagnostic
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <br>
-      <span class="cta-reassurance">Sans engagement · Réponse sous 24h · contact@mia-intelligence.com</span>
+      <span class="cta-reassurance">Sans engagement · Réponse sous 24h · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3e5d51504a5f5d4a7e53575f1357504a5b525257595b505d5b105d5153">[email&#160;protected]</a></span>
     </div>
 
     <div style="text-align:center; margin-top:28px;">
@@ -966,11 +973,11 @@ body {
   </div>
 
   <div class="app-footer">
-    <p><a href="https://mia-intelligence.com">mia-intelligence.com</a> · contact@mia-intelligence.com · Laetitia Coloré — MIA</p>
+    <p><a href="https://mia-intelligence.com">mia-intelligence.com</a> · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50333f3e24313324103d39317d393e24353c3c3937353e33357e333f3d">[email&#160;protected]</a> · Laetitia Coloré — MIA</p>
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ========================
 // DONNÉES DU TEST
 // ========================
@@ -1183,6 +1190,7 @@ function startTest() {
   document.getElementById('screen-test').style.display = 'block';
   window.scrollTo(0, 0);
   renderDimension(0);
+  gtag('event', 'diagnostic_demarre', { event_category: 'diagnostic', event_label: 'Bouton démarrer cliqué' });
 }
 
 function renderDimension(dimIdx) {
@@ -1294,6 +1302,7 @@ function showResults() {
   document.getElementById('screen-test').style.display = 'none';
   document.getElementById('screen-results').style.display = 'block';
   window.scrollTo(0, 0);
+  gtag('event', 'diagnostic_termine', { event_category: 'diagnostic', event_label: 'Résultats affichés' });
 
   // Calcul scores
   const dimScores = dimensions.map((dim, di) => {
@@ -1382,18 +1391,4 @@ function animateNumber(id, target, duration) {
     const progress = Math.min(elapsed / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.round(start + (target - start) * eased);
-    if (progress < 1) requestAnimationFrame(update);
-  }
-  requestAnimationFrame(update);
-}
-
-function restartTest() {
-  answers = Array(6).fill(null).map(() => Array(3).fill(null));
-  document.getElementById('screen-results').style.display = 'none';
-  document.getElementById('screen-test').style.display = 'block';
-  renderDimension(0);
-  window.scrollTo(0, 0);
-}
-</script>
-</body>
-</html>
+    if (progress < 1)
