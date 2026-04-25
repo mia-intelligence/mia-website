@@ -337,20 +337,23 @@
 </section>
 
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div>
-      <div class="footer-logo">
-        <img src="assets/images/mia-logo-blanc.png" alt="MIA">
+    <div class="footer-brand">
+      <img src="assets/images/MIAMediationIntelligenceAppliquee.png" alt="MIA Médiation Intelligence Appliquée">
+      <p>Consultante & Formatrice Digital & IA — MIA accompagne les TPE, artisans et commerçants dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/laetitia-colore" title="LinkedIn" aria-label="LinkedIn">in</a>
+        <a href="mailto:contact@mia-intelligence.com" title="Email" aria-label="Email">@</a>
       </div>
-      <p class="footer-desc">L'IA au service de votre strategie — pas l'inverse.<br>Saint-Maximin-la-Sainte-Baume, Var.</p>
     </div>
     <div class="footer-col">
       <h4>Solutions</h4>
       <ul>
         <li><a href="je-comprends.html">Je comprends</a></li>
         <li><a href="j-automatise.html">J'automatise</a></li>
-        <li><a href="je-maitrise.html">Je maitrise</a></li>
+        <li><a href="je-maitrise.html">Je maîtrise</a></li>
         <li><a href="comment-ca-fonctionne.html">Comment c'est construit</a></li>
       </ul>
     </div>
@@ -368,19 +371,39 @@
         <li><a href="tel:0617813305">06 17 81 33 05</a></li>
         <li><a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></li>
         <li><a href="https://mia-intelligence.com">mia-intelligence.com</a></li>
-        <li>Saint-Maximin — Var 83</li>
+        <li>Saint-Maximin-la-Sainte-Baume</li>
+        <li>Var — 83</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 MIA — Mediation Intelligence Appliquee</span>
+    <span>© 2025 MIA — Médiation Intelligence Appliquée</span>
     <div class="footer-legal-links">
-      <a href="mentions-legales.html">Mentions legales</a>
-      <a href="politique-confidentialite.html">Politique de confidentialite</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
       <a href="cookies.html">Gestion des cookies</a>
     </div>
   </div>
 </footer>
+<script>
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('navMobile');
+  const mobileLinks = document.querySelectorAll('.nav-mobile-link, .nav-cta-mobile');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    mobileMenu.style.display = 'flex';
+    setTimeout(() => mobileMenu.classList.toggle('open'), 10);
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      setTimeout(() => { mobileMenu.style.display = ''; }, 300);
+    });
+  });
+</script>
 
 </body>
 </html>
