@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation Initiation à Claude — 21 mai 2025 | MIA</title>
+  <meta name="description" content="Formation en ligne pour découvrir et prendre en main Claude AI. Mercredi 21 mai, 18h30–20h. 10 places disponibles. 69€. Organisée par MIA — Médiation Intelligence Appliquée.">
+  <link rel="canonical" href="https://mia-intelligence.com/formation-claude-21-mai.html">
+  <link rel="icon" type="image/png" href="assets/images/mia-favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bleu-clair:      #A8D5E2;
+      --bleu-marine:     #1A2540;
+      --bleu-moyen:      #3d5080;
+      --blanc-casse:     #F9F7F4;
+      --blanc:           #ffffff;
+      --texte:           #1A2540;
+      --gris-doux:       #f0f4f8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--texte);
+      background: var(--blanc-casse);
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      padding: 0.8rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(168,213,226,0.3);
+      box-shadow: 0 2px 20px rgba(26,37,64,0.06);
+    }
+
+    .nav-logo img { height: 55px; }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--bleu-moyen);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      transition: gap 0.3s;
+    }
+    .nav-back:hover { gap: 0.9rem; }
+    .nav-back::before { content: "←"; }
+
+    /* ===== HERO FORMATION ===== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      background: var(--bleu-marine);
+      padding: 5rem 4rem 4rem 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(168,213,226,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-left::after {
+      content: "";
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(168,213,226,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(168,213,226,0.15);
+      border: 1px solid rgba(168,213,226,0.3);
+      padding: 0.4rem 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bleu-clair);
+      margin-bottom: 2rem;
+      width: fit-content;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-live::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--bleu-clair);
+      border-radius: 50%;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .hero-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--bleu-clair);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-tag::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--bleu-clair);
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3.4rem;
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--blanc);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--bleu-clair);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.68);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Infos pratiques */
+    .infos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(168,213,226,0.15);
+      border: 1px solid rgba(168,213,226,0.15);
+      position: relative;
+      z-index: 2;
+    }
+
+    .info-item {
+      padding: 1.2rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .info-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bleu-clair);
+      margin-bottom: 0.35rem;
+      opacity: 0.7;
+    }
+
+    .info-value {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--blanc);
+    }
+
+    /* ===== COLONNE DROITE — PROGRAMME + FORM ===== */
+    .hero-right {
+      background: var(--blanc-casse);
+      padding: 5rem 4rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--bleu-moyen);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .section-label::before {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--bleu-clair);
+    }
+
+    .programme-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--bleu-marine);
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    .programme-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    .programme-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(168,213,226,0.3);
+    }
+    .programme-item:first-child { border-top: 1px solid rgba(168,213,226,0.3); }
+
+    .prog-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--bleu-clair);
+      line-height: 1;
+      min-width: 28px;
+      padding-top: 0.1rem;
+    }
+
+    .prog-content strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--bleu-marine);
+      margin-bottom: 0.2rem;
+    }
+    .prog-content span {
+      font-size: 0.82rem;
+      color: #5a6a8a;
+      line-height: 1.5;
+    }
+
+    /* ===== BLOC INSCRIPTION ===== */
+    .inscription-bloc {
+      background: var(--bleu-marine);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .inscription-bloc::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(168,213,226,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .inscription-bloc .prix {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .prix-chiffre {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--blanc);
+      line-height: 1;
+    }
+    .prix-unite {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .prix-mention {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .places-restantes {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--bleu-clair);
+      margin-bottom: 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+    .places-restantes::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--bleu-clair);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .btn-inscription {
+      display: block;
+      width: 100%;
+      background: var(--bleu-clair);
+      color: var(--bleu-marine);
+      text-align: center;
+      text-decoration: none;
+      padding: 1.1rem 2rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: 2px solid var(--bleu-clair);
+      position: relative;
+      z-index: 2;
+    }
+    .btn-inscription:hover {
+      background: transparent;
+      color: var(--bleu-clair);
+    }
+
+    .garantie {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .garantie::before { content: "✓"; color: var(--bleu-clair); }
+
+    /* ===== SECTION POUR QUI ===== */
+    .section-pour-qui {
+      padding: 5rem 6rem;
+      background: var(--blanc);
+    }
+
+    .pour-qui-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .pour-qui-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--bleu-marine);
+      line-height: 1.15;
+    }
+    .pour-qui-title em {
+      font-style: italic;
+      color: var(--bleu-moyen);
+    }
+
+    .profils-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .profil-card {
+      padding: 1.5rem;
+      border-left: 3px solid var(--bleu-clair);
+      background: var(--blanc-casse);
+      transition: border-color 0.3s;
+    }
+    .profil-card:hover { border-left-color: var(--bleu-marine); }
+
+    .profil-card strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--bleu-marine);
+      margin-bottom: 0.4rem;
+    }
+    .profil-card p {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: #5a6a8a;
+    }
+
+    /* ===== SECTION FORMATEUR ===== */
+    .section-formateur {
+      padding: 5rem 6rem;
+      background: var(--bleu-clair);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .formateur-img {
+      position: relative;
+    }
+    .formateur-img img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .formateur-content .section-label { color: var(--bleu-marine); opacity: 0.7; }
+    .formateur-content .section-label::before { background: var(--bleu-marine); }
+
+    .formateur-content h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--bleu-marine);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .formateur-content h2 em { font-style: italic; }
+
+    .formateur-content p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--bleu-marine);
+      opacity: 0.75;
+      margin-bottom: 1rem;
+    }
+
+    .certifications {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .certif-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--bleu-marine);
+    }
+    .certif-item::before {
+      content: "✓";
+      font-weight: 700;
+      color: var(--bleu-marine);
+    }
+
+    /* ===== CTA FINAL ===== */
+    .section-cta-final {
+      padding: 5rem 6rem;
+      background: var(--bleu-marine);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-cta-final::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(168,213,226,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .section-cta-final h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--blanc);
+      margin-bottom: 0.8rem;
+      position: relative;
+      z-index: 2;
+    }
+    .section-cta-final h2 em {
+      font-style: italic;
+      color: var(--bleu-clair);
+    }
+
+    .section-cta-final p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn-cta-final {
+      display: inline-block;
+      background: var(--bleu-clair);
+      color: var(--bleu-marine);
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: 2px solid var(--bleu-clair);
+      position: relative;
+      z-index: 2;
+    }
+    .btn-cta-final:hover {
+      background: transparent;
+      color: var(--bleu-clair);
+    }
+
+    .urgency-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      position: relative;
+      z-index: 2;
+    }
+    .urgency-note::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--bleu-clair);
+      border-radius: 50%;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0f1628;
+      color: rgba(255,255,255,0.4);
+      padding: 2rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    footer a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover { color: rgba(255,255,255,0.75); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-left > * {
+      animation: fadeUp 0.7s ease forwards;
+      opacity: 0;
+    }
+    .badge-live       { animation-delay: 0.1s; }
+    .hero-tag         { animation-delay: 0.25s; }
+    .hero h1          { animation-delay: 0.4s; }
+    .hero-desc        { animation-delay: 0.55s; }
+    .infos-grid       { animation-delay: 0.7s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      nav { padding: 0.8rem 2rem; }
+      .hero-left { padding: 5rem 2.5rem 3rem; }
+      .hero-right { padding: 3rem 2.5rem; }
+      .section-pour-qui, .section-formateur, .section-cta-final { padding: 4rem 3rem; }
+      footer { padding: 2rem 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 6rem 2rem 3rem; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-right { padding: 3rem 2rem; }
+      .infos-grid { grid-template-columns: 1fr 1fr; }
+      .pour-qui-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .profils-grid { grid-template-columns: 1fr; }
+      .section-formateur { grid-template-columns: 1fr; }
+      .section-pour-qui, .section-formateur, .section-cta-final { padding: 3.5rem 2rem; }
+      footer { padding: 2rem; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="https://mia-intelligence.com">
+      <img src="assets/images/mia-logo.png" alt="MIA — Médiation Intelligence Appliquée" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; color:#1A2540; font-weight:600;">MIA</span>
+    </a>
+  </div>
+  <a class="nav-back" href="https://mia-intelligence.com/je-comprends.html">Retour au site</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- COLONNE GAUCHE — PRÉSENTATION -->
+  <div class="hero-left">
+    <div class="badge-live">Formation en ligne</div>
+    <div class="hero-tag">21 mai 2025 · 18h30–20h</div>
+    <h1>Initiation à<br><em>Claude AI</em></h1>
+    <p class="hero-desc">
+      Découvrez en 1h30 comment utiliser Claude pour gagner du temps au quotidien — sans jargon, sans prérequis. Une session pratique, en petit groupe, pour repartir avec des réflexes concrets.
+    </p>
+
+    <div class="infos-grid">
+      <div class="info-item">
+        <div class="info-label">Date</div>
+        <div class="info-value">Mercredi 21 mai</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Horaire</div>
+        <div class="info-value">18h30 → 20h00</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Format</div>
+        <div class="info-value">100 % en ligne</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Places</div>
+        <div class="info-value">10 maximum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLONNE DROITE — PROGRAMME + INSCRIPTION -->
+  <div class="hero-right">
+
+    <div class="section-label">Au programme</div>
+    <h2 class="programme-title">Ce que vous allez apprendre</h2>
+
+    <ul class="programme-list">
+      <li class="programme-item">
+        <div class="prog-num">01</div>
+        <div class="prog-content">
+          <strong>Comprendre Claude en 10 minutes</strong>
+          <span>Ce que c'est, ce que ce n'est pas — et pourquoi ça change votre façon de travailler.</span>
+        </div>
+      </li>
+      <li class="programme-item">
+        <div class="prog-num">02</div>
+        <div class="prog-content">
+          <strong>Écrire des demandes qui donnent de bons résultats</strong>
+          <span>Les formulations simples qui font la différence. Exercices en direct.</span>
+        </div>
+      </li>
+      <li class="programme-item">
+        <div class="prog-num">03</div>
+        <div class="prog-content">
+          <strong>Cas concrets pour votre activité</strong>
+          <span>Rédaction, réponses clients, préparation de documents — appliqué à votre quotidien.</span>
+        </div>
+      </li>
+      <li class="programme-item">
+        <div class="prog-num">04</div>
+        <div class="prog-content">
+          <strong>Questions & réponses</strong>
+          <span>30 minutes pour poser toutes vos questions et repartir avec un plan d'action personnel.</span>
+        </div>
+      </li>
+    </ul>
+
+    <!-- BLOC INSCRIPTION -->
+    <div class="inscription-bloc">
+      <div class="prix">
+        <span class="prix-chiffre">69</span>
+        <span class="prix-unite">€</span>
+      </div>
+      <div class="prix-mention">Par participant · Paiement sécurisé</div>
+      <div class="places-restantes">10 places disponibles — inscription recommandée rapidement</div>
+      <a class="btn-inscription" href="https://forms.gle/PwTYXtSvDzAGU65q7" target="_blank" rel="noopener">
+        Je m'inscris à la formation →
+      </a>
+      <div class="garantie">Lien de connexion envoyé par email après inscription</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section class="section-pour-qui">
+  <div class="pour-qui-grid">
+    <div>
+      <div class="section-label">Public</div>
+      <h2 class="pour-qui-title">Cette formation<br>est faite pour <em>vous</em> si…</h2>
+    </div>
+    <div class="profils-grid">
+      <div class="profil-card">
+        <strong>Vous avez entendu parler de Claude ou ChatGPT</strong>
+        <p>… mais vous ne savez pas par où commencer ni si c'est vraiment utile pour votre activité.</p>
+      </div>
+      <div class="profil-card">
+        <strong>Vous perdez du temps sur des tâches répétitives</strong>
+        <p>Emails, comptes rendus, courriers, présentations — vous voulez aller plus vite sans sacrifier la qualité.</p>
+      </div>
+      <div class="profil-card">
+        <strong>Vous êtes artisan, commerçant ou profession libérale</strong>
+        <p>Pas besoin d'être tech. Cette session est conçue pour les gens qui ont un vrai métier à gérer.</p>
+      </div>
+      <div class="profil-card">
+        <strong>Vous voulez comprendre avant d'investir</strong>
+        <p>1h30 pour tester, poser vos questions, et décider en connaissance de cause.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATRICE -->
+<section class="section-formateur">
+  <div class="formateur-img">
+    <img src="assets/images/consultante-ia-mia-saint-maximin.png" alt="Laetitia Coloré — Formatrice MIA">
+  </div>
+  <div class="formateur-content">
+    <div class="section-label">Votre formatrice</div>
+    <h2>Laetitia Coloré,<br><em>fondatrice de MIA</em></h2>
+    <p>
+      Plus de 10 ans d'expérience dans le digital et le marketing, spécialisée dans l'IA et l'automatisation depuis début 2025. Laetitia a formé des dirigeants de TPE et PME en PACA à reprendre le contrôle de leur communication grâce à des outils accessibles.
+    </p>
+    <p>
+      Sa philosophie : pas de jargon, pas de gadgets. Des outils qui fonctionnent, expliqués pour des gens qui ont mieux à faire que de devenir développeurs.
+    </p>
+    <div class="certifications">
+      <div class="certif-item">Certification InKréa — Création de contenus IA responsables (RS6776)</div>
+      <div class="certif-item">Certification Anthropic Claude AI 101</div>
+      <div class="certif-item">Chef de Projet Digital RNCP niveau 6</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="section-cta-final">
+  <h2>Prêt à gagner du temps<br>avec <em>l'IA</em> ?</h2>
+  <p>10 places. 69€. 1h30 pour changer votre façon de travailler.</p>
+  <a class="btn-cta-final" href="https://forms.gle/PwTYXtSvDzAGU65q7" target="_blank" rel="noopener">
+    Réserver ma place →
+  </a>
+  <div class="urgency-note">Places limitées à 10 participants pour garantir la qualité des échanges</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 MIA — Médiation Intelligence Appliquée · SIREN 889 810 131</span>
+  <div style="display:flex; gap:1.5rem;">
+    <a href="https://mia-intelligence.com">Accueil</a>
+    <a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
