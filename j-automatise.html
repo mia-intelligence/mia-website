@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>J'automatise — Agents IA pour TPE et artisans | MIA Saint-Maximin Var</title>
 <meta name="description" content="MIA conçoit des agents IA sur mesure pour les TPE et artisans : MIA-Market, MIA-ADV, MIA-Sales, MIA-Prospect, MIA-CRM, MIA-Analytix. Automatisez sans complexité.">
-<link rel="canonical" href="https://mia-intelligence.com/j-automatise">
+<link rel="canonical" href="https://mia-intelligence.com/j-automatise.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/images/mia-favicon.png">
@@ -42,7 +42,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: "DM Sans", sans-serif; color: var(--texte); background: var(--blanc); overflow-x: hidden; }
 
-  /* NAV */
+  /* ===== NAV ===== */
   nav {
     position: fixed; top: 0; width: 100%;
     background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
@@ -57,51 +57,39 @@
   .nav-links a:hover { color: var(--bleu-moyen); }
   .nav-links a.active { color: var(--bleu-moyen); font-weight: 500; }
   .nav-cta { background: var(--bleu-fonce) !important; color: white !important; padding: 0.65rem 1.4rem; border-radius: 2px; font-weight: 500 !important; }
-.nav-burger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  z-index: 200;
-}
-.nav-burger span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: var(--bleu-fonce);
-  transition: all 0.3s;
-}
-.nav-burger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.nav-burger.active span:nth-child(2) {
-  opacity: 0;
-}
-.nav-burger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-@media (max-width: 768px) {
-  nav { padding: 0.8rem 1.5rem; }
-  .nav-burger { display: flex; }
-  .nav-links {
+
+  /* ===== BURGER ===== */
+  .nav-burger {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(255,255,255,0.98);
     flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.2rem;
-    border-top: 1px solid var(--bleu-clair);
-    box-shadow: 0 8px 24px rgba(61,80,128,0.1);
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
   }
-  .nav-links.open { display: flex; }
-}
-  /* HERO */
+  .nav-burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--bleu-fonce);
+    transition: all 0.3s;
+  }
+  .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger.active span:nth-child(2) { opacity: 0; }
+  .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ===== BOUTONS ===== */
+  .btn-primary { background: var(--bleu-fonce); color: white; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; }
+  .btn-primary:hover { background: var(--bleu-tres-fonce); border-color: var(--bleu-tres-fonce); }
+  .btn-secondary { background: transparent; color: var(--bleu-fonce); padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; }
+  .btn-secondary:hover { background: var(--bleu-moyen); color: white; border-color: var(--bleu-moyen); }
+  .btn-white { background: white; color: var(--bleu-fonce); padding: 1rem 2.5rem; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid white; display: inline-block; font-weight: 500; }
+  .btn-white:hover { background: transparent; color: white; }
+  .btn-group { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+
+  /* ===== HERO ===== */
   .page-hero {
     padding: 10rem 6rem 5rem;
     background: var(--bleu-fonce);
@@ -121,15 +109,7 @@
   .page-hero h1 em { font-style: italic; color: var(--bleu-moyen); }
   .page-hero p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.72); max-width: 580px; }
 
-  /* BOUTONS */
-  .btn-primary { background: var(--bleu-fonce); color: white; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; }
-  .btn-primary:hover { background: var(--bleu-tres-fonce); border-color: var(--bleu-tres-fonce); }
-  .btn-secondary { background: transparent; color: var(--bleu-fonce); padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; }
-  .btn-secondary:hover { background: var(--bleu-moyen); color: white; border-color: var(--bleu-moyen); }
-  .btn-white { background: white; color: var(--bleu-fonce); padding: 1rem 2.5rem; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid white; display: inline-block; font-weight: 500; }
-  .btn-white:hover { background: transparent; color: white; }
-
-  /* POURQUOI */
+  /* ===== POURQUOI ===== */
   .section-pourquoi {
     padding: 7rem 6rem;
     background: white;
@@ -145,22 +125,14 @@
   .pourquoi-content p { font-size: 0.95rem; line-height: 1.85; color: #5a6a8a; margin-bottom: 1.2rem; }
   .pourquoi-content p strong { color: var(--bleu-fonce); font-weight: 500; }
   .pourquoi-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
-  .btn-group { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
 
-  /* AGENTS */
+  /* ===== AGENTS ===== */
   .section-agents { padding: 7rem 6rem; background: var(--gris-doux); }
   .agents-header { text-align: center; margin-bottom: 4rem; }
   .agents-header h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-tres-fonce); margin-bottom: 1rem; }
   .agents-header p { font-size: 0.95rem; color: #5a6a8a; max-width: 600px; margin: 0 auto; line-height: 1.8; }
-
   .agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .agent-card {
-    background: white;
-    padding: 2.5rem;
-    border: 1px solid var(--bleu-clair);
-    transition: all 0.3s;
-    position: relative;
-  }
+  .agent-card { background: white; padding: 2.5rem; border: 1px solid var(--bleu-clair); transition: all 0.3s; position: relative; }
   .agent-card:hover { box-shadow: 0 8px 40px rgba(61,80,128,0.12); transform: translateY(-4px); }
   .agent-nom { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bleu-moyen); font-weight: 500; margin-bottom: 0.5rem; }
   .agent-titre { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 400; color: var(--bleu-tres-fonce); margin-bottom: 1rem; line-height: 1.3; }
@@ -170,18 +142,14 @@
   .agent-liste li::before { content: "→"; position: absolute; left: 0; color: var(--bleu-moyen); font-size: 0.75rem; }
   .agent-card .btn-primary { font-size: 0.8rem; padding: 0.7rem 1.4rem; width: 100%; text-align: center; }
 
-  /* PASSER A L'ACTION */
-  .section-action {
-    padding: 6rem;
-    background: var(--bleu-tres-fonce);
-    text-align: center;
-  }
+  /* ===== PASSER A L'ACTION ===== */
+  .section-action { padding: 6rem; background: var(--bleu-tres-fonce); text-align: center; }
   .section-action h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: white; margin-bottom: 1rem; }
   .section-action h2 em { font-style: italic; color: var(--bleu-moyen); }
   .section-action p { font-size: 0.95rem; color: rgba(255,255,255,0.7); max-width: 580px; margin: 0 auto 2.5rem; line-height: 1.8; }
   .action-detail { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 1.2rem; font-style: italic; }
 
-  /* METHODE */
+  /* ===== METHODE ===== */
   .section-methode { padding: 7rem 6rem; background: white; }
   .methode-header { margin-bottom: 4rem; }
   .methode-header h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-tres-fonce); margin-top: 0.5rem; }
@@ -191,19 +159,94 @@
   .methode-card h3 { font-size: 1rem; font-weight: 500; color: var(--bleu-fonce); margin-bottom: 0.75rem; }
   .methode-card p { font-size: 0.88rem; line-height: 1.7; color: #5a6a8a; }
 
-  /* FOOTER */
+  /* ===== FOOTER ===== */
   footer { background: var(--bleu-tres-fonce); color: rgba(255,255,255,0.6); padding: 4rem 6rem 2rem; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
-  .footer-logo img { height: 50px; margin-bottom: 1rem; }
-  .footer-desc { font-size: 0.85rem; line-height: 1.7; }
+  .footer-brand img { height: 50px; margin-bottom: 1rem; display: block; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; margin-bottom: 1rem; }
+  .footer-social { display: flex; gap: 0.75rem; }
+  .footer-social a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+  .footer-social a:hover { color: white; }
   .footer-col h4 { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: white; margin-bottom: 1.2rem; }
   .footer-col ul { list-style: none; }
   .footer-col ul li { margin-bottom: 0.6rem; }
   .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
   .footer-col ul li a:hover { color: white; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
-  .footer-legal-links { display: flex; gap: 2rem; }
-  .footer-legal-links a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; flex-wrap: wrap; gap: 1rem; }
+  .footer-legal-links { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .footer-legal-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+  .footer-legal-links a:hover { color: white; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    /* NAV */
+    nav { padding: 0.8rem 1.5rem; }
+    .nav-burger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1.2rem;
+      border-top: 1px solid var(--bleu-clair);
+      box-shadow: 0 8px 24px rgba(61,80,128,0.1);
+    }
+    .nav-links.open { display: flex; }
+
+    /* HERO */
+    .page-hero { padding: 8rem 1.5rem 3rem; }
+    .page-hero h1 { font-size: 2.6rem; }
+    .page-hero p { font-size: 0.95rem; }
+
+    /* POURQUOI */
+    .section-pourquoi {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 4rem 1.5rem;
+    }
+    .pourquoi-content h2 { font-size: 2rem; }
+    .pourquoi-img { order: -1; }
+    .pourquoi-img img { height: 260px; }
+    .btn-group { flex-direction: column; }
+    .btn-group a { text-align: center; }
+
+    /* AGENTS */
+    .section-agents { padding: 4rem 1.5rem; }
+    .agents-header h2 { font-size: 2rem; }
+    .agents-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    /* ACTION */
+    .section-action { padding: 4rem 1.5rem; }
+    .section-action h2 { font-size: 2rem; }
+
+    /* METHODE */
+    .section-methode { padding: 4rem 1.5rem; }
+    .methode-header h2 { font-size: 2rem; }
+    .methode-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    /* FOOTER */
+    footer { padding: 3rem 1.5rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .footer-legal-links { gap: 1rem; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    nav { padding: 0.8rem 2rem; }
+    .page-hero { padding: 9rem 3rem 4rem; }
+    .section-pourquoi { padding: 5rem 3rem; gap: 3rem; }
+    .section-agents { padding: 5rem 3rem; }
+    .agents-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-action { padding: 5rem 3rem; }
+    .section-methode { padding: 5rem 3rem; }
+    .methode-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 3rem 3rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -216,23 +259,23 @@
   <ul class="nav-links">
     <li><a href="je-comprends.html">Je comprends</a></li>
     <li><a href="j-automatise.html" class="active">J'automatise</a></li>
-    <li><a href="je-maitrise.html">Je maitrise</a></li>
+    <li><a href="je-maitrise.html">Je maîtrise</a></li>
     <li><a href="qui-suis-je.html">Qui suis-je</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Prendre contact</a></li>
+    <li><a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="nav-cta">Prendre contact</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Menu">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <p class="page-tag">Etape 2 — Automatiser</p>
+    <p class="page-tag">Étape 2 — Automatiser</p>
     <h1>Vos processus<br><em>tournent seuls</em></h1>
-    <p>Devis, relances, communication, relation client — automatisez les taches repetitives qui vous volent du temps et concentrez-vous sur ce qui cree vraiment de la valeur dans votre activite.</p>
+    <p>Devis, relances, communication, relation client — automatisez les tâches répétitives qui vous volent du temps et concentrez-vous sur ce qui crée vraiment de la valeur dans votre activité.</p>
   </div>
 </section>
 
@@ -240,10 +283,10 @@
 <section class="section-pourquoi">
   <div class="pourquoi-content">
     <p class="section-tag">Pourquoi automatiser ?</p>
-    <h2>Chaque heure gagnee est<br><em>une heure investie ailleurs</em></h2>
-    <p>Un dirigeant de TPE passe en moyenne 30 % de son temps sur des taches repetitives — relances clients, envoi de devis, publications sur les reseaux sociaux, suivi de dossiers. Des taches indispensables mais chronophages, qui pourraient tourner seules grace aux <strong>agents IA MIA</strong>.</p>
-    <p>Chaque agent est configure sur mesure pour votre activite. <strong>Pas de developpement complexe</strong> — des processus intelligents que vous comprenez et que vous pilotez.</p>
-    <p>Resultat : moins de temps perdu, moins d'oublis, plus de reactivite client et une activite qui avance meme quand vous etes sur le terrain.</p>
+    <h2>Chaque heure gagnée est<br><em>une heure investie ailleurs</em></h2>
+    <p>Un dirigeant de TPE passe en moyenne 30 % de son temps sur des tâches répétitives — relances clients, envoi de devis, publications sur les réseaux sociaux, suivi de dossiers. Des tâches indispensables mais chronophages, qui pourraient tourner seules grâce aux <strong>agents IA MIA</strong>.</p>
+    <p>Chaque agent est configuré sur mesure pour votre activité. <strong>Pas de développement complexe</strong> — des processus intelligents que vous comprenez et que vous pilotez.</p>
+    <p>Résultat : moins de temps perdu, moins d'oublis, plus de réactivité client et une activité qui avance même quand vous êtes sur le terrain.</p>
     <div class="btn-group">
       <a href="#agents" class="btn-primary">Voir les agents MIA</a>
       <a href="comment-ca-fonctionne.html" class="btn-secondary">Comment c'est construit →</a>
@@ -259,87 +302,87 @@
   <div class="agents-header">
     <p class="section-tag" style="justify-content: center;">Les solutions MIA</p>
     <h2>Choisissez votre agent</h2>
-    <p>Six agents specialises, chacun configure pour un besoin precis. Deployez-les un par un ou combinez-les selon votre activite.</p>
+    <p>Six agents spécialisés, chacun configuré pour un besoin précis. Déployez-les un par un ou combinez-les selon votre activité.</p>
   </div>
 
   <div class="agents-grid">
 
     <div class="agent-card">
       <p class="agent-nom">MIA-Market</p>
-      <h3 class="agent-titre">Vos reseaux tournent seuls</h3>
-      <p class="agent-desc">L'IA genere vos contenus a partir de vos thematiques, les adapte a chaque reseau social et les diffuse selon votre planning.</p>
+      <h3 class="agent-titre">Vos réseaux tournent seuls</h3>
+      <p class="agent-desc">L'IA génère vos contenus à partir de vos thématiques, les adapte à chaque réseau social et les diffuse selon votre planning.</p>
       <ul class="agent-liste">
-        <li>Generation automatique de contenus</li>
-        <li>Adaptation par reseau social</li>
-        <li>Diffusion programmee</li>
+        <li>Génération automatique de contenus</li>
+        <li>Adaptation par réseau social</li>
+        <li>Diffusion programmée</li>
         <li>Rapport de performance hebdomadaire</li>
       </ul>
-      <a href="index.html#contact" class="btn-primary">Demander un devis</a>
+      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
     </div>
 
     <div class="agent-card">
       <p class="agent-nom">MIA-ADV</p>
       <h3 class="agent-titre">Vos devis partent automatiquement</h3>
-      <p class="agent-desc">Un client remplit un formulaire, l'IA analyse ses besoins et genere un devis personnalise. Vous validez en un clic, le devis part seul.</p>
+      <p class="agent-desc">Un client remplit un formulaire, l'IA analyse ses besoins et génère un devis personnalisé. Vous validez en un clic, le devis part seul.</p>
       <ul class="agent-liste">
         <li>Formulaire de demande intelligent</li>
-        <li>Devis genere par l'IA</li>
+        <li>Devis généré par l'IA</li>
         <li>Validation en un clic</li>
-        <li>Relances automatiques a 24h et 72h</li>
+        <li>Relances automatiques à 24h et 72h</li>
       </ul>
-      <a href="index.html#contact" class="btn-primary">Demander un devis</a>
+      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
     </div>
 
     <div class="agent-card">
       <p class="agent-nom">MIA-Sales</p>
-      <h3 class="agent-titre">Vos clients reviennent d'eux-memes</h3>
-      <p class="agent-desc">L'agent repond aux demandes de vos clients sur email et site internet, 7j/7, sur la base de vos informations. Il vous alerte quand il ne peut pas traiter.</p>
+      <h3 class="agent-titre">Vos clients reviennent d'eux-mêmes</h3>
+      <p class="agent-desc">L'agent répond aux demandes de vos clients sur email et site internet, 7j/7, sur la base de vos informations. Il vous alerte quand il ne peut pas traiter.</p>
       <ul class="agent-liste">
-        <li>Reponses automatiques aux demandes</li>
+        <li>Réponses automatiques aux demandes</li>
         <li>Disponible 7j/7 sans intervention</li>
         <li>Alerte pour les cas complexes</li>
         <li>Prise de rendez-vous automatique</li>
       </ul>
-      <a href="index.html#contact" class="btn-primary">Demander un devis</a>
+      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
     </div>
 
     <div class="agent-card">
       <p class="agent-nom">MIA-Prospect</p>
       <h3 class="agent-titre">Trouvez de nouveaux clients sans chercher</h3>
-      <p class="agent-desc">L'agent identifie vos prospects ideaux sur votre zone geographique et prepare une sequence de contact personnalisee.</p>
+      <p class="agent-desc">L'agent identifie vos prospects idéaux sur votre zone géographique et prépare une séquence de contact personnalisée.</p>
       <ul class="agent-liste">
         <li>Identification automatique de prospects</li>
         <li>Ciblage par secteur et zone</li>
-        <li>Sequence email personnalisee</li>
-        <li>Liste qualifiee prete a l'emploi</li>
+        <li>Séquence email personnalisée</li>
+        <li>Liste qualifiée prête à l'emploi</li>
       </ul>
-      <a href="index.html#contact" class="btn-primary">Demander un devis</a>
+      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
     </div>
 
     <div class="agent-card">
       <p class="agent-nom">MIA-CRM</p>
       <h3 class="agent-titre">Suivez chaque client sans effort</h3>
-      <p class="agent-desc">L'agent suit vos clients dans leur parcours, declenche les bonnes communications au bon moment et vous prepare les reponses a valider.</p>
+      <p class="agent-desc">L'agent suit vos clients dans leur parcours, déclenche les bonnes communications au bon moment et vous prépare les réponses à valider.</p>
       <ul class="agent-liste">
-        <li>Suivi automatise du parcours client</li>
-        <li>Emails declenches selon les etapes</li>
-        <li>Reponses preparees a valider</li>
-        <li>Historique centralise</li>
+        <li>Suivi automatisé du parcours client</li>
+        <li>Emails déclenchés selon les étapes</li>
+        <li>Réponses préparées à valider</li>
+        <li>Historique centralisé</li>
       </ul>
-      <a href="index.html#contact" class="btn-primary">Demander un devis</a>
+      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
     </div>
 
     <div class="agent-card">
       <p class="agent-nom">MIA-Analytix</p>
-      <h3 class="agent-titre">Pilotez votre activite en un coup d'oeil</h3>
-      <p class="agent-desc">Un tableau de bord hebdomadaire connecte a vos plateformes pour suivre vos indicateurs cles sans passer des heures sur les statistiques.</p>
+      <h3 class="agent-titre">Pilotez votre activité en un coup d'œil</h3>
+      <p class="agent-desc">Un tableau de bord hebdomadaire connecté à vos plateformes pour suivre vos indicateurs clés sans passer des heures sur les statistiques.</p>
       <ul class="agent-liste">
         <li>Connexion Google Analytics, Meta, LinkedIn</li>
         <li>Rapport hebdomadaire automatique</li>
-        <li>Indicateurs cles identifies</li>
+        <li>Indicateurs clés identifiés</li>
         <li>Lecture simple et actionnable</li>
       </ul>
-      <a href="index.html#contact" class="btn-primary">Demander un devis</a>
+      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
     </div>
 
   </div>
@@ -347,49 +390,48 @@
 
 <!-- PASSER A L'ACTION -->
 <section class="section-action">
-  <p class="section-tag" style="justify-content: center; color: var(--bleu-moyen);">Passer a l'action</p>
-  <h2>Pret a gagner du temps<br><em>des cette semaine ?</em></h2>
-  <p>Reservez un echange de 30 minutes. On analyse ensemble ce qui peut tourner seul dans votre activite — sans engagement, sans jargon.</p>
-  <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-white">Reserver mon creneau →</a>
-  <p class="action-detail">Des que vous reservez, je recois vos informations et je prepare notre echange. Pas de formulaire en double.</p>
+  <p class="section-tag" style="justify-content: center; color: var(--bleu-moyen);">Passer à l'action</p>
+  <h2>Prêt à gagner du temps<br><em>dès cette semaine ?</em></h2>
+  <p>Réservez un échange de 30 minutes. On analyse ensemble ce qui peut tourner seul dans votre activité — sans engagement, sans jargon.</p>
+  <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-white">Réserver mon créneau →</a>
+  <p class="action-detail">Dès que vous réservez, je reçois vos informations et je prépare notre échange. Pas de formulaire en double.</p>
 </section>
 
 <!-- METHODE -->
 <section class="section-methode">
   <div class="methode-header">
-    <p class="section-tag">La methode MIA</p>
-    <h2>Comment ca se passe ?</h2>
+    <p class="section-tag">La méthode MIA</p>
+    <h2>Comment ça se passe ?</h2>
   </div>
   <div class="methode-grid">
     <div class="methode-card">
       <div class="methode-num">01</div>
       <h3>L'audit</h3>
-      <p>On analyse votre activite, vos processus actuels et vos outils. On identifie ensemble ce qui peut etre automatise et dans quel ordre agir.</p>
+      <p>On analyse votre activité, vos processus actuels et vos outils. On identifie ensemble ce qui peut être automatisé et dans quel ordre agir.</p>
     </div>
     <div class="methode-card">
       <div class="methode-num">02</div>
       <h3>La conception</h3>
-      <p>On conçoit les workflows avec vous — vous comprenez ce qu'on construit, pourquoi et comment ca va fonctionner dans votre quotidien.</p>
+      <p>On conçoit les workflows avec vous — vous comprenez ce qu'on construit, pourquoi et comment ça va fonctionner dans votre quotidien.</p>
     </div>
     <div class="methode-card">
       <div class="methode-num">03</div>
-      <h3>Le deploiement</h3>
-      <p>On met en place les automatisations, on les teste en conditions reelles et on s'assure que tout fonctionne avant de vous remettre les cles.</p>
+      <h3>Le déploiement</h3>
+      <p>On met en place les automatisations, on les teste en conditions réelles et on s'assure que tout fonctionne avant de vous remettre les clés.</p>
     </div>
     <div class="methode-card">
       <div class="methode-num">04</div>
       <h3>Le suivi</h3>
-      <p>La maintenance est assuree, les bugs corriges sous 24h, questions par email. Et si votre activite evolue, on fait evoluer les outils avec vous.</p>
+      <p>La maintenance est assurée, les bugs corrigés sous 24h, questions par email. Et si votre activité évolue, on fait évoluer les outils avec vous.</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="assets/images/MIAMediationIntelligenceAppliquee.png" alt="MIA Médiation Intelligence Appliquée">
+      <img src="assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée">
       <p>Consultante & Formatrice Digital & IA — MIA accompagne les TPE, artisans et commerçants dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/in/laetitia-colore" title="LinkedIn" aria-label="LinkedIn">in</a>
@@ -433,6 +475,7 @@
     </div>
   </div>
 </footer>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const burger = document.getElementById('navBurger');
