@@ -86,9 +86,9 @@
   .page-hero p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.72); max-width: 580px; }
 
   /* ===== INTRO ===== */
-  .section-intro { padding: 7rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; background: white; }
+  .section-intro { padding: 7rem 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: white; overflow: hidden; }
   .intro-photo { position: relative; }
-  .intro-photo img { width: 100%; height: 560px; object-fit: cover; object-position: top; display: block; }
+  ..intro-photo img { width: 100%; height: 560px; object-fit: cover; object-position: center top; display: block; max-width: 100%; }
   .intro-photo::after { content: ""; position: absolute; bottom: -20px; right: -20px; width: 55%; height: 55%; border: 2px solid var(--bleu-clair); z-index: -1; }
   .intro-content h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-fonce); line-height: 1.2; margin-bottom: 1.5rem; }
   .intro-content h2 em { font-style: italic; color: var(--bleu-moyen); }
