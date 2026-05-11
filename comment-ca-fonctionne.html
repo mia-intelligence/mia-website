@@ -3,14 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comment c'est construit — Agents IA avec Claude Code & Make.com | MIA Var</title>
-<meta name="description" content="Découvrez comment MIA construit des agents IA avec Anthropic Claude Code, Make.com et Airtable pour automatiser la communication, la prospection et la veille des TPE et artisans du Var.">
-<meta name="keywords" content="Anthropic, Claude Code, Make.com, Airtable, agent IA, automatisation TPE, workflow IA, Apollo, Pappers, data.gouv, Var, Saint-Maximin, PACA">
-<link rel="canonical" href="https://mia-intelligence.com/comment-ca-fonctionne">
+<title>Comment c'est construit — Agents IA avec Claude & Make.com | MIA Var</title>
+<meta name="description" content="Découvrez comment MIA construit des agents IA avec Anthropic Claude, Make.com et Airtable pour automatiser la communication, la prospection et la veille des TPE et artisans du Var.">
+<meta name="keywords" content="Anthropic, Claude, Make.com, Airtable, agent IA, automatisation TPE, workflow IA, Apollo, Pappers, data.gouv, Var, Saint-Maximin, PACA">
+<link rel="canonical" href="https://mia-intelligence.com/comment-ca-fonctionne.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/images/mia-favicon.png">
+<link rel="apple-touch-icon" href="assets/images/mia-favicon.png">
 <meta name="theme-color" content="#3d5080">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Agents IA MIA — Architecture technique",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "MIA — Médiation Intelligence Appliquée",
+    "url": "https://mia-intelligence.com"
+  },
+  "description": "MIA construit des agents IA avec Anthropic Claude, Make.com et Airtable pour automatiser les processus des TPE et artisans du Var.",
+  "areaServed": ["Var", "Bouches-du-Rhône", "PACA"],
+  "serviceType": "Automatisation IA sur mesure"
+}
+</script>
+
 <style>
   :root {
     --bleu-clair: #e8effd;
@@ -21,9 +39,12 @@
     --texte: #2a3550;
     --gris-doux: #f5f7fc;
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: "DM Sans", sans-serif; color: var(--texte); background: var(--blanc); overflow-x: hidden; }
+
+  /* ===== NAV ===== */
   nav {
     position: fixed; top: 0; width: 100%;
     background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
@@ -36,79 +57,176 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; color: var(--bleu-fonce); font-size: 0.88rem; letter-spacing: 0.03em; transition: color 0.3s; }
   .nav-links a:hover { color: var(--bleu-moyen); }
+  .nav-links a.active { color: var(--bleu-moyen); font-weight: 500; }
   .nav-cta { background: var(--bleu-fonce) !important; color: white !important; padding: 0.65rem 1.4rem; border-radius: 2px; font-weight: 500 !important; }
+  .nav-cta:hover { background: var(--bleu-moyen) !important; }
 
-  .hero {
-    padding: 8rem 5rem 4rem;
-    background: var(--gris-doux);
-    border-bottom: 1px solid var(--bleu-clair);
+  /* ===== BURGER ===== */
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
   }
-  .hero-label { font-size: 0.78rem; letter-spacing: 0.12em; color: var(--bleu-moyen); text-transform: uppercase; margin-bottom: 1rem; }
+  .nav-burger span { display: block; width: 24px; height: 2px; background: var(--bleu-fonce); transition: all 0.3s; }
+  .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger.active span:nth-child(2) { opacity: 0; }
+  .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ===== BOUTONS ===== */
+  .btn-primary { background: var(--bleu-fonce); color: white; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; margin-right: 1rem; margin-top: 1rem; }
+  .btn-primary:hover { background: transparent; color: var(--bleu-fonce); }
+  .btn-secondary { background: transparent; color: var(--bleu-fonce); padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; margin-top: 1rem; }
+  .btn-secondary:hover { background: var(--bleu-moyen); color: white; border-color: var(--bleu-moyen); }
+
+  /* ===== HERO ===== */
+  .hero { padding: 9rem 6rem 5rem; background: var(--gris-doux); border-bottom: 1px solid var(--bleu-clair); }
+  .hero-label { font-size: 0.78rem; letter-spacing: 0.12em; color: var(--bleu-moyen); text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-label::before { content: ""; display: block; width: 28px; height: 1px; background: var(--bleu-moyen); }
   .hero h1 { font-family: "Cormorant Garamond", serif; font-size: 3rem; font-weight: 300; color: var(--bleu-tres-fonce); margin-bottom: 1.5rem; line-height: 1.2; }
-  .hero-intro { font-size: 1.1rem; color: var(--texte); max-width: 700px; line-height: 1.8; margin-bottom: 2rem; }
+  .hero-intro { font-size: 1rem; color: #5a6a8a; max-width: 700px; line-height: 1.8; margin-bottom: 2rem; }
 
-  .section { padding: 4rem 5rem; }
+  /* ===== SECTIONS ===== */
+  .section { padding: 5rem 6rem; }
   .section-alt { background: var(--gris-doux); }
-  .section h2 { font-family: "Cormorant Garamond", serif; font-size: 2rem; font-weight: 400; color: var(--bleu-tres-fonce); margin-bottom: 1rem; }
-  .section-label { font-size: 0.78rem; letter-spacing: 0.12em; color: var(--bleu-moyen); text-transform: uppercase; margin-bottom: 0.5rem; }
-  .section p { line-height: 1.8; margin-bottom: 1rem; max-width: 800px; }
+  .section h2 { font-family: "Cormorant Garamond", serif; font-size: 2.2rem; font-weight: 400; color: var(--bleu-tres-fonce); margin-bottom: 1rem; margin-top: 0.5rem; }
+  .section-label { font-size: 0.78rem; letter-spacing: 0.12em; color: var(--bleu-moyen); text-transform: uppercase; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::before { content: ""; display: block; width: 28px; height: 1px; background: var(--bleu-moyen); }
+  .section p { line-height: 1.8; margin-bottom: 1rem; max-width: 800px; color: #5a6a8a; font-size: 0.95rem; }
 
-  .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-  .stack-card { background: white; border: 1px solid var(--bleu-clair); padding: 1.5rem; border-radius: 4px; }
-  .stack-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--bleu-fonce); margin-bottom: 0.5rem; }
-  .stack-card p { font-size: 0.88rem; color: var(--texte); line-height: 1.6; margin: 0; }
+  /* ===== STACK ===== */
+  .stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+  .stack-card { background: white; border: 1px solid var(--bleu-clair); padding: 1.5rem; transition: box-shadow 0.3s; }
+  .stack-card:hover { box-shadow: 0 6px 24px rgba(61,80,128,0.08); }
+  .stack-card h3 { font-size: 0.92rem; font-weight: 500; color: var(--bleu-fonce); margin-bottom: 0.5rem; }
+  .stack-card p { font-size: 0.85rem; color: #5a6a8a; line-height: 1.6; margin: 0; }
 
+  /* ===== AGENTS ===== */
   .agent-block { border-left: 3px solid var(--bleu-moyen); padding-left: 2rem; margin-bottom: 3rem; }
-  .agent-block h3 { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; color: var(--bleu-tres-fonce); margin-bottom: 0.5rem; }
-  .agent-block p { line-height: 1.8; margin-bottom: 0.5rem; }
-  .agent-tag { display: inline-block; font-size: 0.75rem; background: var(--bleu-clair); color: var(--bleu-fonce); padding: 0.2rem 0.6rem; border-radius: 2px; margin-right: 0.4rem; margin-bottom: 0.5rem; }
+  .agent-block h3 { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; color: var(--bleu-tres-fonce); margin-bottom: 0.6rem; }
+  .agent-block p { line-height: 1.8; margin-bottom: 0.5rem; color: #5a6a8a; font-size: 0.95rem; }
+  .agent-tag { display: inline-block; font-size: 0.72rem; background: var(--bleu-clair); color: var(--bleu-fonce); padding: 0.2rem 0.6rem; margin-right: 0.4rem; margin-bottom: 0.6rem; letter-spacing: 0.05em; }
 
+  /* ===== FAQ ===== */
   .faq { max-width: 800px; }
   .faq-item { border-bottom: 1px solid var(--bleu-clair); padding: 1.5rem 0; }
+  .faq-item:last-child { border-bottom: none; }
   .faq-item h3 { font-size: 1rem; font-weight: 500; color: var(--bleu-fonce); margin-bottom: 0.75rem; }
-  .faq-item p { font-size: 0.95rem; line-height: 1.8; }
+  .faq-item p { font-size: 0.92rem; line-height: 1.8; color: #5a6a8a; }
 
-  .btn-primary { background: var(--bleu-fonce); color: white; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; margin-right: 1rem; margin-top: 1rem; }
-  .btn-secondary { background: transparent; color: var(--bleu-fonce); padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; margin-top: 1rem; }
+  /* ===== CTA SECTION ===== */
+  .section-cta { text-align: center; }
+  .section-cta h2 { font-size: 2rem; }
+  .section-cta p { margin: 1rem auto 0; max-width: 560px; }
 
-  footer { background: var(--bleu-tres-fonce); color: white; padding: 3rem 5rem; text-align: center; font-size: 0.85rem; }
-  footer a { color: var(--bleu-moyen); text-decoration: none; }
+  /* ===== FOOTER ===== */
+  footer { background: var(--bleu-tres-fonce); color: rgba(255,255,255,0.6); padding: 4rem 6rem 2rem; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .footer-brand img { height: 55px; margin-bottom: 1.2rem; display: block; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.75; margin-bottom: 1.5rem; }
+  .footer-social { display: flex; gap: 0.8rem; }
+  .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+  .footer-social a:hover { background: var(--bleu-moyen); color: white; border-color: var(--bleu-moyen); }
+  .footer-col h4 { color: white; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.65rem; }
+  .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 0.5rem; padding-top: 2rem; }
+  .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s; }
+  .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+  .footer-legal-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 0.8rem 1.5rem; }
+    .nav-burger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1.2rem;
+      border-top: 1px solid var(--bleu-clair);
+      box-shadow: 0 8px 24px rgba(61,80,128,0.1);
+    }
+    .nav-links.open { display: flex; }
+
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero h1 { font-size: 2.2rem; }
+
+    .section { padding: 3.5rem 1.5rem; }
+    .section h2 { font-size: 1.8rem; }
+
+    .stack-grid { grid-template-columns: 1fr; }
+
+    .agent-block { padding-left: 1.2rem; }
+    .agent-block h3 { font-size: 1.3rem; }
+
+    .section-cta .btn-primary,
+    .section-cta .btn-secondary { display: block; text-align: center; margin-right: 0; }
+
+    footer { padding: 3rem 1.5rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-legal-links { gap: 1rem; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    nav { padding: 0.8rem 2rem; }
+    .hero { padding: 8rem 3rem 4rem; }
+    .section { padding: 4rem 3rem; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 3rem 3rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <a href="index.html"><img src="assets/images/mia-logo.png" alt="MIA Médiation Intelligence Appliquée"></a>
+    <a href="index.html"><img src="assets/images/LogoMIASSF.png" alt="MIA Médiation Intelligence Appliquée"></a>
   </div>
   <ul class="nav-links">
+    <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
     <li><a href="je-comprends.html">Je comprends</a></li>
-    <li><a href="j-automatise.html" class="active">J'automatise</a></li>
+    <li><a href="j-automatise.html">J'automatise</a></li>
     <li><a href="je-maitrise.html">Je maîtrise</a></li>
-    <li><a href="qui-suis-je.html">Qui suis-je</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Prendre contact</a></li>
+    <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="nav-cta">Prendre contact</a></li>
   </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <p class="hero-label">Sous le capot</p>
   <h1>Comment MIA construit ses agents IA</h1>
-  <p class="hero-intro">
-    MIA utilise les technologies Anthropic — notamment Claude Code — combinées à Make.com, 
-    Airtable et des APIs professionnelles pour concevoir des agents IA opérationnels 
-    pour les TPE, artisans et commerçants du Var et de PACA.
-  </p>
+  <p class="hero-intro">MIA utilise les technologies Anthropic — notamment Claude — combinées à Make.com, Airtable et des APIs professionnelles pour concevoir des agents IA opérationnels pour les TPE, artisans et commerçants du Var et de PACA.</p>
   <a href="https://github.com/mia-intelligence/mia-agents" target="_blank" class="btn-secondary">Voir la documentation technique sur GitHub →</a>
 </section>
 
+<!-- STACK -->
 <section class="section">
   <p class="section-label">La stack technique</p>
   <h2>Les outils utilisés</h2>
-  <p>Chaque agent MIA est construit sur une architecture no-code et low-code robuste, 
-  pensée pour être fiable, maintenable et propriété du client.</p>
+  <p>Chaque agent MIA est construit sur une architecture no-code et low-code robuste, pensée pour être fiable, maintenable et propriété du client.</p>
   <div class="stack-grid">
     <div class="stack-card">
-      <h3>Anthropic — Claude Code</h3>
+      <h3>Anthropic — Claude</h3>
       <p>Moteur de génération de contenu et de raisonnement. Utilisé pour créer les agents, générer les textes et automatiser les décisions.</p>
     </div>
     <div class="stack-card">
@@ -134,6 +252,7 @@
   </div>
 </section>
 
+<!-- AGENTS -->
 <section class="section section-alt">
   <p class="section-label">Les agents construits</p>
   <h2>Trois agents en production</h2>
@@ -149,7 +268,7 @@
 
   <div class="agent-block">
     <h3>Agent Prospection</h3>
-    <span class="agent-tag">Claude Code</span>
+    <span class="agent-tag">Claude</span>
     <span class="agent-tag">Apollo API</span>
     <span class="agent-tag">Pappers API</span>
     <span class="agent-tag">data.gouv</span>
@@ -158,18 +277,19 @@
 
   <div class="agent-block">
     <h3>Agent Veille</h3>
-    <span class="agent-tag">Claude Code</span>
+    <span class="agent-tag">Claude</span>
     <p>Se déclenche automatiquement chaque semaine pour compiler l'actualité de l'intelligence artificielle. Produit une synthèse exploitable sans intervention manuelle.</p>
   </div>
 </section>
 
+<!-- FAQ -->
 <section class="section">
   <p class="section-label">Questions fréquentes</p>
   <h2>Ce que vous avez le droit de savoir</h2>
   <div class="faq">
     <div class="faq-item">
-      <h3>Qu'est-ce qu'Anthropic et Claude Code ?</h3>
-      <p>Anthropic est la société américaine qui développe Claude, l'un des modèles d'IA les plus avancés du marché. Claude Code est l'outil qui permet de construire des agents IA capables d'agir de manière autonome — rechercher des informations, générer du contenu, déclencher des actions.</p>
+      <h3>Qu'est-ce qu'Anthropic et Claude ?</h3>
+      <p>Anthropic est la société américaine qui développe Claude, l'un des modèles d'IA les plus avancés du marché. Claude permet de construire des agents IA capables d'agir de manière autonome — rechercher des informations, générer du contenu, déclencher des actions.</p>
     </div>
     <div class="faq-item">
       <h3>Est-ce que je reste propriétaire de mes données ?</h3>
@@ -186,17 +306,82 @@
   </div>
 </section>
 
-<section class="section section-alt" style="text-align: center;">
+<!-- CTA -->
+<section class="section section-alt section-cta">
+  <p class="section-label" style="justify-content: center;">On en parle ?</p>
   <h2>Vous voulez voir comment ça fonctionne pour votre activité ?</h2>
-  <p style="max-width: 600px; margin: 1rem auto 2rem;">Prenons 30 minutes pour analyser ce qui peut être automatisé dans votre quotidien.</p>
-  <a href="index.html#contact" class="btn-primary">Prendre contact</a>
-  <a href="j-automatise.html" class="btn-secondary">Voir les agents disponibles</a>
+  <p>Prenons 30 minutes pour analyser ce qui peut être automatisé dans votre quotidien.</p>
+  <div style="margin-top: 2rem;">
+    <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Prendre contact</a>
+    <a href="j-automatise.html" class="btn-secondary">Voir les agents disponibles</a>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>MIA — Médiation Intelligence Appliquée · <a href="mentions-legales.html">Mentions légales</a> · <a href="politique-confidentialite.html">Confidentialité</a></p>
-  <p style="margin-top: 0.5rem; color: var(--bleu-moyen);">mia-intelligence.com · contact@mia-intelligence.com</p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée">
+      <p>Consultante & Formatrice Digital & IA — MIA accompagne les TPE, artisans et commerçants dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/laetitia-colore" title="LinkedIn" aria-label="LinkedIn">in</a>
+        <a href="mailto:contact@mia-intelligence.com" title="Email" aria-label="Email">@</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="je-comprends.html">Je comprends</a></li>
+        <li><a href="j-automatise.html">J'automatise</a></li>
+        <li><a href="je-maitrise.html">Je maîtrise</a></li>
+        <li><a href="comment-ca-fonctionne.html">Comment c'est construit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="capsule-ia-1.html">Capsule IA #1</a></li>
+        <li><a href="capsule-ia-2.html">Capsule IA #2</a></li>
+        <li><a href="diagnostic.html">Diagnostic gratuit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0617813305">06 17 81 33 05</a></li>
+        <li><a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></li>
+        <li><a href="https://mia-intelligence.com">mia-intelligence.com</a></li>
+        <li>Saint-Maximin-la-Sainte-Baume</li>
+        <li>Var — 83</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 MIA — Médiation Intelligence Appliquée</span>
+    <div class="footer-legal-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="cookies.html">Gestion des cookies</a>
+    </div>
+  </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.getElementById('navBurger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
