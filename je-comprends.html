@@ -6,11 +6,13 @@
 <title>Je comprends — Audit IA & Diagnostic Digital | MIA Saint-Maximin Var</title>
 <meta name="description" content="Audit IA et diagnostic digital pour TPE, PME et professions libérales dans le Var. Analyse de vos réseaux sociaux, canaux de communication, actions commerciales et processus internes.">
 <meta name="keywords" content="audit IA, audit digital, diagnostic IA entreprise, audit réseaux sociaux, audit communication, canaux de communication, actions commerciales, audit site web Var, consultant IA Saint-Maximin, transformation digitale PME, angle de communication">
-<link rel="canonical" href="https://mia-intelligence.com/je-comprends">
+<link rel="canonical" href="https://mia-intelligence.com/je-comprends.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/images/mia-favicon.png">
 <link rel="apple-touch-icon" href="assets/images/mia-favicon.png">
+<meta name="theme-color" content="#3d5080">
+
 <style>
   :root {
     --bleu-clair: #e8effd;
@@ -26,6 +28,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: "DM Sans", sans-serif; color: var(--texte); background: var(--blanc); overflow-x: hidden; }
 
+  /* ===== NAV ===== */
   nav {
     position: fixed; top: 0; width: 100%;
     background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
@@ -34,7 +37,6 @@
     border-bottom: 1px solid var(--bleu-clair);
     box-shadow: 0 2px 20px rgba(61,80,128,0.06);
   }
-
   .nav-logo img { height: 60px; }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a { text-decoration: none; color: var(--bleu-fonce); font-size: 0.88rem; letter-spacing: 0.03em; transition: color 0.3s; }
@@ -43,60 +45,29 @@
   .nav-cta { background: var(--bleu-fonce) !important; color: white !important; padding: 0.65rem 1.4rem; border-radius: 2px; font-weight: 500 !important; }
   .nav-cta:hover { background: var(--bleu-moyen) !important; }
 
-  .hamburger {
+  /* ===== BURGER ===== */
+  .nav-burger {
     display: none;
     flex-direction: column;
     gap: 5px;
-    cursor: pointer;
     background: none;
     border: none;
-    padding: 0.3rem;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
   }
-
-  .hamburger span {
+  .nav-burger span {
     display: block;
     width: 24px;
     height: 2px;
     background: var(--bleu-fonce);
     transition: all 0.3s;
   }
+  .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger.active span:nth-child(2) { opacity: 0; }
+  .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background: white;
-    z-index: 99;
-    border-bottom: 1px solid var(--bleu-clair);
-    box-shadow: 0 8px 20px rgba(61,80,128,0.1);
-  }
-
-  .mobile-menu.open { display: block; }
-
-  .mobile-menu ul {
-    list-style: none;
-    padding: 1rem 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .mobile-menu ul li a {
-    display: block;
-    padding: 0.9rem 0;
-    text-decoration: none;
-    color: var(--bleu-fonce);
-    font-size: 0.95rem;
-    border-bottom: 1px solid var(--bleu-clair);
-    transition: color 0.3s;
-  }
-
-  .mobile-menu ul li:last-child a { border-bottom: none; }
-  .mobile-menu ul li a:hover { color: var(--bleu-moyen); }
-  .mobile-menu .mobile-cta { background: var(--bleu-fonce); color: white !important; text-align: center; padding: 0.9rem !important; border-bottom: none !important; margin-top: 0.5rem; }
-
+  /* ===== BOUTONS ===== */
   .btn-primary { background: var(--bleu-fonce); color: white; padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--bleu-fonce); display: inline-block; }
   .btn-primary:hover { background: transparent; color: var(--bleu-fonce); }
   .btn-secondary { border: 2px solid var(--bleu-moyen); color: var(--bleu-moyen); padding: 0.9rem 2rem; text-decoration: none; font-size: 0.88rem; letter-spacing: 0.04em; transition: all 0.3s; display: inline-block; }
@@ -105,7 +76,7 @@
   .section-tag { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bleu-moyen); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-tag::before { content: ""; display: block; width: 28px; height: 1px; background: var(--bleu-moyen); }
 
-  /* HERO */
+  /* ===== HERO ===== */
   .page-hero { padding: 10rem 6rem 5rem; background: var(--bleu-fonce); position: relative; overflow: hidden; }
   .page-hero::after { content: ""; position: absolute; right: -100px; top: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(122,144,189,0.15) 0%, transparent 70%); pointer-events: none; }
   .page-hero-inner { position: relative; z-index: 2; max-width: 700px; }
@@ -115,7 +86,7 @@
   .page-hero h1 em { font-style: italic; color: var(--bleu-moyen); }
   .page-hero p { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.72); max-width: 580px; }
 
-  /* POURQUOI */
+  /* ===== POURQUOI ===== */
   .section-pourquoi { padding: 7rem 6rem; background: white; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .pourquoi-content h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-fonce); line-height: 1.2; margin-bottom: 1.5rem; }
   .pourquoi-content h2 em { font-style: italic; color: var(--bleu-moyen); }
@@ -123,7 +94,7 @@
   .pourquoi-content p strong { color: var(--bleu-fonce); font-weight: 500; }
   .pourquoi-img img { width: 100%; height: 420px; object-fit: cover; display: block; }
 
-  /* TUNNEL */
+  /* ===== TUNNEL ===== */
   .section-tunnel { padding: 5rem 6rem; background: var(--bleu-clair); }
   .tunnel-inner { text-align: center; margin-bottom: 3rem; }
   .tunnel-inner h2 { font-family: "Cormorant Garamond", serif; font-size: 2.2rem; font-weight: 300; color: var(--bleu-fonce); margin-top: 0.5rem; }
@@ -134,66 +105,59 @@
   .tunnel-step p { font-size: 0.78rem; color: #5a6a8a; line-height: 1.5; }
   .tunnel-arrow { text-align: center; color: var(--bleu-moyen); font-size: 1.5rem; }
 
-  /* AUDIT EXPRESS */
+  /* ===== AUDIT EXPRESS ===== */
   .section-audit-express { padding: 7rem 6rem; background: var(--gris-doux); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
   .audit-header h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-fonce); line-height: 1.2; margin-bottom: 1rem; }
   .audit-header h2 em { font-style: italic; color: var(--bleu-moyen); }
   .audit-gratuit-badge { display: inline-block; background: var(--bleu-moyen); color: white; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
   .audit-header p { font-size: 0.95rem; line-height: 1.85; color: #5a6a8a; margin-bottom: 2rem; }
-
   .audit-ce-que-analyse { background: white; padding: 2rem; border-left: 3px solid var(--bleu-moyen); margin-bottom: 2rem; }
   .audit-ce-que-analyse h4 { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bleu-moyen); margin-bottom: 1rem; }
   .analyse-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
   .analyse-list li { font-size: 0.85rem; color: var(--texte); display: flex; align-items: center; gap: 0.6rem; }
   .analyse-list li::before { content: "✓"; color: var(--bleu-moyen); font-weight: 700; flex-shrink: 0; }
-
   .audit-etapes h3 { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; color: var(--bleu-fonce); margin-bottom: 1.5rem; }
   .etape { display: flex; gap: 1.2rem; align-items: flex-start; margin-bottom: 1.5rem; }
   .etape-num { background: var(--bleu-fonce); color: white; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 500; flex-shrink: 0; }
   .etape-content h4 { font-size: 0.92rem; font-weight: 500; color: var(--bleu-fonce); margin-bottom: 0.3rem; }
   .etape-content p { font-size: 0.83rem; line-height: 1.6; color: #5a6a8a; }
 
-  /* AUDIT IA BUSINESS */
+  /* ===== AUDIT IA BUSINESS ===== */
   .section-audit-business { padding: 7rem 6rem; background: var(--bleu-fonce); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; color: white; }
   .business-content .section-tag { color: var(--bleu-moyen); }
   .business-content .section-tag::before { background: var(--bleu-moyen); }
   .business-content h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: white; line-height: 1.2; margin-bottom: 1.5rem; }
   .business-content h2 em { font-style: italic; color: var(--bleu-moyen); }
   .business-content p { font-size: 0.95rem; line-height: 1.85; color: rgba(255,255,255,0.72); margin-bottom: 1.2rem; }
-
-  /* GRILLE AUDIT DOMAINS */
   .audit-domains { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
   .audit-domain { background: rgba(232,239,253,0.08); border: 1px solid rgba(232,239,253,0.15); padding: 1.2rem; transition: background 0.3s; }
   .audit-domain:hover { background: rgba(232,239,253,0.14); }
   .audit-domain-icon { font-size: 1.2rem; margin-bottom: 0.5rem; }
   .audit-domain h4 { font-size: 0.82rem; font-weight: 500; color: white; margin-bottom: 0.3rem; }
   .audit-domain p { font-size: 0.75rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
-
   .business-inclus { background: rgba(232,239,253,0.08); border: 1px solid rgba(232,239,253,0.15); padding: 2rem; margin-bottom: 2rem; }
   .business-inclus h4 { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bleu-moyen); margin-bottom: 1rem; }
   .business-inclus ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
   .business-inclus ul li { font-size: 0.85rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 0.6rem; }
   .business-inclus ul li::before { content: "✓"; color: var(--bleu-moyen); font-weight: 700; flex-shrink: 0; }
-
   .business-etapes h3 { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 1.5rem; }
   .business-etapes .etape-num { background: var(--bleu-moyen); }
   .business-etapes .etape-content h4 { color: white; }
   .business-etapes .etape-content p { color: rgba(255,255,255,0.65); }
-
   .business-content .btn-primary { background: var(--bleu-moyen); border-color: var(--bleu-moyen); }
   .business-content .btn-primary:hover { background: white; color: var(--bleu-fonce); border-color: white; }
 
-  /* CTA */
-  .section-cta { padding: 6rem 6rem; background: var(--bleu-clair); text-align: center; }
+  /* ===== CTA ===== */
+  .section-cta { padding: 6rem; background: var(--bleu-clair); text-align: center; }
   .section-cta h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-fonce); margin-bottom: 1rem; }
   .section-cta h2 em { font-style: italic; color: var(--bleu-moyen); }
   .section-cta p { font-size: 0.95rem; color: #5a6a8a; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
   .cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-  /* FOOTER */
+  /* ===== FOOTER ===== */
   footer { background: var(--bleu-tres-fonce); color: rgba(255,255,255,0.6); padding: 4rem 6rem 2rem; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .footer-brand img { height: 55px; margin-bottom: 1.2rem; }
+  .footer-brand img { height: 55px; margin-bottom: 1.2rem; display: block; }
   .footer-brand p { font-size: 0.82rem; line-height: 1.75; margin-bottom: 1.5rem; }
   .footer-social { display: flex; gap: 0.8rem; }
   .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.1); }
@@ -203,67 +167,101 @@
   .footer-col ul li { margin-bottom: 0.65rem; }
   .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.3s; }
   .footer-col ul li a:hover { color: white; }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 0.5rem; }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 0.5rem; padding-top: 2rem; }
   .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s; }
   .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
-  .footer-legal-links { display: flex; gap: 1.5rem; }
+  .footer-legal-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
+  /* ===== ANIMATIONS ===== */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
   .page-hero-inner > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
   .page-tag { animation-delay: 0.1s; }
   .page-hero h1 { animation-delay: 0.3s; }
   .page-hero p { animation-delay: 0.5s; }
 
+  /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
-    nav { padding: 0.8rem 2rem; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .page-hero { padding: 8rem 2rem 4rem; }
-    .page-hero h1 { font-size: 2.8rem; }
-    .section-pourquoi, .section-audit-express, .section-audit-business { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
-    .audit-domains { grid-template-columns: 1fr; }
-    .section-tunnel { padding: 4rem 2rem; }
+    nav { padding: 0.8rem 1.5rem; }
+    .nav-burger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      flex-direction: column;
+      padding: 1.5rem;
+      gap: 1.2rem;
+      border-top: 1px solid var(--bleu-clair);
+      box-shadow: 0 8px 24px rgba(61,80,128,0.1);
+    }
+    .nav-links.open { display: flex; }
+
+    .page-hero { padding: 8rem 1.5rem 3rem; }
+    .page-hero h1 { font-size: 2.6rem; }
+
+    .section-pourquoi { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+    .pourquoi-content h2 { font-size: 2rem; }
+    .pourquoi-img { order: -1; }
+    .pourquoi-img img { height: 240px; }
+
+    .section-tunnel { padding: 4rem 1.5rem; }
     .tunnel-steps { grid-template-columns: 1fr; }
-    .tunnel-arrow { transform: rotate(90deg); }
-    .section-cta { padding: 4rem 2rem; }
-    .footer-grid { grid-template-columns: 1fr; }
-    footer { padding: 3rem 2rem 2rem; }
+    .tunnel-arrow { transform: rotate(90deg); font-size: 1.2rem; }
+
+    .section-audit-express { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+    .audit-header h2 { font-size: 2rem; }
+
+    .section-audit-business { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
+    .business-content h2 { font-size: 2rem; }
+    .audit-domains { grid-template-columns: 1fr; }
+
+    .section-cta { padding: 4rem 1.5rem; }
+    .section-cta h2 { font-size: 2rem; }
+    .cta-btns { flex-direction: column; align-items: center; }
+
+    footer { padding: 3rem 1.5rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .footer-legal-links { gap: 1rem; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    nav { padding: 0.8rem 2rem; }
+    .page-hero { padding: 9rem 3rem 4rem; }
+    .section-pourquoi { padding: 5rem 3rem; gap: 3rem; }
+    .section-tunnel { padding: 4rem 3rem; }
+    .section-audit-express { padding: 5rem 3rem; gap: 3rem; }
+    .section-audit-business { padding: 5rem 3rem; gap: 3rem; }
+    .section-cta { padding: 5rem 3rem; }
+    footer { padding: 3rem 3rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <a href="index.html"><img src="LogoMIASSF" alt="Mia mediation intelligence appliquée laetitia Coloré Var IA</div>
+    <a href="index.html"><img src="assets/images/LogoMIASSF.png" alt="MIA Médiation Intelligence Appliquée"></a>
+  </div>
   <ul class="nav-links">
     <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
     <li><a href="je-comprends.html" class="active">Je comprends</a></li>
     <li><a href="j-automatise.html">J'automatise</a></li>
     <li><a href="je-maitrise.html">Je maîtrise</a></li>
-    <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="nav-cta">Prendre rendez-vous</a></li>
+    <li><a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="nav-cta">Prendre rendez-vous</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <ul>
-    <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
-    <li><a href="je-comprends.html">Je comprends</a></li>
-    <li><a href="j-automatise.html">J'automatise</a></li>
-    <li><a href="je-maitrise.html">Je maîtrise</a></li>
-    <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="mobile-cta">Prendre rendez-vous</a></li>
-  </ul>
-</div>
-
-<script>
-  document.getElementById("hamburger").addEventListener("click", function() {
-    document.getElementById("mobileMenu").classList.toggle("open");
-  });
-</script>
-
+<!-- HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
     <p class="page-tag">Étape 1 — Comprendre</p>
@@ -272,6 +270,7 @@
   </div>
 </section>
 
+<!-- POURQUOI -->
 <section class="section-pourquoi">
   <div class="pourquoi-content">
     <p class="section-tag">Pourquoi un audit ?</p>
@@ -285,6 +284,7 @@
   </div>
 </section>
 
+<!-- TUNNEL -->
 <section class="section-tunnel">
   <div class="tunnel-inner">
     <p class="section-tag" style="justify-content: center;">Le parcours MIA</p>
@@ -311,6 +311,7 @@
   </div>
 </section>
 
+<!-- AUDIT EXPRESS -->
 <section class="section-audit-express" id="audit-express">
   <div class="audit-header">
     <p class="section-tag">Étape 1</p>
@@ -356,6 +357,7 @@
   </div>
 </section>
 
+<!-- AUDIT IA BUSINESS -->
 <section class="section-audit-business" id="audit-business">
   <div class="business-content">
     <p class="section-tag">Étape 2</p>
@@ -405,7 +407,7 @@
         <li>Plan d'action priorisé sur 3 à 6 mois</li>
       </ul>
     </div>
-    <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="btn-primary">Réserver mon Audit IA Business</a>
+    <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-primary">Réserver mon Audit IA Business</a>
   </div>
 
   <div class="business-etapes">
@@ -441,50 +443,50 @@
   </div>
 </section>
 
+<!-- CTA -->
 <section class="section-cta" id="contact">
   <p class="section-tag" style="justify-content: center;">Commencer maintenant</p>
   <h2>Par où voulez-vous <em>commencer</em> ?</h2>
   <p>Audit Express gratuit pour une première analyse de votre présence digitale, ou Audit IA Business pour un diagnostic complet de votre communication et de vos processus.</p>
   <div class="cta-btns">
     <a href="https://mia-intelligence.com/audit" class="btn-primary">Audit Express gratuit</a>
-    <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="btn-secondary">Réserver l'Audit IA Business</a>
+    <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-secondary">Réserver l'Audit IA Business</a>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="LogoMIAFBF">
-        <p>Consultante & Formatrice Digital & IA — MIA accompagne les PME et professions libérales dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <img src="assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée">
+      <p>Consultante & Formatrice Digital & IA — MIA accompagne les PME et professions libérales dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
       <div class="footer-social">
-        <a href="https://linkedin.com" title="LinkedIn" aria-label="LinkedIn">in</a>
-        <a href="/cdn-cgi/l/email-protection#ddbeb2b3a9bcbea99db0b4bcf0b4b3a9b8b1b1b4bab8b3beb8f3beb2b0" title="Email" aria-label="Email">@</a>
+        <a href="https://www.linkedin.com/in/laetitia-colore" title="LinkedIn" aria-label="LinkedIn">in</a>
+        <a href="mailto:contact@mia-intelligence.com" title="Email" aria-label="Email">@</a>
       </div>
     </div>
     <div class="footer-col">
-      <h4>Services</h4>
+      <h4>Solutions</h4>
       <ul>
-        <li><a href="je-comprends.html">Audit Express</a></li>
-        <li><a href="je-comprends.html">Audit IA Business</a></li>
-        <li><a href="j-automatise.html">Automatisation devis</a></li>
-        <li><a href="j-automatise.html">CRM sur mesure</a></li>
-        <li><a href="j-automatise.html">Dashboard KPI</a></li>
+        <li><a href="je-comprends.html">Je comprends</a></li>
+        <li><a href="j-automatise.html">J'automatise</a></li>
+        <li><a href="je-maitrise.html">Je maîtrise</a></li>
+        <li><a href="comment-ca-fonctionne.html">Comment c'est construit</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Formations</h4>
+      <h4>Ressources</h4>
       <ul>
-        <li><a href="je-maitrise.html">IA Fondamentaux</a></li>
-        <li><a href="je-maitrise.html">Contenus avec l'IA</a></li>
-        <li><a href="je-maitrise.html">Automatise ton Business</a></li>
-        <li><a href="je-maitrise.html">Accompagnement mensuel</a></li>
+        <li><a href="capsule-ia-1.html">Capsule IA #1</a></li>
+        <li><a href="capsule-ia-2.html">Capsule IA #2</a></li>
+        <li><a href="diagnostic.html">Diagnostic gratuit</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
         <li><a href="tel:0617813305">06 17 81 33 05</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#c1a2aeafb5a0a2b581aca8a0eca8afb5a4adada8a6a4afa2a4efa2aeac"><span class="__cf_email__" data-cfemail="65060a0b1104061125080c04480c0b110009090c02000b06004b060a08">[email&#160;protected]</span></a></li>
+        <li><a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></li>
         <li><a href="https://mia-intelligence.com">mia-intelligence.com</a></li>
         <li>Saint-Maximin-la-Sainte-Baume</li>
         <li>Var — 83</li>
@@ -493,7 +495,8 @@
   </div>
   <div class="footer-bottom">
     <span>© 2025 MIA — Médiation Intelligence Appliquée</span>
-    <<a href="mentions-legales.html">Mentions légales</a>
+    <div class="footer-legal-links">
+      <a href="mentions-legales.html">Mentions légales</a>
       <a href="politique-confidentialite.html">Politique de confidentialité</a>
       <a href="cookies.html">Cookies</a>
     </div>
