@@ -434,21 +434,18 @@
   </div>
 </footer>
 <script>
-  const burger = document.getElementById('navBurger');
-  const mobileMenu = document.getElementById('navMobile');
-  const mobileLinks = document.querySelectorAll('.nav-mobile-link, .nav-cta-mobile');
-
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    mobileMenu.style.display = 'flex';
-    setTimeout(() => mobileMenu.classList.toggle('open'), 10);
-  });
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      burger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-      setTimeout(() => { mobileMenu.style.display = ''; }, 300);
+  document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.getElementById('navBurger');
+    const navLinks = document.querySelector('.nav-links');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
     });
   });
 </script>
