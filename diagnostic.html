@@ -1,1394 +1,471 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon entreprise est-elle prête pour l'IA ? — MIA</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F2ZTMXY1S1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-F2ZTMXY1S1');
-</script>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --bleu: #1a2540;
-  --clair: #A8D5E2;
-  --blanc: #f8f7f4;
-  --blanc-pur: #ffffff;
-  --gris: #eef3f5;
-  --texte: #3a4255;
-  --muted: #8a94a6;
-  --vert: #27ae60;
-  --orange: #e67e22;
-  --rouge: #e74c3c;
-  --or: #f39c12;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--blanc);
-  color: var(--texte);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ===================== ÉCRAN ACCUEIL ===================== */
-#screen-intro {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.intro-hero {
-  background: var(--bleu);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 40px 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.intro-hero::before {
-  content: '';
-  position: absolute;
-  top: -80px; right: -80px;
-  width: 360px; height: 360px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168,213,226,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.intro-hero::after {
-  content: '';
-  position: absolute;
-  bottom: -40px; left: 10%;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168,213,226,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.brand-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--clair);
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.1s;
-}
-
-.brand-tag::before {
-  content: '';
-  width: 24px; height: 2px;
-  background: var(--clair);
-}
-
-.intro-hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 6vw, 52px);
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.15;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.25s;
-}
-
-.intro-hero h1 em {
-  color: var(--clair);
-  font-style: italic;
-}
-
-.intro-hero p {
-  font-size: 15px;
-  font-weight: 300;
-  color: rgba(255,255,255,0.68);
-  max-width: 520px;
-  line-height: 1.75;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.4s;
-}
-
-.badges-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 44px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.55s;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.badge-light {
-  background: rgba(168,213,226,0.15);
-  color: var(--clair);
-  border: 1px solid rgba(168,213,226,0.3);
-}
-
-.btn-start {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--clair);
-  color: var(--bleu);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 16px 36px;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.7s;
-  width: fit-content;
-}
-
-.btn-start:hover {
-  background: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(168,213,226,0.3);
-}
-
-.btn-start svg { transition: transform 0.25s; }
-.btn-start:hover svg { transform: translateX(4px); }
-
-/* Stats intro */
-.intro-stats {
-  background: var(--blanc-pur);
-  padding: 32px 40px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  border-bottom: 1px solid #e8edf0;
-}
-
-.stat-item {
-  padding: 20px 24px;
-  text-align: center;
-  border-right: 1px solid #e8edf0;
-  opacity: 0;
-  animation: fadeUp 0.5s ease forwards;
-}
-
-.stat-item:last-child { border-right: none; }
-.stat-item:nth-child(1) { animation-delay: 0.8s; }
-.stat-item:nth-child(2) { animation-delay: 0.9s; }
-.stat-item:nth-child(3) { animation-delay: 1s; }
-
-.stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--bleu);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.stat-label {
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.stat-source {
-  font-size: 9px;
-  color: #bbb;
-  margin-top: 4px;
-}
-
-/* ===================== ÉCRAN TEST ===================== */
-#screen-test { display: none; }
-
-.test-layout {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 20px 80px;
-}
-
-/* Barre de progression */
-.progress-bar-wrap {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--blanc-pur);
-  padding: 16px 20px;
-  border-bottom: 1px solid #e8edf0;
-  box-shadow: 0 2px 16px rgba(26,37,64,0.06);
-}
-
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.progress-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--bleu);
-  letter-spacing: 0.5px;
-}
-
-.progress-count {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.progress-track {
-  height: 5px;
-  background: var(--gris);
-  border-radius: 100px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--clair), var(--bleu));
-  border-radius: 100px;
-  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  width: 0%;
-}
-
-/* Indicateur dimension */
-.dim-indicator {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 32px 20px 0;
-}
-
-.dim-header-card {
-  background: var(--bleu);
-  border-radius: 16px;
-  padding: 28px 32px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 28px;
-  position: relative;
-  overflow: hidden;
-}
-
-.dim-header-card::after {
-  content: '';
-  position: absolute;
-  right: -30px; top: -30px;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  background: rgba(168,213,226,0.1);
-}
-
-.dim-num-big {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px;
-  font-weight: 600;
-  color: var(--clair);
-  line-height: 1;
-  flex-shrink: 0;
-  opacity: 0.6;
-}
-
-.dim-info h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 6px;
-}
-
-.dim-info p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  font-weight: 300;
-}
-
-.dim-dots {
-  display: flex;
-  gap: 6px;
-  margin-top: 0;
-}
-
-.dim-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: rgba(168,213,226,0.25);
-  transition: all 0.3s;
-}
-
-.dim-dot.done { background: var(--clair); }
-.dim-dot.active { background: #fff; transform: scale(1.3); }
-
-/* Questions */
-.question-card {
-  background: var(--blanc-pur);
-  border: 1px solid #e8edf0;
-  border-radius: 16px;
-  padding: 28px 32px;
-  margin-bottom: 16px;
-  transition: all 0.3s;
-  opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.4s ease forwards;
-}
-
-.question-card:nth-child(2) { animation-delay: 0.1s; }
-.question-card:nth-child(3) { animation-delay: 0.2s; }
-
-.q-num-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--clair);
-  margin-bottom: 10px;
-}
-
-.q-text {
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--bleu);
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.options-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.option-btn {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 13px 18px;
-  border-radius: 10px;
-  border: 1.5px solid #e4eaed;
-  background: var(--blanc);
-  cursor: pointer;
-  transition: all 0.2s;
-  text-align: left;
-  width: 100%;
-}
-
-.option-btn:hover {
-  border-color: var(--clair);
-  background: rgba(168,213,226,0.08);
-  transform: translateX(3px);
-}
-
-.option-btn.selected {
-  border-color: var(--bleu);
-  background: rgba(26,37,64,0.04);
-}
-
-.option-radio {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  border: 2px solid #ccd5da;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-
-.option-btn.selected .option-radio {
-  border-color: var(--bleu);
-  background: var(--bleu);
-}
-
-.option-btn.selected .option-radio::after {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #fff;
-}
-
-.option-score-badge {
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 100px;
-  background: var(--gris);
-  color: var(--muted);
-  flex-shrink: 0;
-  margin-left: auto;
-  transition: all 0.2s;
-}
-
-.option-btn.selected .option-score-badge {
-  background: var(--clair);
-  color: var(--bleu);
-}
-
-.option-text {
-  font-size: 13.5px;
-  color: var(--texte);
-  line-height: 1.4;
-  flex: 1;
-}
-
-/* Navigation */
-.nav-btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 720px;
-  margin: 32px auto 0;
-  padding: 0 20px;
-}
-
-.btn-prev {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 100px;
-  border: 1.5px solid #dde4e8;
-  background: transparent;
-  color: var(--muted);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-prev:hover {
-  border-color: var(--bleu);
-  color: var(--bleu);
-}
-
-.btn-next {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  border-radius: 100px;
-  border: none;
-  background: var(--bleu);
-  color: #fff;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s;
-}
-
-.btn-next:hover {
-  background: var(--clair);
-  color: var(--bleu);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(168,213,226,0.4);
-}
-
-.btn-next:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-/* ===================== RÉSULTATS ===================== */
-#screen-results { display: none; }
-
-.results-hero {
-  background: var(--bleu);
-  padding: 56px 40px 60px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.results-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(168,213,226,0.2) 0%, transparent 60%);
-}
-
-.results-hero h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--clair);
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.score-ring-wrap {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  margin-bottom: 24px;
-}
-
-.score-ring {
-  width: 150px;
-  height: 150px;
-  transform: rotate(-90deg);
-}
-
-.score-ring-bg {
-  fill: none;
-  stroke: rgba(168,213,226,0.15);
-  stroke-width: 8;
-}
-
-.score-ring-fill {
-  fill: none;
-  stroke: var(--clair);
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-dasharray: 408;
-  stroke-dashoffset: 408;
-  transition: stroke-dashoffset 1.5s cubic-bezier(0.34, 1.2, 0.64, 1);
-}
-
-.score-ring-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.score-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1;
-}
-
-.score-max {
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-  margin-top: 2px;
-}
-
-.score-level-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  border-radius: 100px;
-  font-size: 15px;
-  font-weight: 600;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.score-level-desc {
-  font-size: 14px;
-  color: rgba(255,255,255,0.65);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.7;
-  position: relative;
-}
-
-/* Grille scores dimensions */
-.results-body {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 40px 20px 80px;
-}
-
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--bleu);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--clair);
-}
-
-.dims-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 40px;
-}
-
-.dim-result-card {
-  background: var(--blanc-pur);
-  border: 1px solid #e8edf0;
-  border-radius: 14px;
-  padding: 20px;
-  opacity: 0;
-  transform: translateY(12px);
-  animation: fadeUp 0.4s ease forwards;
-}
-
-.dim-result-card:nth-child(1) { animation-delay: 0.1s; }
-.dim-result-card:nth-child(2) { animation-delay: 0.2s; }
-.dim-result-card:nth-child(3) { animation-delay: 0.3s; }
-.dim-result-card:nth-child(4) { animation-delay: 0.4s; }
-.dim-result-card:nth-child(5) { animation-delay: 0.5s; }
-.dim-result-card:nth-child(6) { animation-delay: 0.6s; }
-
-.dim-result-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 12px;
-}
-
-.dim-result-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--bleu);
-}
-
-.dim-result-score {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.dim-bar-track {
-  height: 6px;
-  background: var(--gris);
-  border-radius: 100px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-
-.dim-bar-fill {
-  height: 100%;
-  border-radius: 100px;
-  transition: width 1s cubic-bezier(0.34, 1.2, 0.64, 1);
-  width: 0%;
-}
-
-.dim-result-note {
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-/* CTA final */
-.cta-block {
-  background: var(--bleu);
-  border-radius: 20px;
-  padding: 40px 36px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  opacity: 0;
-  animation: fadeUp 0.5s ease forwards 0.8s;
-}
-
-.cta-block::before {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168,213,226,0.15) 0%, transparent 70%);
-}
-
-.cta-label {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--clair);
-  margin-bottom: 16px;
-}
-
-.cta-block h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 12px;
-  line-height: 1.2;
-}
-
-.cta-block p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.65);
-  margin-bottom: 28px;
-  line-height: 1.7;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-price {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-  background: rgba(168,213,226,0.15);
-  border: 1px solid rgba(168,213,226,0.3);
-  border-radius: 100px;
-  padding: 8px 20px;
-  margin-bottom: 24px;
-}
-
-.cta-price .price-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--clair);
-}
-
-.cta-price .price-label {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-}
-
-.btn-rdv {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--clair);
-  color: var(--bleu);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 16px 40px;
-  border-radius: 100px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.25s;
-  margin-bottom: 16px;
-}
-
-.btn-rdv:hover {
-  background: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(168,213,226,0.4);
-}
-
-.cta-reassurance {
-  font-size: 11px;
-  color: rgba(255,255,255,0.4);
-}
-
-.btn-restart {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 32px;
-  padding: 10px 20px;
-  border-radius: 100px;
-  border: 1px solid #dde4e8;
-  background: transparent;
-  color: var(--muted);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-restart:hover { color: var(--bleu); border-color: var(--bleu); }
-
-/* Footer */
-.app-footer {
-  background: var(--bleu);
-  padding: 20px 40px;
-  text-align: center;
-}
-
-.app-footer p {
-  font-size: 11px;
-  color: rgba(255,255,255,0.35);
-}
-
-.app-footer a { color: var(--clair); text-decoration: none; }
-
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .intro-hero { padding: 48px 24px 60px; }
-  .intro-stats { grid-template-columns: 1fr; gap: 0; }
-  .stat-item { border-right: none; border-bottom: 1px solid #e8edf0; }
-  .dim-header-card { padding: 20px; }
-  .question-card { padding: 20px; }
-  .dims-grid { grid-template-columns: 1fr; }
-  .results-hero { padding: 40px 24px 48px; }
-  .results-body { padding: 28px 16px 60px; }
-  .cta-block { padding: 28px 20px; }
-  .nav-btns { padding: 0 16px; }
-  .progress-bar-wrap { padding: 12px 16px; }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capsule IA #2 — Mars 2026 : La guerre est finie. Maintenant, laquelle travaille pour vous ? | MIA</title>
+  <meta name="description" content="Mars 2026 : GPT-5.4, Claude Sonnet 4.6, Gemini dans Workspace, Mistral souverain. La course au meilleur modèle est terminée. Décryptage par Laetitia Coloré — MIA." />
+  <link rel="canonical" href="https://mia-intelligence.com/capsule-ia-2.html" />
+  <link rel="icon" type="image/png" href="assets/images/mia-favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/mia-favicon.png">
+  <meta name="theme-color" content="#1a2540">
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "La guerre est finie. Maintenant, laquelle travaille pour vous ?",
+      "description": "En mars 2026, GPT-5.4, Claude Sonnet 4.6 et Gemini 3.1 Pro sont sortis simultanément avec des performances quasi identiques. Ce qui compte désormais : lequel résout votre problème concret ?",
+      "datePublished": "2026-04-07",
+      "dateModified": "2026-04-07",
+      "author": {
+        "@type": "Person",
+        "name": "Laetitia Coloré",
+        "jobTitle": "Consultante & Formatrice — Digital & IA",
+        "url": "https://mia-intelligence.com/qui-suis-je.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "MIA — Médiation Intelligence Appliquée",
+        "url": "https://mia-intelligence.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://mia-intelligence.com/assets/images/mia-logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mia-intelligence.com/capsule-ia-2.html"
+      },
+      "keywords": "intelligence artificielle TPE, outils IA artisans, GPT-5, Claude IA, Gemini Workspace, RGPD données IA, automatisation petite entreprise, formation IA Var PACA"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la meilleure IA pour une TPE ou un artisan en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En mars 2026, GPT-5.4, Claude Sonnet 4.6 et Gemini 3.1 Pro ont des performances quasi identiques. La vraie question n'est pas laquelle est la meilleure, mais laquelle résout votre problème concret : devis automatiques, relation client, communication, ou analyse de documents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment une TPE peut-elle utiliser l'IA sans être informaticienne ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le point d'entrée le plus simple est souvent un outil que vous avez déjà. Si vous utilisez Google Workspace, Gemini est peut-être intégré dans vos Docs et Sheets. Commencez par vérifier ce que vous avez avant d'investir dans un nouvel abonnement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'IA est-elle conforme au RGPD pour les entreprises françaises ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela dépend de l'outil choisi. Les outils américains hébergent souvent les données hors Europe. En mars 2026, Mistral AI et la DINUM ont déployé un assistant IA souverain pour 30 000 agents de l'État, hébergé en Europe et natif RGPD. Pour les TPE, vérifiez où sont hébergées vos données avant d'adopter un outil IA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte la mise en place d'un agent IA pour une petite entreprise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIA propose des agents IA sur mesure pour les TPE et artisans à partir d'un taux horaire de 80 € HT, avec une maintenance mensuelle de 80 € HT par agent. Un premier échange permet d'identifier les tâches automatisables dans votre activité avant tout engagement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la Capsule IA de MIA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La Capsule IA est une ressource mensuelle publiée par Laetitia Coloré — MIA — qui décrypte l'actualité de l'intelligence artificielle pour les dirigeants de TPE, artisans et commerçants. Sans jargon, avec un focus sur ce que ça change concrètement pour votre activité."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bleu: #A8D5E2;
+      --bleu-fonce: #1a2540;
+      --bleu-moyen: #3a5a8a;
+      --gris-clair: #f5f7fa;
+      --gris-texte: #4a4a5a;
+      --blanc: #ffffff;
+      --accent: #6a9ab8;
+    }
+
+    body { font-family: 'DM Sans', sans-serif; color: var(--gris-texte); background: var(--blanc); font-size: 17px; line-height: 1.75; overflow-x: hidden; }
+
+    /* ===== NAV ===== */
+    nav {
+      background: var(--blanc);
+      border-bottom: 1px solid #e8edf2;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo img { height: 44px; }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav ul li a { text-decoration: none; color: var(--bleu-fonce); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+    nav ul li a:hover { color: var(--accent); }
+    nav ul li:last-child a { background: var(--bleu-fonce); color: var(--blanc); padding: 8px 18px; border-radius: 4px; }
+    nav ul li:last-child a:hover { background: var(--bleu-moyen); color: var(--blanc); }
+
+    /* ===== BURGER ===== */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 200;
+    }
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--bleu-fonce); transition: all 0.3s; }
+    .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.active span:nth-child(2) { opacity: 0; }
+    .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ===== HERO ===== */
+    .hero { background: linear-gradient(135deg, var(--bleu-fonce) 0%, #2a3d60 60%, #1e4a6b 100%); color: var(--blanc); padding: 72px 40px 64px; text-align: center; }
+    .hero .episode-label { font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bleu); margin-bottom: 24px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.15; margin-bottom: 20px; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .hero h1 em { font-style: italic; color: var(--bleu); }
+    .hero .meta { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; margin-bottom: 28px; }
+    .hero .intro { font-size: 18px; color: rgba(255,255,255,0.88); max-width: 640px; margin: 0 auto 8px; line-height: 1.7; }
+    .hero .signature { font-size: 13px; color: rgba(255,255,255,0.45); margin-top: 12px; }
+
+    /* ===== CONTENU ===== */
+    .content { max-width: 760px; margin: 0 auto; padding: 64px 24px 80px; }
+
+    .actu-block { margin-bottom: 60px; border-left: 3px solid var(--bleu); padding-left: 28px; }
+    .actu-block .actu-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+    .actu-block .emoji { font-size: 28px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .actu-block .actu-meta { display: flex; flex-direction: column; gap: 4px; }
+    .actu-block .actu-date { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .actu-block h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600; color: var(--bleu-fonce); line-height: 1.25; }
+    .actu-block p { margin-bottom: 14px; color: var(--gris-texte); }
+    .actu-block strong { color: var(--bleu-fonce); font-weight: 500; }
+    .actu-block em { font-style: italic; color: var(--bleu-moyen); }
+
+    .stat-callout { background: var(--gris-clair); border-radius: 6px; padding: 16px 20px; margin: 18px 0; display: flex; align-items: baseline; gap: 14px; }
+    .stat-callout .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; color: var(--bleu-moyen); flex-shrink: 0; }
+    .stat-callout .stat-label { font-size: 14px; font-weight: 500; color: var(--bleu-fonce); line-height: 1.4; }
+
+    .pour-vous { background: linear-gradient(135deg, #e8f4f8 0%, #d8ecf4 100%); border-radius: 8px; padding: 20px 22px; margin: 20px 0 0; }
+    .pour-vous .pour-vous-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .pour-vous p { font-size: 15px; color: var(--bleu-fonce); margin: 0; line-height: 1.6; }
+
+    .separator { height: 1px; background: linear-gradient(to right, transparent, var(--bleu), transparent); margin: 60px 0; opacity: 0.4; }
+
+    .conclusion { background: var(--gris-clair); border-radius: 10px; padding: 40px; margin-bottom: 48px; }
+    .conclusion h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--bleu-fonce); margin-bottom: 16px; line-height: 1.3; }
+    .conclusion p { margin-bottom: 14px; color: var(--gris-texte); }
+    .conclusion strong { color: var(--bleu-fonce); font-weight: 500; }
+    .conclusion .question-finale { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--bleu-moyen); margin-top: 24px; border-top: 1px solid #d0dce6; padding-top: 20px; }
+
+    .cta-block { background: var(--bleu-fonce); border-radius: 10px; padding: 44px 40px; text-align: center; color: var(--blanc); margin-bottom: 64px; }
+    .cta-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; margin-bottom: 14px; line-height: 1.3; }
+    .cta-block h3 em { font-style: italic; color: var(--bleu); }
+    .cta-block p { font-size: 15px; color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 28px; line-height: 1.65; }
+    .cta-block a { display: inline-block; background: var(--bleu); color: var(--bleu-fonce); text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 36px; border-radius: 4px; letter-spacing: 0.02em; transition: background 0.2s, transform 0.15s; }
+    .cta-block a:hover { background: #c2e2ee; transform: translateY(-1px); }
+
+    /* ===== FOOTER ===== */
+    footer { background: var(--bleu-fonce); color: rgba(255,255,255,0.6); padding: 52px 40px 32px; }
+    .footer-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    footer .footer-brand img { height: 40px; margin-bottom: 16px; display: block; }
+    footer .footer-brand p { font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+    footer .footer-brand .footer-socials { display: flex; gap: 14px; }
+    footer .footer-brand .footer-socials a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    footer .footer-brand .footer-socials a:hover { color: var(--bleu); }
+    footer .footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    footer .footer-col ul { list-style: none; }
+    footer .footer-col ul li { margin-bottom: 10px; }
+    footer .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    footer .footer-col ul li a:hover { color: var(--bleu); }
+    .footer-bottom { max-width: 960px; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); }
+    .footer-bottom .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom .footer-links a { font-size: 12px; color: rgba(255,255,255,0.3); text-decoration: none; }
+    .footer-bottom .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      nav ul { display: none; }
+      nav ul.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: white; padding: 1.5rem; gap: 1rem; border-top: 1px solid #e8edf2; box-shadow: 0 8px 24px rgba(26,37,64,0.1); z-index: 99; }
+      .nav-burger { display: flex; }
+      .hero { padding: 52px 20px 48px; }
+      .content { padding: 40px 20px 60px; }
+      .conclusion, .cta-block { padding: 28px 22px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .actu-block { padding-left: 18px; }
+      .stat-callout { flex-direction: column; gap: 6px; }
+      footer { padding: 40px 20px 24px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ========== ÉCRAN INTRO ========== -->
-<div id="screen-intro">
-  <div class="intro-hero">
-    <div class="brand-tag">MIA — Médiation Intelligence Appliquée</div>
-    <h1>Mon entreprise est-elle<br><em>prête pour l'IA ?</em></h1>
-    <p>Un auto-diagnostic en 18 questions pour savoir où vous en êtes vraiment — et ce que vous pouvez faire concrètement dès maintenant.</p>
-    <div class="badges-row">
-      <span class="badge badge-light">⏱ 5 minutes</span>
-      <span class="badge badge-light">✓ 18 questions</span>
-      <span class="badge badge-light">◎ Score personnalisé</span>
-      <span class="badge badge-light">🔒 Sans inscription</span>
-    </div>
-    <button class="btn-start" onclick="startTest()">
-      Démarrer le diagnostic
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <a href="index.html">
+      <img src="assets/images/LogoMIASSF.png" alt="MIA Médiation Intelligence Appliquée" />
+    </a>
   </div>
+  <ul id="navLinks">
+    <li><a href="qui-suis-je.html">Qui suis-je ?</a></li>
+    <li><a href="je-comprends.html">Je comprends</a></li>
+    <li><a href="j-automatise.html">J'automatise</a></li>
+    <li><a href="je-maitrise.html">Je maîtrise</a></li>
+    <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank">Prendre rendez-vous</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 
-  <div class="intro-stats">
-    <div class="stat-item">
-      <div class="stat-num">58%</div>
-      <div class="stat-label">des dirigeants pensent que l'IA est une question de survie à 3 ans</div>
-      <div class="stat-source">Bpifrance Le Lab, juin 2025</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">⅔</div>
-      <div class="stat-label">ne savent pas par où commencer dans leur propre entreprise</div>
-      <div class="stat-source">Bpifrance Le Lab, 2025</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">5%</div>
-      <div class="stat-label">seulement utilisent l'IA pour automatiser de vraies tâches quotidiennes</div>
-      <div class="stat-source">Baromètre France Num, 2025</div>
-    </div>
-  </div>
+<!-- HERO -->
+<header class="hero">
+  <p class="episode-label">Capsule IA — Épisode #2</p>
+  <h1>La guerre est finie.<br /><em>Maintenant, laquelle travaille pour vous ?</em></h1>
+  <p class="meta">Mars 2026 &nbsp;·&nbsp; Veille IA &nbsp;·&nbsp; Par Laetitia Coloré — MIA</p>
+  <p class="intro">En mars 2026, les trois grands modèles IA sont sortis en même temps, avec des performances quasi identiques. La course au "meilleur" est terminée. La vraie question commence maintenant.</p>
+  <p class="signature">Je décrypte. Je partage. Sans filtre.</p>
+</header>
+
+<div style="max-width:860px;margin:-32px auto 0;padding:0 24px;">
+  <img src="assets/images/La_Guerre_de_IA.png"
+       alt="Trois robots IA devant un miroir — Collaboration, Solution, Souveraineté — Capsule IA Mars 2026 par Laetitia Coloré MIA"
+       style="width:100%;border-radius:12px;box-shadow:0 8px 32px rgba(26,37,64,0.15);" />
 </div>
 
-<!-- ========== ÉCRAN TEST ========== -->
-<div id="screen-test">
-  <div class="progress-bar-wrap">
-    <div class="progress-header">
-      <span class="progress-label" id="progress-label">Dimension 1 / 6</span>
-      <span class="progress-count" id="progress-count">Question 1 sur 18</span>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="progress-fill"></div>
-    </div>
-  </div>
+<!-- CONTENU -->
+<main class="content">
 
-  <div class="test-layout">
-    <div class="dim-indicator" id="dim-indicator"></div>
-    <div id="questions-container"></div>
-  </div>
+  <!-- BLOC RÉPONSE DIRECTE -->
+  <section style="background:#f0f7fa;border-left:4px solid #A8D5E2;border-radius:6px;padding:24px 28px;margin-bottom:52px;">
+    <p style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#6a9ab8;margin-bottom:10px;">En bref — Mars 2026</p>
+    <p style="font-size:16px;color:#1a2540;line-height:1.65;margin:0;">En mars 2026, les trois principaux modèles IA — GPT-5.4 (OpenAI), Claude Sonnet 4.6 (Anthropic) et Gemini 3.1 Pro (Google) — atteignent des performances quasi identiques sur les benchmarks indépendants. La question n'est plus "laquelle est la meilleure" mais "laquelle résout votre problème concret". Gemini s'intègre désormais nativement dans Google Workspace. Mistral déploie un assistant souverain pour 30 000 agents de l'État français. La souveraineté des données devient un argument commercial pour les TPE.</p>
+  </section>
 
-  <div class="nav-btns">
-    <button class="btn-prev" id="btn-prev" onclick="prevDim()">
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Retour
-    </button>
-    <button class="btn-next" id="btn-next" onclick="nextDim()" disabled>
-      Dimension suivante
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-  </div>
-</div>
-
-<!-- ========== ÉCRAN RÉSULTATS ========== -->
-<div id="screen-results">
-  <div class="results-hero">
-    <h2>Votre diagnostic est prêt</h2>
-    <div class="score-ring-wrap">
-      <svg class="score-ring" viewBox="0 0 150 150">
-        <circle class="score-ring-bg" cx="75" cy="75" r="65"/>
-        <circle class="score-ring-fill" id="score-ring-fill" cx="75" cy="75" r="65"/>
-      </svg>
-      <div class="score-ring-text">
-        <div class="score-num" id="result-score">0</div>
-        <div class="score-max">sur 72</div>
+  <!-- ACTUALITÉ 1 -->
+  <article class="actu-block">
+    <div class="actu-header">
+      <span class="emoji">⚔️</span>
+      <div class="actu-meta">
+        <span class="actu-date">5 mars 2026</span>
+        <h2>GPT-5.4, Claude Sonnet 4.6, Gemini 3.1 Pro : le sprint final</h2>
       </div>
     </div>
-    <div class="score-level-badge" id="level-badge"></div>
-    <p class="score-level-desc" id="level-desc"></p>
-  </div>
-
-  <div class="results-body">
-    <div class="section-title">Détail par dimension</div>
-    <div class="dims-grid" id="dims-grid"></div>
-
-    <div class="cta-block">
-      <div class="cta-label">Passez à l'étape suivante</div>
-      <h3>Transformez ce diagnostic<br>en plan d'action</h3>
-      <p>En 1h avec Laetitia, on analyse vos résultats en détail et on identifie les 2-3 actions à fort impact pour votre entreprise.</p>
-      <div style="margin-bottom:24px;">
-        <div class="cta-price">
-          <span class="price-num">99 €</span>
-          <span class="price-label">— Diagnostic Express · 1h</span>
-        </div>
-      </div>
-      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" class="btn-rdv" target="_blank" onclick="gtag('event', 'clic_rdv', { event_category: 'conversion', event_label: 'Bouton Réserver diagnostic' })">
-        Réserver mon diagnostic
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <br>
-      <span class="cta-reassurance">Sans engagement · Réponse sous 24h · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3e5d51504a5f5d4a7e53575f1357504a5b525257595b505d5b105d5153">[email&#160;protected]</a></span>
+    <div class="stat-callout">
+      <span class="stat-number">80 %</span>
+      <span class="stat-label">Le score des trois modèles sur les benchmarks de code — ils se tiennent dans un mouchoir de poche.</span>
     </div>
-
-    <div style="text-align:center; margin-top:28px;">
-      <button class="btn-restart" onclick="restartTest()">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 1 0 1.5-4M2 4v4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Recommencer le test
-      </button>
+    <p>En quelques semaines, GPT-5.4 d'OpenAI, Claude Sonnet 4.6 d'Anthropic et Gemini 3.1 Pro de Google sont tous disponibles simultanément. Les chiffres publiés par des laboratoires indépendants placent les trois dans un écart infime. C'est une première.</p>
+    <p>Ce qui me frappe : <strong>pendant des mois, tout le monde s'est battu sur "lequel est le meilleur"</strong>. Mars nous répond collectivement : aucun, et les trois à la fois. La vraie compétition se joue désormais ailleurs — sur l'intégration, les usages, l'écosystème.</p>
+    <p>Et une chose que je retiens personnellement : Claude Opus 4.6 domine encore le classement LMArena en mars — le benchmark que j'estime le plus fiable parce qu'il repose sur les votes réels des utilisateurs, pas sur des mesures de laboratoire. C'est le terrain qui compte.</p>
+    <div class="pour-vous">
+      <p class="pour-vous-label">Ce que ça change pour vous</p>
+      <p>Arrêtez de chercher le meilleur outil IA. La bonne question c'est : <strong>lequel résout votre problème du mardi matin ?</strong> Le devis qui traîne, la relance client oubliée, le post LinkedIn jamais écrit. C'est là que se joue le vrai choix.</p>
     </div>
-  </div>
+  </article>
 
-  <div class="app-footer">
-    <p><a href="https://mia-intelligence.com">mia-intelligence.com</a> · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="50333f3e24313324103d39317d393e24353c3c3937353e33357e333f3d">[email&#160;protected]</a> · Laetitia Coloré — MIA</p>
-  </div>
-</div>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ========================
-// DONNÉES DU TEST
-// ========================
-const dimensions = [
-  {
-    num: '01', titre: 'Organisation',
-    desc: 'Vos process sont-ils visibles et reproductibles ?',
-    color: '#A8D5E2',
-    questions: [
-      { text: 'Vos procédures quotidiennes sont-elles écrites quelque part ?',
-        options: [
-          { score: 0, text: 'Non, tout est dans ma tête' },
-          { score: 1, text: 'Quelques notes éparses, pas organisées' },
-          { score: 3, text: 'Des documents existent mais pas à jour' },
-          { score: 4, text: 'Oui, accessibles et à jour' },
-        ]
-      },
-      { text: 'Un remplaçant pourrait-il tenir votre activité 1 semaine sans vous ?',
-        options: [
-          { score: 0, text: 'Impossible, tout dépend de moi' },
-          { score: 1, text: 'Avec beaucoup de coups de fil' },
-          { score: 3, text: 'Partiellement, avec des lacunes' },
-          { score: 4, text: 'Oui, les bases sont documentées' },
-        ]
-      },
-      { text: 'Comment gérez-vous vos priorités chaque matin ?',
-        options: [
-          { score: 0, text: 'Je gère au fil de l\'eau, sans méthode' },
-          { score: 1, text: 'Une liste mentale ou sur papier' },
-          { score: 3, text: 'Un outil mais pas toujours suivi' },
-          { score: 4, text: 'Un système clair et régulier' },
-        ]
-      },
-    ],
-    note: (s) => s <= 4 ? 'Vos process reposent sur votre mémoire. C\'est le 1er frein à l\'IA.' : s <= 8 ? 'Bonne base, quelques ajustements suffisent avant de déployer.' : 'Vous êtes bien organisé(e). L\'IA peut s\'appuyer sur vos bases.'
-  },
-  {
-    num: '02', titre: 'Communication',
-    desc: 'Combien de temps passez-vous à rédiger chaque semaine ?',
-    color: '#85C1E9',
-    questions: [
-      { text: 'Combien d\'heures par semaine passez-vous à rédiger (emails, posts, devis) ?',
-        options: [
-          { score: 0, text: 'Plus de 8h — c\'est énorme' },
-          { score: 1, text: 'Entre 5 et 8h' },
-          { score: 3, text: 'Entre 2 et 5h' },
-          { score: 4, text: 'Moins de 2h — j\'ai optimisé' },
-        ]
-      },
-      { text: 'Avez-vous des modèles de textes réutilisables (emails types, réponses fréquentes) ?',
-        options: [
-          { score: 0, text: 'Non, je retape tout à chaque fois' },
-          { score: 1, text: 'Quelques copies d\'anciens emails' },
-          { score: 3, text: 'Des modèles existent mais pas formalisés' },
-          { score: 4, text: 'Oui, des templates utilisés régulièrement' },
-        ]
-      },
-      { text: 'Publiez-vous du contenu (réseaux, blog, newsletter) pour votre activité ?',
-        options: [
-          { score: 0, text: 'Non, je n\'ai pas le temps' },
-          { score: 1, text: 'Rarement, par à-coups' },
-          { score: 3, text: 'Régulièrement mais c\'est difficile' },
-          { score: 4, text: 'Oui, j\'ai un rythme établi' },
-        ]
-      },
-    ],
-    note: (s) => s <= 4 ? 'Votre temps de communication est un vrai gouffre. L\'IA peut diviser ce temps par 3.' : s <= 8 ? 'Quelques outils bien choisis vous feraient gagner plusieurs heures par semaine.' : 'Vous avez de bonnes habitudes. L\'IA peut optimiser encore davantage.'
-  },
-  {
-    num: '03', titre: 'Relation client',
-    desc: 'Comment gérez-vous vos relances et votre suivi ?',
-    color: '#76D7C4',
-    questions: [
-      { text: 'Comment gérez-vous les relances de devis non signés ?',
-        options: [
-          { score: 0, text: 'Je n\'en fais pas ou très rarement' },
-          { score: 1, text: 'Je relance quand j\'y pense' },
-          { score: 3, text: 'Un suivi manuel sur tableur' },
-          { score: 4, text: 'Un processus automatisé ou structuré' },
-        ]
-      },
-      { text: 'Savez-vous quels clients n\'ont pas commandé depuis plus de 3 mois ?',
-        options: [
-          { score: 0, text: 'Non, aucune visibilité' },
-          { score: 1, text: 'Approximativement, de mémoire' },
-          { score: 3, text: 'Avec effort en consultant mes fichiers' },
-          { score: 4, text: 'Oui, j\'ai un suivi client structuré' },
-        ]
-      },
-      { text: 'Comment traitez-vous les questions et demandes récurrentes ?',
-        options: [
-          { score: 0, text: 'Je réponds à chaque fois from scratch' },
-          { score: 1, text: 'Je recycle parfois des réponses passées' },
-          { score: 3, text: 'J\'ai quelques réponses types' },
-          { score: 4, text: 'J\'ai une base de réponses bien organisée' },
-        ]
-      },
-    ],
-    note: (s) => s <= 4 ? 'Des clients vous échappent faute de suivi. C\'est le cas d\'usage IA le plus rapide à mettre en place.' : s <= 8 ? 'Un système de suivi plus structuré multiplierait vos conversions facilement.' : 'Votre relation client est solide. L\'IA peut la rendre encore plus proactive.'
-  },
-  {
-    num: '04', titre: 'Administratif',
-    desc: 'Devis, factures, emails répétitifs — combien de temps perdu ?',
-    color: '#F8C471',
-    questions: [
-      { text: 'Combien de temps vous prend la création d\'un devis ?',
-        options: [
-          { score: 0, text: 'Plus de 45 min — c\'est trop long' },
-          { score: 1, text: 'Entre 20 et 45 min' },
-          { score: 3, text: 'Entre 10 et 20 min' },
-          { score: 4, text: 'Moins de 10 min avec mes modèles' },
-        ]
-      },
-      { text: 'Vos factures et devis sont-ils générés depuis un logiciel ou modèle structuré ?',
-        options: [
-          { score: 0, text: 'Je les tape entièrement à la main' },
-          { score: 1, text: 'Un modèle Word ou Excel basique' },
-          { score: 3, text: 'Un logiciel mais pas optimal' },
-          { score: 4, text: 'Un logiciel avec modèles automatiques' },
-        ]
-      },
-      { text: 'Combien de temps passez-vous sur des tâches répétitives (pointage, saisie, transfert) ?',
-        options: [
-          { score: 0, text: 'Plus de 5h par semaine' },
-          { score: 1, text: 'Entre 3 et 5h' },
-          { score: 3, text: 'Entre 1 et 3h' },
-          { score: 4, text: 'Moins d\'1h — j\'ai automatisé' },
-        ]
-      },
-    ],
-    note: (s) => s <= 4 ? 'Vous perdez plusieurs heures par semaine sur des tâches répétitives. Priorité absolue à automatiser.' : s <= 8 ? 'Des automatisations simples vous libéreraient plusieurs heures chaque semaine.' : 'Vous êtes efficace administrativement. L\'IA peut affiner encore davantage.'
-  },
-  {
-    num: '05', titre: 'Données',
-    desc: 'Mesurez-vous quelque chose dans votre activité ?',
-    color: '#F1948A',
-    questions: [
-      { text: 'Connaissez-vous votre taux de transformation devis/commandes ?',
-        options: [
-          { score: 0, text: 'Non, aucune idée' },
-          { score: 1, text: 'Approximativement' },
-          { score: 3, text: 'Oui, je le calcule manuellement' },
-          { score: 4, text: 'Oui, c\'est dans un tableau de bord' },
-        ]
-      },
-      { text: 'Vos données clients (coordonnées, historique) sont-elles centralisées ?',
-        options: [
-          { score: 0, text: 'Non, dispersées partout' },
-          { score: 1, text: 'Dans des fichiers Excel éparpillés' },
-          { score: 3, text: 'Dans un fichier centralisé' },
-          { score: 4, text: 'Dans un CRM ou outil dédié' },
-        ]
-      },
-      { text: 'Analysez-vous vos résultats (CA, leads, retours clients) chaque mois ?',
-        options: [
-          { score: 0, text: 'Non, jamais systématiquement' },
-          { score: 1, text: 'En fin d\'année pour la compta seulement' },
-          { score: 3, text: 'Parfois, selon les périodes' },
-          { score: 4, text: 'Oui, un bilan mensuel régulier' },
-        ]
-      },
-    ],
-    note: (s) => s <= 4 ? 'Sans données structurées, l\'IA ne peut rien faire de pertinent. C\'est la brique à poser en premier.' : s <= 8 ? 'Vos données existent mais sont sous-exploitées. Un peu d\'organisation ouvre beaucoup de portes.' : 'Vous avez la matière pour aller loin avec l\'IA. Excellent point de départ.'
-  },
-  {
-    num: '06', titre: 'Disponibilité',
-    desc: 'Avez-vous la bande passante pour changer quelque chose ?',
-    color: '#C39BD3',
-    questions: [
-      { text: 'Pouvez-vous dédier 1h par semaine à l\'apprentissage d\'un nouvel outil ?',
-        options: [
-          { score: 0, text: 'Non, je suis complètement débordé(e)' },
-          { score: 1, text: 'Peut-être 30 min, avec difficulté' },
-          { score: 3, text: 'Oui, si c\'est planifié' },
-          { score: 4, text: 'Oui, c\'est déjà dans mon agenda' },
-        ]
-      },
-      { text: 'Avez-vous une personne de confiance pour tester de nouveaux outils avec vous ?',
-        options: [
-          { score: 0, text: 'Non, je suis seul(e)' },
-          { score: 1, text: 'Pas vraiment, je teste seul(e)' },
-          { score: 3, text: 'Un collaborateur disponible ponctuellement' },
-          { score: 4, text: 'Oui, une équipe ou associé(e) impliqué(e)' },
-        ]
-      },
-      { text: 'Quel est votre rapport à l\'expérimentation dans votre activité ?',
-        options: [
-          { score: 0, text: 'J\'évite de changer ce qui fonctionne' },
-          { score: 1, text: 'Je teste rarement, par manque de temps' },
-          { score: 3, text: 'J\'aime tester mais j\'abandonne vite' },
-          { score: 4, text: 'Je teste régulièrement et je mesure' },
-        ]
-      },
-    ],
-    note: (s) => s <= 4 ? 'Pas de temps = pas d\'adoption. Il faut sécuriser une plage test avant tout déploiement.' : s <= 8 ? 'Vous avez les conditions pour démarrer avec un accompagnement structuré.' : 'Vous pouvez commencer maintenant et avancer rapidement.'
-  },
-];
-
-// ========================
-// STATE
-// ========================
-let currentDim = 0;
-let answers = Array(6).fill(null).map(() => Array(3).fill(null));
-
-// ========================
-// NAVIGATION
-// ========================
-function startTest() {
-  document.getElementById('screen-intro').style.display = 'none';
-  document.getElementById('screen-test').style.display = 'block';
-  window.scrollTo(0, 0);
-  renderDimension(0);
-  gtag('event', 'diagnostic_demarre', { event_category: 'diagnostic', event_label: 'Bouton démarrer cliqué' });
-}
-
-function renderDimension(dimIdx) {
-  currentDim = dimIdx;
-  const dim = dimensions[dimIdx];
-
-  // Indicateur dimension
-  const dotsHTML = dimensions.map((d, i) => {
-    let cls = 'dim-dot';
-    if (i < dimIdx) cls += ' done';
-    if (i === dimIdx) cls += ' active';
-    return `<div class="${cls}"></div>`;
-  }).join('');
-
-  document.getElementById('dim-indicator').innerHTML = `
-    <div class="dim-header-card">
-      <div class="dim-num-big">${dim.num}</div>
-      <div class="dim-info">
-        <h2>${dim.titre}</h2>
-        <p>${dim.desc}</p>
+  <!-- ACTUALITÉ 2 -->
+  <article class="actu-block">
+    <div class="actu-header">
+      <span class="emoji">🧠</span>
+      <div class="actu-meta">
+        <span class="actu-date">Mars 2026</span>
+        <h2>Claude Sonnet 4.6 : ce que le million de tokens change vraiment</h2>
       </div>
     </div>
-    <div class="dim-dots">${dotsHTML}</div>
-  `;
+    <p>Anthropic a sorti Sonnet 4.6 avec une fenêtre de contexte d'un million de tokens en bêta. Concrètement : vous pouvez désormais soumettre à Claude des dizaines de documents longs — contrats, devis, historiques clients — et obtenir une analyse cohérente en une seule session, sans que l'outil "oublie" ce qu'il a lu au début.</p>
+    <p>Pour moi, <strong>c'est le changement le plus silencieux et le plus important de ce mois</strong>. Pas parce que la fenêtre de contexte est grande — mais parce que ça ouvre des automatisations qui n'étaient pas possibles avant. Un artisan qui veut analyser trois ans de devis pour comprendre ses marges par type de chantier. Un prestataire de services qui veut que son assistant IA connaisse tous ses clients à fond avant de rédiger une relance. C'était complexe. Maintenant, ça ne l'est plus.</p>
+    <p>Autre nouveauté que peu ont remarquée : <strong>Claude peut désormais générer des graphiques et des schémas directement dans ses réponses</strong>, sans outil tiers. Pour les dirigeants qui me demandent comment présenter leurs chiffres simplement — voilà une réponse concrète.</p>
+    <div class="pour-vous">
+      <p class="pour-vous-label">Ce que ça change pour vous</p>
+      <p>Si vous avez des documents épars — factures, devis, emails, fiches clients — et que vous avez toujours pensé que les analyser prendrait des semaines : ce n'est plus vrai. C'est une conversation de quelques minutes.</p>
+    </div>
+  </article>
 
-  // Questions
-  const qStartIdx = dimIdx * 3;
-  let questionsHTML = '';
-  dim.questions.forEach((q, qi) => {
-    const qGlobalIdx = qStartIdx + qi + 1;
-    const savedAnswer = answers[dimIdx][qi];
-    let optionsHTML = q.options.map((opt, oi) => {
-      const isSelected = savedAnswer === oi;
-      return `
-        <button class="option-btn ${isSelected ? 'selected' : ''}"
-                onclick="selectOption(${dimIdx}, ${qi}, ${oi}, this)">
-          <span class="option-radio"></span>
-          <span class="option-text">${opt.text}</span>
-          <span class="option-score-badge">${opt.score} pt${opt.score > 1 ? 's' : ''}</span>
-        </button>
-      `;
-    }).join('');
-
-    questionsHTML += `
-      <div class="question-card">
-        <div class="q-num-label">Question ${qGlobalIdx}</div>
-        <div class="q-text">${q.text}</div>
-        <div class="options-list">${optionsHTML}</div>
+  <!-- ACTUALITÉ 3 -->
+  <article class="actu-block">
+    <div class="actu-header">
+      <span class="emoji">📂</span>
+      <div class="actu-meta">
+        <span class="actu-date">Mars 2026</span>
+        <h2>Gemini s'installe dans Google Workspace — le signal que vous avez peut-être raté</h2>
       </div>
-    `;
-  });
+    </div>
+    <p>Google a déployé en mars de nouvelles intégrations de Gemini dans Docs, Sheets, Slides et Drive. Gemini rédige et reformule dans Docs, crée des formules et analyse des données dans Sheets, construit des présentations depuis un brief texte dans Slides.</p>
+    <p>Je vais être directe : <strong>si vous utilisez Google Workspace au quotidien, vous avez peut-être déjà un assistant IA sans le savoir.</strong> Ouvrez Google Docs demain matin, cherchez le bouton Gemini en haut à droite. Il est peut-être déjà là.</p>
+    <p>Ce que j'observe sur le terrain avec mes clients TPE : <em>les outils gratuits ou déjà inclus dans leur abonnement existant sont souvent les meilleurs points d'entrée</em>. Pas besoin de tout réinventer. Parfois, l'IA la plus utile est celle que vous avez déjà sous la main — et que personne ne vous a encore montré comment utiliser.</p>
+    <div class="pour-vous">
+      <p class="pour-vous-label">Ce que ça change pour vous</p>
+      <p>Avant d'investir dans un nouvel outil, vérifiez ce que vous avez déjà. Votre abonnement Google Workspace inclut peut-être Gemini. Et si c'est le cas, <strong>vous avez un assistant IA dans votre messagerie, vos feuilles de calcul et vos documents — sans coût supplémentaire.</strong></p>
+    </div>
+  </article>
 
-  document.getElementById('questions-container').innerHTML = questionsHTML;
-
-  // Boutons nav
-  document.getElementById('btn-prev').style.visibility = dimIdx === 0 ? 'hidden' : 'visible';
-  const isLast = dimIdx === dimensions.length - 1;
-  const nextBtn = document.getElementById('btn-next');
-  nextBtn.innerHTML = isLast
-    ? 'Voir mes résultats <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-    : 'Dimension suivante <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-
-  updateProgress();
-  checkNextEnabled();
-  window.scrollTo(0, 0);
-}
-
-function selectOption(dimIdx, qIdx, optIdx, btn) {
-  answers[dimIdx][qIdx] = optIdx;
-  // Mise à jour visuelle
-  const card = btn.closest('.question-card');
-  card.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  checkNextEnabled();
-}
-
-function checkNextEnabled() {
-  const allAnswered = answers[currentDim].every(a => a !== null);
-  document.getElementById('btn-next').disabled = !allAnswered;
-}
-
-function nextDim() {
-  if (currentDim < dimensions.length - 1) {
-    renderDimension(currentDim + 1);
-  } else {
-    showResults();
-  }
-}
-
-function prevDim() {
-  if (currentDim > 0) renderDimension(currentDim - 1);
-}
-
-function updateProgress() {
-  const totalQ = 18;
-  const answeredQ = answers.flat().filter(a => a !== null).length;
-  const dimProgress = currentDim / dimensions.length;
-  const pct = Math.round(dimProgress * 100);
-
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-label').textContent = `Dimension ${currentDim + 1} / ${dimensions.length}`;
-  document.getElementById('progress-count').textContent = `Question ${currentDim * 3 + 1} sur ${totalQ}`;
-}
-
-// ========================
-// RÉSULTATS
-// ========================
-function showResults() {
-  document.getElementById('screen-test').style.display = 'none';
-  document.getElementById('screen-results').style.display = 'block';
-  window.scrollTo(0, 0);
-  gtag('event', 'diagnostic_termine', { event_category: 'diagnostic', event_label: 'Résultats affichés' });
-
-  // Calcul scores
-  const dimScores = dimensions.map((dim, di) => {
-    return answers[di].reduce((sum, optIdx, qi) => {
-      if (optIdx === null) return sum;
-      return sum + dim.questions[qi].options[optIdx].score;
-    }, 0);
-  });
-
-  const totalScore = dimScores.reduce((a, b) => a + b, 0);
-
-  // Score ring
-  const circumference = 2 * Math.PI * 65;
-  const offset = circumference - (totalScore / 72) * circumference;
-  setTimeout(() => {
-    document.getElementById('score-ring-fill').style.strokeDashoffset = offset;
-  }, 200);
-
-  // Score numérique (animation)
-  animateNumber('result-score', totalScore, 1200);
-
-  // Niveau
-  let level, levelColor, levelDesc;
-  if (totalScore <= 24) {
-    level = '🔴 Pas encore prêt(e)';
-    levelColor = '#e74c3c';
-    levelDesc = 'L\'IA serait contre-productive dans votre situation actuelle. Commençons par structurer vos bases — c\'est ce qui fera vraiment la différence.';
-  } else if (totalScore <= 44) {
-    level = '🟡 En bonne voie';
-    levelColor = '#e67e22';
-    levelDesc = 'Vous avez les fondations. 2 ou 3 dimensions clés à renforcer, et vous pouvez déployer vos premiers outils avec un vrai retour sur investissement.';
-  } else if (totalScore <= 60) {
-    level = '🟢 Prêt(e) à démarrer';
-    levelColor = '#27ae60';
-    levelDesc = 'Votre entreprise est bien positionnée. Un accompagnement ciblé suffit pour lancer les premiers cas d\'usage et mesurer les gains concrets.';
-  } else {
-    level = '🚀 Prêt(e) à accélérer';
-    levelColor = '#2980b9';
-    levelDesc = 'Vous pouvez déployer l\'IA sur plusieurs axes simultanément. Le potentiel de gain dans votre entreprise est immédiat et mesurable.';
-  }
-
-  const badge = document.getElementById('level-badge');
-  badge.textContent = level;
-  badge.style.background = levelColor + '22';
-  badge.style.border = `1px solid ${levelColor}55`;
-  badge.style.color = '#fff';
-  document.getElementById('level-desc').textContent = levelDesc;
-
-  // Grille dimensions
-  const grid = document.getElementById('dims-grid');
-  grid.innerHTML = dimensions.map((dim, i) => {
-    const score = dimScores[i];
-    const pct = (score / 12) * 100;
-    const note = dim.note(score);
-    return `
-      <div class="dim-result-card">
-        <div class="dim-result-header">
-          <div>
-            <div style="font-size:10px;color:var(--muted);font-weight:600;letter-spacing:1px;margin-bottom:3px;">${dim.num}</div>
-            <div class="dim-result-name">${dim.titre}</div>
-          </div>
-          <div class="dim-result-score" style="color:${dim.color}">${score}<span style="font-size:14px;color:var(--muted)">/12</span></div>
-        </div>
-        <div class="dim-bar-track">
-          <div class="dim-bar-fill" style="background:${dim.color};width:0%" data-pct="${pct}"></div>
-        </div>
-        <div class="dim-result-note">${note}</div>
+  <!-- ACTUALITÉ 4 -->
+  <article class="actu-block">
+    <div class="actu-header">
+      <span class="emoji">🇫🇷</span>
+      <div class="actu-meta">
+        <span class="actu-date">Mars 2026</span>
+        <h2>Mistral + l'État français : la question de la souveraineté des données arrive en TPE</h2>
       </div>
-    `;
-  }).join('');
+    </div>
+    <div class="stat-callout">
+      <span class="stat-number">30 000</span>
+      <span class="stat-label">Agents de l'État équipés d'un assistant IA souverain via Mistral et la DINUM.</span>
+    </div>
+    <p>Mistral AI et la Direction interministérielle du numérique déploient ensemble un assistant IA souverain pour les agents de l'État français. Les données restent hébergées en Europe. La conformité RGPD est native.</p>
+    <p>J'entends régulièrement des dirigeants me dire qu'ils hésitent à utiliser l'IA parce qu'ils ne savent pas où partent leurs données. <strong>C'est une vraie question, et elle mérite une vraie réponse</strong> — pas un "ne vous inquiétez pas".</p>
+    <p>Ce que je retiens de ce signal Mistral : <em>la souveraineté des données va devenir un argument commercial</em>, y compris pour les TPE. Vos clients vous demanderont bientôt si vos outils sont RGPD-conformes. Et si vous pouvez répondre oui avec précision, c'est un avantage concurrentiel réel — surtout dans des secteurs sensibles comme la santé, le juridique, ou les métiers de confiance.</p>
+    <div class="pour-vous">
+      <p class="pour-vous-label">Ce que ça change pour vous</p>
+      <p>Commencez à vous poser la question pour chaque outil que vous utilisez : <strong>où sont mes données ? Sont-elles hébergées en Europe ?</strong> Ce n'est pas une contrainte — c'est un argument que vous pourrez bientôt valoriser auprès de vos clients.</p>
+    </div>
+  </article>
 
-  // Animer les barres
-  setTimeout(() => {
-    document.querySelectorAll('.dim-bar-fill').forEach(bar => {
-      bar.style.width = bar.dataset.pct + '%';
+  <div class="separator"></div>
+
+  <!-- CONCLUSION -->
+  <section class="conclusion">
+    <h2>Ce que mars 2026 <em>m'a vraiment appris</em></h2>
+    <p>On a passé deux ans à se demander quelle IA allait "gagner". Mars nous donne la réponse : la question était mal posée. Les trois grandes IA sont désormais au même niveau sur les benchmarks. Ce qui les différencie, c'est l'usage — et surtout l'intention de celui qui les utilise.</p>
+    <p>Ce que j'observe chez mes clients, c'est que <strong>l'outil n'est jamais le problème</strong>. Le problème, c'est de ne pas savoir par où commencer — et de se retrouver à tester sans stratégie, à perdre du temps au lieu d'en gagner.</p>
+    <p>Mars m'a aussi rappelé que la question de la confiance — la souveraineté, les données, la neutralité — va s'inviter de plus en plus dans les conversations. Et les dirigeants qui sauront y répondre clairement auront une longueur d'avance.</p>
+    <p><strong>L'IA n'attend pas. Mais elle n'est utile que si vous lui donnez un rôle précis dans votre activité.</strong></p>
+    <p class="question-finale">Et vous — vous utilisez déjà un outil IA dans votre quotidien professionnel ? Lequel, et pour faire quoi concrètement ?</p>
+  </section>
+
+  <!-- FAQ -->
+  <section style="margin-bottom:64px;">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:#1a2540;margin-bottom:32px;line-height:1.3;">Questions fréquentes</h2>
+    <div style="border-top:1px solid #e0eaf0;padding:24px 0;">
+      <h3 style="font-size:1rem;font-weight:600;color:#1a2540;margin-bottom:10px;">Quelle est la meilleure IA pour une TPE ou un artisan en 2026 ?</h3>
+      <p style="color:#4a4a5a;line-height:1.7;margin:0;">En mars 2026, GPT-5.4, Claude Sonnet 4.6 et Gemini 3.1 Pro ont des performances quasi identiques sur les benchmarks indépendants. La vraie question n'est pas laquelle est la meilleure, mais laquelle résout votre problème concret : devis automatiques, relation client, rédaction de contenu, ou analyse de documents. C'est l'usage qui fait la différence, pas le classement.</p>
+    </div>
+    <div style="border-top:1px solid #e0eaf0;padding:24px 0;">
+      <h3 style="font-size:1rem;font-weight:600;color:#1a2540;margin-bottom:10px;">Comment une TPE peut-elle utiliser l'IA sans être informaticienne ?</h3>
+      <p style="color:#4a4a5a;line-height:1.7;margin:0;">Le point d'entrée le plus simple est souvent un outil que vous utilisez déjà. Si vous êtes sur Google Workspace, Gemini est peut-être déjà intégré dans vos Docs et Sheets — ouvrez Google Docs et cherchez le bouton Gemini en haut à droite. Commencez par ce que vous avez avant d'investir dans un nouvel abonnement.</p>
+    </div>
+    <div style="border-top:1px solid #e0eaf0;padding:24px 0;">
+      <h3 style="font-size:1rem;font-weight:600;color:#1a2540;margin-bottom:10px;">L'IA est-elle conforme au RGPD pour les entreprises françaises ?</h3>
+      <p style="color:#4a4a5a;line-height:1.7;margin:0;">Cela dépend de l'outil choisi. Les grandes plateformes américaines hébergent souvent les données hors Europe. En mars 2026, Mistral AI et la DINUM ont déployé un assistant IA souverain pour 30 000 agents de l'État, hébergé en Europe et natif RGPD. Pour votre entreprise, la question à poser pour chaque outil est simple : où sont hébergées mes données ?</p>
+    </div>
+    <div style="border-top:1px solid #e0eaf0;padding:24px 0;">
+      <h3 style="font-size:1rem;font-weight:600;color:#1a2540;margin-bottom:10px;">Combien coûte la mise en place d'un agent IA pour une petite entreprise ?</h3>
+      <p style="color:#4a4a5a;line-height:1.7;margin:0;">MIA propose des agents IA sur mesure pour les TPE et artisans à partir d'un taux horaire de 80 € HT, avec une maintenance mensuelle de 80 € HT par agent. Un premier échange permet d'identifier les tâches automatisables dans votre activité avant tout engagement.</p>
+    </div>
+    <div style="border-top:1px solid #e0eaf0;border-bottom:1px solid #e0eaf0;padding:24px 0;">
+      <h3 style="font-size:1rem;font-weight:600;color:#1a2540;margin-bottom:10px;">Qu'est-ce que la Capsule IA de MIA ?</h3>
+      <p style="color:#4a4a5a;line-height:1.7;margin:0;">La Capsule IA est une ressource mensuelle publiée par Laetitia Coloré — MIA — qui décrypte l'actualité de l'intelligence artificielle pour les dirigeants de TPE, artisans et commerçants. Sans jargon technique, avec un focus sur ce que ça change concrètement pour votre activité au quotidien.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-block">
+    <h3>Vous voulez savoir <em>par où commencer, concrètement ?</em></h3>
+    <p>MIA accompagne les TPE, artisans et professions libérales pour passer de la veille à l'action — avec les bons outils, bien utilisés, sans dépendance.</p>
+    <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank">Prendre rendez-vous →</a>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée" />
+      <p>Consultante & Formatrice Digital & IA — MIA accompagne les TPE et professions libérales dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/laetitia-colore" title="LinkedIn">in</a>
+        <a href="mailto:contact@mia-intelligence.com" title="Email">contact@mia-intelligence.com</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="je-comprends.html">Je comprends</a></li>
+        <li><a href="j-automatise.html">J'automatise</a></li>
+        <li><a href="je-maitrise.html">Je maîtrise</a></li>
+        <li><a href="comment-ca-fonctionne.html">Comment c'est construit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="capsule-ia-1.html">Capsule IA #1</a></li>
+        <li><a href="capsule-ia-2.html">Capsule IA #2</a></li>
+        <li><a href="diagnostic.html">Diagnostic gratuit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0617813305">06 17 81 33 05</a></li>
+        <li><a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></li>
+        <li><a href="https://mia-intelligence.com">mia-intelligence.com</a></li>
+        <li>Saint-Maximin-la-Sainte-Baume</li>
+        <li>Var — 83</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 MIA — Médiation Intelligence Appliquée</p>
+    <div class="footer-links">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="cookies.html">Gestion des cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.getElementById('navBurger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navLinks.classList.toggle('open');
     });
-  }, 400);
-}
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  });
+</script>
 
-function animateNumber(id, target, duration) {
-  const el = document.getElementById(id);
-  const start = 0;
-  const startTime = performance.now();
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(start + (target - start) * eased);
-    if (progress < 1)
+</body>
+</html>
