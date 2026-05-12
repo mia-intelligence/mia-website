@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude, c'est quoi vraiment ? Le guide honnête pour les TPE",
+  "description": "Projets, Artefacts, Mémoire, Connecteurs, Claude Design, Claude Code : le tour complet des fonctionnalités de Claude expliqué sans jargon pour les TPE, artisans et commerçants.",
+  "author": { "@type": "Person", "name": "Laetitia Coloré" },
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "MIA — Médiation Intelligence Appliquée",
+    "url": "https://mia-intelligence.com"
+  },
+  "datePublished": "2026-05-19",
+  "dateModified": "2026-05-19",
+  "url": "https://mia-intelligence.com/capsule-ia-3.html",
+  "inLanguage": "fr",
+  "keywords": "Claude IA, fonctionnalités Claude, Claude Projects, Claude Design, Claude Code, intelligence artificielle TPE, IA pour artisans"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Claude est-il gratuit ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il existe un plan gratuit, déjà très complet depuis début 2026. Les fonctionnalités avancées (mémoire étendue, Claude Design, connecteurs) sont disponibles sur les plans payants à partir de 20 €/mois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence entre Claude et ChatGPT ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les deux sont des assistants IA capables. Claude est reconnu pour la qualité de son raisonnement, sa compréhension des nuances, et sa fiabilité sur des tâches longues et complexes. Il est développé par Anthropic, une entreprise centrée sur la sécurité de l'IA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claude peut-il remplacer un assistant humain ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non — et ce n'est pas le bon angle. Claude est un outil d'amplification : il vous fait gagner du temps sur les tâches répétitives pour que vous puissiez vous concentrer sur ce qui crée vraiment de la valeur dans votre entreprise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Claude parle-t-il français ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parfaitement. Et il comprend les spécificités du marché français, la réglementation et les usages professionnels locaux."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que mes données sont protégées avec Claude ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anthropic a confirmé que Claude ne sera jamais financé par la publicité. Vos conversations ne sont pas utilisées à des fins de ciblage publicitaire. Pour les usages professionnels sensibles, les plans Team et Enterprise offrent des garanties supplémentaires sur la confidentialité des données."
+      }
+    }
+  ]
+}
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3d5080">
+<title>Capsule IA #3 — Claude, c'est quoi vraiment ? Le guide honnête pour les TPE | MIA</title>
+<meta name="description" content="Projets, Artefacts, Mémoire, Connecteurs, Claude Design, Claude Code : le tour complet des fonctionnalités de Claude expliqué sans jargon pour les TPE, artisans et commerçants." />
+<link rel="canonical" href="https://mia-intelligence.com/capsule-ia-3.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bleu-clair: #A8D5E2;
+    --bleu-marine: #1A2540;
+    --fond: #F9F7F4;
+    --blanc: #FFFFFF;
+    --texte: #1A2540;
+    --accent: #3d5080;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--fond);
+    color: var(--texte);
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--blanc);
+    border-bottom: 1px solid #e8e4df;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo img { height: 44px; display: block; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--texte);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links .cta-nav {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    padding: 0.45rem 1.1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .nav-links .cta-nav:hover { background: var(--accent); color: var(--blanc); }
+  .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--texte); border-radius: 2px; }
+
+  @media (max-width: 768px) {
+    .burger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0; right: 0;
+      background: var(--blanc);
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e8e4df;
+      gap: 1.2rem;
+    }
+    .nav-links.open { display: flex; }
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+  }
+  .capsule-label {
+    display: inline-block;
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--bleu-clair);
+  }
+  .hero-meta {
+    font-size: 0.88rem;
+    opacity: 0.75;
+    margin-bottom: 2rem;
+  }
+  .hero-intro {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    opacity: 0.92;
+    line-height: 1.7;
+  }
+
+  /* RÉSUMÉ */
+  .resume-box {
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    max-width: 860px;
+    margin: 0 auto -2rem;
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .resume-box h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .resume-box p { font-size: 0.95rem; line-height: 1.65; }
+
+  /* CONTENU */
+  .content-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem 3rem;
+  }
+
+  /* SECTIONS */
+  .section-card {
+    background: var(--blanc);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--bleu-clair);
+    box-shadow: 0 2px 12px rgba(26,37,64,0.06);
+  }
+  .section-card.dark {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    border-left-color: var(--bleu-clair);
+  }
+  .section-card.dark p { color: rgba(255,255,255,0.88); }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  .section-header h2 span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+  .section-card.dark .section-header h2 span { color: var(--bleu-clair); }
+
+  .section-card p { margin-bottom: 0.9rem; }
+  .section-card p:last-child { margin-bottom: 0; }
+
+  .highlight-box {
+    background: var(--fond);
+    border-radius: 6px;
+    padding: 1rem 1.4rem;
+    margin-top: 1rem;
+    font-size: 0.93rem;
+    border-left: 3px solid var(--accent);
+  }
+  .section-card.dark .highlight-box {
+    background: rgba(255,255,255,0.08);
+    border-left-color: var(--bleu-clair);
+    color: rgba(255,255,255,0.9);
+  }
+  .highlight-box strong { color: var(--bleu-marine); }
+  .section-card.dark .highlight-box strong { color: var(--bleu-clair); }
+
+  /* BADGE NOUVEAUTÉ */
+  .badge-new {
+    display: inline-block;
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* CONCLUSION */
+  .conclusion {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .conclusion h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--blanc);
+  }
+  .conclusion p { opacity: 0.88; margin-bottom: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .btn-cta {
+    display: inline-block;
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  .btn-cta:hover { opacity: 0.88; }
+
+  /* FAQ */
+  .faq-section { margin-bottom: 2rem; }
+  .faq-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    color: var(--bleu-marine);
+  }
+  .faq-item {
+    background: var(--blanc);
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 1px 6px rgba(26,37,64,0.06);
+    overflow: hidden;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    padding: 1.1rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.97rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-item summary::after { content: '+'; font-size: 1.3rem; color: var(--accent); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 1.5rem 1.1rem; font-size: 0.93rem; color: #3a3a3a; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bleu-marine);
+    color: rgba(255,255,255,0.8);
+    padding: 3rem 2rem 2rem;
+    margin-top: 3rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer-logo img { height: 44px; margin-bottom: 1rem; }
+  .footer-logo p { font-size: 0.85rem; line-height: 1.6; opacity: 0.75; }
+  .footer-col h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--bleu-clair);
+    margin-bottom: 0.8rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.4rem; }
+  .footer-col ul li a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; }
+  .footer-col ul li a:hover { color: var(--blanc); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    opacity: 0.6;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .footer-social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+  }
+  .footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .footer-icon:hover { border-color: var(--blanc); color: var(--blanc); }
+  .footer-bottom a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.82rem;
+  }
+  .footer-bottom a:hover { color: var(--blanc); }
+
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .resume-box { margin: 0 1rem -2rem; }
+    .section-card { padding: 1.8rem 1.5rem; }
+    .conclusion { padding: 2rem 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="https://mia-intelligence.com/index.html">
+      <img src="https://mia-intelligence.com/assets/images/LogoMIAFBC.png" alt="MIA — Médiation Intelligence Appliquée" />
+    </a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="https://mia-intelligence.com/qui-suis-je.html">Qui suis-je ?</a></li>
+      <li><a href="https://mia-intelligence.com/je-comprends.html">Je comprends</a></li>
+      <li><a href="https://mia-intelligence.com/j-automatise.html">J'automatise</a></li>
+      <li><a href="https://mia-intelligence.com/je-maitrise.html">Je maîtrise</a></li>
+      <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" class="cta-nav">Prendre rendez-vous</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="capsule-label">Capsule IA — Épisode #3</div>
+  <h1>Claude, c'est quoi vraiment ?<br><em>Le guide honnête pour les TPE</em></h1>
+  <p class="hero-meta">Mai 2026 · Décryptage IA · Par Laetitia Coloré — MIA</p>
+  <p class="hero-intro">
+    Depuis quelques mois, j'entends souvent la même chose dans mes rendez-vous :<br>
+    <em>"Claude ? Oui je connais, c'est une IA comme ChatGPT non ?"</em><br><br>
+    Oui et non. Claude, c'est l'IA que j'utilise au quotidien — pour moi et pour mes clients. Et je me suis dit qu'il était temps de vous expliquer vraiment ce qu'il fait, au-delà du chatbot qu'on imagine.<br><br>
+    Cette capsule, c'est mon tour du propriétaire. Pas technique. Pas compliqué. Juste utile.
+  </p>
+</section>
+
+<!-- RÉSUMÉ -->
+<div style="background: var(--fond); padding: 3rem 2rem 0;">
+  <div class="resume-box">
+    <h2>En bref — Mai 2026</h2>
+    <p>Claude n'est pas qu'un chatbot. C'est un écosystème complet avec des fonctionnalités concrètes pour les entreprises : Projets, Artefacts, Mémoire, Connecteurs, Recherche web, Claude Design et Claude Code. Ce guide sans jargon vous explique à quoi ça sert vraiment — et ce que ça peut changer dans votre quotidien professionnel.</p>
+  </div>
+</div>
+
+<!-- CONTENU -->
+<div class="content-wrap">
+
+  <!-- 1. PROJETS -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">📁</div>
+      <h2><span>Fonctionnalité 1</span>Les Projets : votre espace de travail permanent</h2>
+    </div>
+    <p>Imaginez que vous ayez un assistant qui se souvient de tout ce que vous lui avez dit — vos clients, vos tarifs, votre façon de travailler — sans que vous ayez à tout réexpliquer à chaque fois.</p>
+    <p>C'est exactement ce que font les Projets dans Claude. Vous créez un projet, vous y déposez vos documents de référence (votre catalogue, vos CGV, vos modèles d'email), et Claude s'en souvient à chaque nouvelle conversation.</p>
+    <div class="highlight-box">
+      <strong>Exemple concret :</strong> Un artisan dépose son catalogue tarifaire dans un Projet Claude. À chaque nouvelle conversation, Claude connaît déjà ses prestations, ses prix et ses conditions — il répond directement sans avoir besoin qu'on lui réexplique le contexte.
+    </div>
+  </div>
+
+  <!-- 2. ARTEFACTS -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🛠️</div>
+      <h2><span>Fonctionnalité 2</span>Les Artefacts : Claude fabrique, il ne dicte plus</h2>
+    </div>
+    <p>Avant, une IA vous donnait du texte. Vous le copiiez, vous le colliez ailleurs, vous le reformatiez. C'était fastidieux.</p>
+    <p>Avec les Artefacts, Claude vous livre directement un objet fini : un document mis en page, un tableau de suivi, un formulaire, une mini-application interactive. Tout ça dans une fenêtre dédiée, sans quitter la conversation.</p>
+    <div class="highlight-box">
+      <strong>Exemple concret :</strong> Vous demandez à Claude de créer un tableau de suivi de vos chantiers. Il vous le fabrique en direct, vous pouvez le modifier, le télécharger. Fini le copier-coller.
+    </div>
+  </div>
+
+  <!-- 3. MÉMOIRE -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🧠</div>
+      <h2><span>Fonctionnalité 3</span>La Mémoire : il vous connaît d'une session à l'autre</h2>
+    </div>
+    <p>Depuis mars 2026, Claude peut mémoriser vos préférences et vos habitudes entre les conversations — même sur le plan gratuit.</p>
+    <p>Vous lui avez dit que vous travaillez en tutoiement avec vos clients, que vous êtes basé dans le Var, que vous ne voulez pas de jargon technique dans vos emails ? Il s'en souvient la prochaine fois que vous ouvrez une conversation.</p>
+    <div class="highlight-box">
+      <strong>Ce que ça change :</strong> C'est petit, mais c'est ce genre de détail qui fait la différence dans le quotidien. Moins de temps à réexpliquer, plus de temps à produire.
+    </div>
+  </div>
+
+  <!-- 4. CONNECTEURS -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🔗</div>
+      <h2><span>Fonctionnalité 4</span>Les Connecteurs : branché sur vos outils du quotidien</h2>
+    </div>
+    <p>Claude ne vit pas en vase clos. Il se connecte directement à plus de 50 outils que vous utilisez déjà : Google Drive, Notion, Slack, Canva, et bien d'autres.</p>
+    <div class="highlight-box">
+      <strong>Exemple concret :</strong> Vous lui demandez d'aller chercher le devis que vous avez posé dans votre Drive il y a trois semaines, d'en faire un résumé et de rédiger un email de relance. Il le fait — sans que vous n'ayez à copier-coller quoi que ce soit.
+    </div>
+  </div>
+
+  <!-- 5. RECHERCHE WEB -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🔍</div>
+      <h2><span>Fonctionnalité 5</span>La Recherche web : il va chercher l'info lui-même</h2>
+    </div>
+    <p>Claude peut effectuer des recherches sur internet en temps réel et vous livrer une synthèse directement dans la conversation.</p>
+    <div class="highlight-box">
+      <strong>Exemple concret :</strong> Vous gérez un salon de coiffure et vous voulez savoir quelles sont les tendances de la saison. Demandez à Claude — il cherche, il lit, il synthétise. Vous gagnez l'heure que vous auriez passée à compiler des onglets.
+    </div>
+  </div>
+
+  <!-- 6. CLAUDE DESIGN -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🎨</div>
+      <h2><span>Fonctionnalité 6</span>Claude Design : créer des visuels sans être designer <span class="badge-new">Nouveau</span></h2>
+    </div>
+    <p>C'est la nouveauté d'avril 2026 et elle mérite qu'on s'y attarde.</p>
+    <p>Claude Design, c'est la possibilité de créer des visuels professionnels — prototypes, présentations, maquettes, one-pagers — simplement en décrivant ce que vous voulez. Pas besoin de maîtriser Figma ou Photoshop. Vous expliquez, Claude construit.</p>
+    <p>Et ce qui est vraiment intéressant pour les TPE : si vous lui donnez votre charte graphique (vos couleurs, votre logo), il l'applique à chaque création automatiquement. Le résultat est cohérent avec votre identité visuelle, sans effort de votre part.</p>
+    <div class="highlight-box">
+      <strong>Exemple concret :</strong> Vous exportez ensuite en PDF, en PowerPoint, ou directement dans Canva pour les derniers ajustements. Une présentation client en deux heures au lieu de deux jours — c'est concret.
+    </div>
+  </div>
+
+  <!-- 7. CLAUDE CODE -->
+  <div class="section-card dark">
+    <div class="section-header">
+      <div class="section-icon">⚙️</div>
+      <h2><span style="color: var(--bleu-clair);">Pour aller plus loin</span>Claude Code : des outils vraiment sur mesure</h2>
+    </div>
+    <p>C'est là où mon travail entre en jeu.</p>
+    <p>Claude Code permet de construire des applications et des outils entièrement personnalisés pour une entreprise — sans développeur traditionnel. Des systèmes qui s'adaptent exactement aux processus d'une structure, pas l'inverse.</p>
+    <p>C'est ce que j'utilise concrètement pour mes clients : un outil de suivi de production pour une menuiserie, un système de gestion de projet pour un cabinet de design, des automatisations métier qui collent exactement au fonctionnement de l'entreprise.</p>
+    <div class="highlight-box">
+      <strong>Ma conviction :</strong> L'IA au service de votre stratégie — pas l'inverse. C'est exactement ça.
+    </div>
+  </div>
+
+  <!-- 8. COWORK -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">💻</div>
+      <h2><span>À suivre</span>Et Claude Cowork ?</h2>
+    </div>
+    <p>Vous entendrez peut-être parler de Claude Cowork — l'outil qui permet à Claude d'agir directement sur votre ordinateur et vos fichiers locaux.</p>
+    <p>C'est une fonctionnalité fascinante, et je lui consacrerai une capsule complète prochainement — en vous partageant les aléas que j'ai rencontrés, parce qu'il n'est pas aussi simple qu'il n'y paraît. Je préfère vous en parler avec du recul terrain plutôt que de la théorie.</p>
+  </div>
+
+  <!-- 9. DONNÉES -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2><span>Point confiance</span>Vos données restent à vous</h2>
+    </div>
+    <p>Anthropic l'a annoncé officiellement : Claude ne sera jamais financé par la publicité.</p>
+    <p>Pourquoi c'est important ? Parce que quand un service est gratuit grâce aux annonceurs, vous êtes le produit. Ici, ce n'est pas le modèle. Vos conversations ne servent pas à vous cibler publicitairement.</p>
+    <div class="highlight-box">
+      Pour des TPE et des artisans qui partagent des informations sensibles — tarifs, clients, projets — c'est une garantie qui mérite d'être connue.
+    </div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="conclusion">
+    <h2>Et maintenant, par où commencer ?</h2>
+    <p>Claude n'est pas une baguette magique. Mais c'est un outil sérieux, qui s'améliore vite, et qui peut changer concrètement votre façon de travailler — à condition de savoir comment l'utiliser.</p>
+    <p>Si vous voulez savoir ce que Claude pourrait faire pour votre activité spécifiquement, c'est exactement le type de question qu'on explore ensemble lors d'un premier échange.</p>
+    <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" class="btn-cta">Prendre un rendez-vous découverte →</a>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Questions fréquentes sur Claude</h2>
+
+    <details class="faq-item">
+      <summary>Claude est-il gratuit ?</summary>
+      <p>Il existe un plan gratuit, déjà très complet depuis début 2026. Les fonctionnalités avancées (mémoire étendue, Claude Design, connecteurs) sont disponibles sur les plans payants à partir de 20 €/mois.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Quelle est la différence entre Claude et ChatGPT ?</summary>
+      <p>Les deux sont des assistants IA capables. Claude est reconnu pour la qualité de son raisonnement, sa compréhension des nuances, et sa fiabilité sur des tâches longues et complexes. Il est développé par Anthropic, une entreprise centrée sur la sécurité de l'IA.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Claude peut-il remplacer un assistant humain ?</summary>
+      <p>Non — et ce n'est pas le bon angle. Claude est un outil d'amplification : il vous fait gagner du temps sur les tâches répétitives pour que vous puissiez vous concentrer sur ce qui crée vraiment de la valeur dans votre entreprise.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Claude parle-t-il français ?</summary>
+      <p>Parfaitement. Et il comprend les spécificités du marché français, la réglementation et les usages professionnels locaux.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Est-ce que mes données sont protégées avec Claude ?</summary>
+      <p>Anthropic a confirmé que Claude ne sera jamais financé par la publicité. Vos conversations ne sont pas utilisées à des fins de ciblage publicitaire. Pour les usages professionnels sensibles, les plans Team et Enterprise offrent des garanties supplémentaires sur la confidentialité des données.</p>
+    </details>
+  </div>
+
+</div><!-- fin content-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="https://mia-intelligence.com/assets/images/LogoMIAFBC.png" alt="MIA Médiation Intelligence Appliquée" />
+      <p>Consultante &amp; Formatrice Digital &amp; IA — MIA accompagne les PME et professions libérales dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/laetitia-colore/" title="LinkedIn" class="footer-icon">in</a>
+        <a href="mailto:contact@mia-intelligence.com" title="Email" class="footer-icon">@</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="https://mia-intelligence.com/je-comprends.html">Je comprends</a></li>
+        <li><a href="https://mia-intelligence.com/j-automatise.html">J'automatise</a></li>
+        <li><a href="https://mia-intelligence.com/je-maitrise.html">Je maîtrise</a></li>
+        <li><a href="https://mia-intelligence.com/comment-ca-fonctionne.html">Comment c'est construit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="https://mia-intelligence.com/capsule-ia-1.html">Capsule IA #1</a></li>
+        <li><a href="https://mia-intelligence.com/capsule-ia-2.html">Capsule IA #2</a></li>
+        <li><a href="https://mia-intelligence.com/capsule-ia-3.html">Capsule IA #3</a></li>
+        <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form">Diagnostic gratuit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0617813305">06 17 81 33 05</a></li>
+        <li><a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></li>
+        <li><a href="https://mia-intelligence.com">mia-intelligence.com</a></li>
+        <li>Saint-Maximin-la-Sainte-Baume</li>
+        <li>Var — 83</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 MIA — Médiation Intelligence Appliquée</span>
+    <div>
+      <a href="https://mia-intelligence.com/mentions-legales.html">Mentions légales</a>
+      <a href="https://mia-intelligence.com/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="https://mia-intelligence.com/cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+</script>
+
+</body>
+</html>
