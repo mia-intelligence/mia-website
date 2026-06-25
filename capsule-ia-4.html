@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Cowork, mon assistant qui agit (et là où ça coince)",
+  "description": "Ranger ses fichiers, organiser sa veille, planifier ses tâches : ce que Claude Cowork fait vraiment sur votre ordinateur, et les vrais pièges à connaître avant de se lancer. Retour terrain honnête pour les TPE.",
+  "author": { "@type": "Person", "name": "Laetitia Coloré" },
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "MIA — Médiation Intelligence Appliquée",
+    "url": "https://mia-intelligence.com"
+  },
+  "datePublished": "2026-06-24",
+  "dateModified": "2026-06-24",
+  "url": "https://mia-intelligence.com/capsule-ia-4.html",
+  "inLanguage": "fr",
+  "keywords": "Claude Cowork, assistant IA bureau, automatisation TPE, IA pour artisans, rangement fichiers IA, veille automatisée, intelligence artificielle ordinateur"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que Claude Cowork exactement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est une application de bureau qui permet à Claude d'agir directement sur votre ordinateur : ranger des fichiers, organiser votre bureau, préparer une veille, exécuter des tâches planifiées. Contrairement à Claude sur le web qui vous répond, Cowork passe à l'action sur vos dossiers locaux."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence entre Cowork et Claude sur le web ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cowork agit sur votre ordinateur et vos fichiers locaux. Claude sur le web (et dans le navigateur) cherche de l'information en ligne et navigue sur internet. Ce sont deux outils différents qui ne partagent pas leur mémoire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cowork se souvient-il de mes conversations ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sa mémoire est courte : il se souvient sur l'instant mais oublie d'une fois à l'autre. C'est pourquoi il vaut mieux programmer les tâches récurrentes plutôt que les redemander à chaque fois — chaque exécution planifiée est alors cadrée d'avance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Mes fichiers et mes données sont-ils en sécurité avec Cowork ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cowork n'accède qu'aux dossiers et aux actions que vous autorisez explicitement. Vous gardez le contrôle total : rien ne se fait sans votre permission, et vos fichiers restent sur votre poste."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il être informaticien pour utiliser Cowork ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, mais il faut le configurer correctement pour qu'il soit utile. C'est précisément l'étape où un accompagnement fait la différence : poser les bonnes autorisations et programmer les bonnes tâches dès le départ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cowork fonctionne-t-il sur tous mes ordinateurs ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Il est rattaché à l'ordinateur sur lequel il est installé. Ce que vous créez sur une machine ne se retrouve pas automatiquement sur une autre, et en cas de plantage vous pouvez tout perdre, y compris votre configuration. Si vous travaillez sur plusieurs postes, c'est à anticiper dès le départ."
+      }
+    }
+  ]
+}
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3d5080">
+<title>Capsule IA #4 — Claude Cowork, mon assistant qui agit (et là où ça coince) | MIA</title>
+<meta name="description" content="Ranger ses fichiers, organiser sa veille, planifier ses tâches : ce que Claude Cowork fait vraiment sur votre ordinateur, et les vrais pièges à connaître. Retour terrain honnête pour les TPE." />
+<link rel="canonical" href="https://mia-intelligence.com/capsule-ia-4.html" />
+<link rel="icon" type="image/png" href="https://mia-intelligence.com/assets/images/mia-favicon.png" />
+<link rel="apple-touch-icon" href="https://mia-intelligence.com/assets/images/mia-favicon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bleu-clair: #A8D5E2;
+    --bleu-marine: #1A2540;
+    --fond: #F9F7F4;
+    --blanc: #FFFFFF;
+    --texte: #1A2540;
+    --accent: #3d5080;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--fond);
+    color: var(--texte);
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--blanc);
+    border-bottom: 1px solid #e8e4df;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 2rem;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo img { height: 44px; display: block; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--texte);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links .cta-nav {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    padding: 0.45rem 1.1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+  }
+  .nav-links .cta-nav:hover { background: var(--accent); color: var(--blanc); }
+  .burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .burger span { display: block; width: 24px; height: 2px; background: var(--texte); border-radius: 2px; }
+
+  @media (max-width: 768px) {
+    .burger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 68px;
+      left: 0; right: 0;
+      background: var(--blanc);
+      flex-direction: column;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid #e8e4df;
+      gap: 1.2rem;
+    }
+    .nav-links.open { display: flex; }
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+  }
+  .capsule-label {
+    display: inline-block;
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--bleu-clair);
+  }
+  .hero-meta {
+    font-size: 0.88rem;
+    opacity: 0.75;
+    margin-bottom: 2rem;
+  }
+  .hero-intro {
+    max-width: 640px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    opacity: 0.92;
+    line-height: 1.7;
+  }
+
+  /* RÉSUMÉ */
+  .resume-box {
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    max-width: 860px;
+    margin: 0 auto -2rem;
+    border-radius: 8px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+  .resume-box h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .resume-box p { font-size: 0.95rem; line-height: 1.65; }
+
+  /* CONTENU */
+  .content-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem 3rem;
+  }
+
+  /* SECTIONS */
+  .section-card {
+    background: var(--blanc);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--bleu-clair);
+    box-shadow: 0 2px 12px rgba(26,37,64,0.06);
+  }
+  .section-card.dark {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    border-left-color: var(--bleu-clair);
+  }
+  .section-card.dark p { color: rgba(255,255,255,0.88); }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  .section-header h2 span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+  .section-card.dark .section-header h2 span { color: var(--bleu-clair); }
+
+  .section-card p { margin-bottom: 0.9rem; }
+  .section-card p:last-child { margin-bottom: 0; }
+
+  /* SCHÉMA INLINE */
+  .schema-wrap {
+    background: var(--blanc);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 12px rgba(26,37,64,0.06);
+    text-align: center;
+  }
+  .schema-wrap svg { width: 100%; height: auto; max-width: 700px; }
+  .schema-wrap figcaption {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-top: 0.8rem;
+    font-style: italic;
+  }
+
+  .highlight-box {
+    background: var(--fond);
+    border-radius: 6px;
+    padding: 1rem 1.4rem;
+    margin-top: 1rem;
+    font-size: 0.93rem;
+    border-left: 3px solid var(--accent);
+  }
+  .section-card.dark .highlight-box {
+    background: rgba(255,255,255,0.08);
+    border-left-color: var(--bleu-clair);
+    color: rgba(255,255,255,0.9);
+  }
+  .highlight-box strong { color: var(--bleu-marine); }
+  .section-card.dark .highlight-box strong { color: var(--bleu-clair); }
+
+  /* BADGE NOUVEAUTÉ */
+  .badge-new {
+    display: inline-block;
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* CONCLUSION */
+  .conclusion {
+    background: var(--bleu-marine);
+    color: var(--blanc);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .conclusion h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--blanc);
+  }
+  .conclusion p { opacity: 0.88; margin-bottom: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .btn-cta {
+    display: inline-block;
+    background: var(--bleu-clair);
+    color: var(--bleu-marine);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  .btn-cta:hover { opacity: 0.88; }
+
+  /* FAQ */
+  .faq-section { margin-bottom: 2rem; }
+  .faq-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    color: var(--bleu-marine);
+  }
+  .faq-item {
+    background: var(--blanc);
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 1px 6px rgba(26,37,64,0.06);
+    overflow: hidden;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    padding: 1.1rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.97rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-item summary::after { content: '+'; font-size: 1.3rem; color: var(--accent); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 1.5rem 1.1rem; font-size: 0.93rem; color: #3a3a3a; }
+
+  /* FOOTER */
+  footer {
+    background: var(--bleu-marine);
+    color: rgba(255,255,255,0.8);
+    padding: 3rem 2rem 2rem;
+    margin-top: 3rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer-logo img { height: 44px; margin-bottom: 1rem; }
+  .footer-logo p { font-size: 0.85rem; line-height: 1.6; opacity: 0.75; }
+  .footer-col h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--bleu-clair);
+    margin-bottom: 0.8rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.4rem; }
+  .footer-col ul li a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; }
+  .footer-col ul li a:hover { color: var(--blanc); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    opacity: 0.6;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .footer-social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+  }
+  .footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .footer-icon:hover { border-color: var(--blanc); color: var(--blanc); }
+  .footer-bottom a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 0.82rem;
+  }
+  .footer-bottom a:hover { color: var(--blanc); }
+
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .resume-box { margin: 0 1rem -2rem; }
+    .section-card { padding: 1.8rem 1.5rem; }
+    .conclusion { padding: 2rem 1.5rem; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .hero { padding: 3rem 1.5rem 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="https://mia-intelligence.com/index.html">
+      <img src="https://mia-intelligence.com/assets/images/LogoMIAFBC.png" alt="MIA — Médiation Intelligence Appliquée" />
+    </a>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="https://mia-intelligence.com/qui-suis-je.html">Qui suis-je ?</a></li>
+      <li><a href="https://mia-intelligence.com/je-comprends.html">Je comprends</a></li>
+      <li><a href="https://mia-intelligence.com/j-automatise.html">J'automatise</a></li>
+      <li><a href="https://mia-intelligence.com/je-maitrise.html">Je maîtrise</a></li>
+      <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" class="cta-nav">Prendre rendez-vous</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="capsule-label">Capsule IA — Épisode #4</div>
+  <h1>Claude Cowork, mon assistant qui agit<br><em>(et là où ça coince)</em></h1>
+  <p class="hero-meta">Juin 2026 · Décryptage IA · Par Laetitia Coloré — MIA</p>
+  <p class="hero-intro">
+    Dans ma capsule précédente, je vous avais promis de revenir sur Claude Cowork — « avec les aléas rencontrés, du recul terrain plutôt que de la théorie ». Promesse tenue.<br><br>
+    Parce que Cowork, c'est l'outil qui m'a le plus impressionnée… et le plus fait râler. Les deux. Et c'est précisément pour ça que je veux vous en parler franchement : si je ne vous montre que le côté magique, je ne vous rends pas service.<br><br>
+    Voici donc mon retour, sans filtre.
+  </p>
+</section>
+
+<!-- RÉSUMÉ -->
+<div style="background: var(--fond); padding: 3rem 2rem 0;">
+  <div class="resume-box">
+    <h2>En bref — Juin 2026</h2>
+    <p>Claude Cowork est une application de bureau qui permet à Claude d'agir directement sur votre ordinateur : ranger vos fichiers, organiser votre bureau, préparer une veille structurée, planifier des tâches récurrentes. C'est un assistant qui <em>fait</em>, pas seulement qui conseille. Mais attention : il est rattaché à un ordinateur précis, et sa mémoire est courte. Bien utilisé — c'est-à-dire en programmant les tâches plutôt qu'en les redemandant à chaque fois — il devient un vrai collaborateur du quotidien. Mal compris, il vous donne l'impression d'être à côté de la plaque.</p>
+  </div>
+</div>
+
+<!-- CONTENU -->
+<div class="content-wrap">
+
+  <!-- 1. C'EST QUOI -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🤖</div>
+      <h2><span>D'abord, de quoi on parle</span>Cowork, c'est Claude qui passe à l'action</h2>
+    </div>
+    <p>Jusqu'ici, vous demandiez quelque chose à Claude, il vous répondait, et c'était à vous d'exécuter. Avec Cowork, on change de logique : Claude ne se contente plus de vous dire quoi faire, <strong>il le fait</strong>.</p>
+    <p>Concrètement, c'est une application installée sur votre ordinateur. Vous lui donnez l'autorisation d'accéder à vos dossiers, et il agit dessus directement. C'est votre nouvel assistant — celui qui vous accompagne toute la journée pour faire les choses que vous n'avez jamais le temps de faire.</p>
+    <div class="highlight-box">
+      <strong>Ce que ça change :</strong> vous arrêtez de penser « il faudrait que je trouve un moment pour ça ». Vous le confiez à Cowork, et il s'en occupe.
+    </div>
+  </div>
+
+  <!-- 2. RANGEMENT -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🗂️</div>
+      <h2><span>Usage n°1</span>Il range derrière vous (enfin)</h2>
+    </div>
+    <p>Je vais être honnête : mon dossier Téléchargements, c'est le chaos. Des fichiers partout, des versions multiples, rien de classé. Si vous êtes comme moi, vous voyez très bien de quoi je parle.</p>
+    <p>Cowork, vous pouvez le programmer pour qu'il vienne ranger après votre passage. Il trie, il classe, il organise un espace propre sur votre bureau. Vous travaillez, vous téléchargez, vous laissez le bazar — et lui repasse derrière pour remettre de l'ordre.</p>
+    <div class="highlight-box">
+      <strong>Exemple concret :</strong> vous lui demandez de classer chaque semaine vos téléchargements par type (factures, devis, images, documents clients) dans des dossiers dédiés. Une corvée que vous repoussez depuis des mois, réglée sans y penser.
+    </div>
+  </div>
+
+  <!-- 3. VEILLE + MÉMOIRE COURTE -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">📰</div>
+      <h2><span>Usage n°2</span>Une veille structurée, à votre façon — mais programmée</h2>
+    </div>
+    <p>Vous voulez rester à la page des dernières sorties dans votre domaine sans y passer vos soirées ? Cowork peut préparer un compte rendu de veille, structuré exactement comme vous en avez besoin.</p>
+    <p><strong>Mais attention, c'est ici qu'arrive mon premier vrai apprentissage terrain.</strong> J'ai longtemps demandé à Cowork de me faire des recherches de veille « à la volée », au fil de mes conversations. Résultat : j'avais l'impression qu'à chaque demande il était à côté du sujet, qu'il oubliait ce que je venais de dire.</p>
+    <p>La raison ? <strong>La mémoire de Cowork est une mémoire courte.</strong> Il se souvient sur l'instant, puis il oublie. J'avais cru — par habitude de travailler avec lui — qu'il partageait la même mémoire que les autres Claude. Faux. Du coup, chaque demande est pour lui une demande neuve.</p>
+    <div class="highlight-box">
+      <strong>La solution change tout :</strong> on ne demande pas, on programme. Quand vous planifiez une veille récurrente (« chaque lundi matin, fais-moi le point sur les nouveautés et range-le dans ce dossier »), Cowork exécute proprement, parce que la tâche est cadrée d'avance. Vous êtes toujours à jour, sans relancer la machine à chaque fois.
+    </div>
+  </div>
+
+  <!-- SCHÉMA COWORK VS WEB -->
+  <figure class="schema-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="Schéma comparatif : Claude Cowork agit sur votre ordinateur, Claude web agit sur internet. Les deux ne partagent pas leur mémoire.">
+      <rect width="760" height="360" rx="10" fill="#FFFFFF"/>
+      <text x="380" y="42" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="600" font-size="26" fill="#1A2540">Deux outils différents</text>
+      <text x="380" y="66" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="14" fill="#3d5080">qui ne partagent pas leur mémoire</text>
+      <rect x="40" y="100" width="300" height="200" rx="10" fill="#F9F7F4" stroke="#A8D5E2" stroke-width="2"/>
+      <rect x="40" y="100" width="300" height="46" rx="10" fill="#1A2540"/>
+      <rect x="40" y="124" width="300" height="22" fill="#1A2540"/>
+      <text x="190" y="130" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Claude Cowork</text>
+      <g transform="translate(150,168)">
+        <rect x="0" y="0" width="90" height="58" rx="6" fill="#FFFFFF" stroke="#1A2540" stroke-width="2.5"/>
+        <rect x="10" y="10" width="70" height="38" rx="2" fill="#A8D5E2"/>
+        <rect x="34" y="62" width="22" height="8" fill="#1A2540"/>
+        <rect x="22" y="70" width="46" height="5" rx="2" fill="#1A2540"/>
+      </g>
+      <text x="190" y="262" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="14" font-weight="600" fill="#1A2540">Agit sur VOTRE ordinateur</text>
+      <text x="190" y="283" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="12.5" fill="#3d5080">Ranger · Organiser · Planifier</text>
+      <rect x="420" y="100" width="300" height="200" rx="10" fill="#F9F7F4" stroke="#A8D5E2" stroke-width="2"/>
+      <rect x="420" y="100" width="300" height="46" rx="10" fill="#1A2540"/>
+      <rect x="420" y="124" width="300" height="22" fill="#1A2540"/>
+      <text x="570" y="130" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF">Claude sur le web</text>
+      <g transform="translate(540,166)">
+        <circle cx="30" cy="30" r="29" fill="#FFFFFF" stroke="#1A2540" stroke-width="2.5"/>
+        <ellipse cx="30" cy="30" rx="13" ry="29" fill="none" stroke="#1A2540" stroke-width="2"/>
+        <line x1="1" y1="30" x2="59" y2="30" stroke="#1A2540" stroke-width="2"/>
+        <line x1="6" y1="16" x2="54" y2="16" stroke="#1A2540" stroke-width="2"/>
+        <line x1="6" y1="44" x2="54" y2="44" stroke="#1A2540" stroke-width="2"/>
+        <circle cx="30" cy="30" r="29" fill="#A8D5E2" opacity="0.18"/>
+      </g>
+      <text x="570" y="262" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="14" font-weight="600" fill="#1A2540">Va chercher sur INTERNET</text>
+      <text x="570" y="283" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="12.5" fill="#3d5080">Rechercher · Naviguer · Synthétiser</text>
+      <line x1="380" y1="120" x2="380" y2="280" stroke="#A8D5E2" stroke-width="2" stroke-dasharray="6 6"/>
+      <circle cx="380" cy="200" r="26" fill="#3d5080"/>
+      <text x="380" y="209" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">≠</text>
+      <text x="380" y="332" text-anchor="middle" font-family="'DM Sans', Arial, sans-serif" font-size="12.5" fill="#1A2540">Mémoire séparée · l'un ne sait pas ce que fait l'autre</text>
+    </svg>
+    <figcaption>Cowork agit chez vous, Claude web sur internet — et ils ne se souviennent pas l'un de l'autre.</figcaption>
+  </figure>
+
+  <!-- 4. DISTINCTION COWORK / WEB -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🧭</div>
+      <h2><span>Le piège à éviter</span>Cowork n'est PAS Claude sur le web</h2>
+    </div>
+    <p>C'est l'erreur que je fais moi-même, par réflexe — alors je préfère vous prévenir. À force de travailler avec eux ensemble, j'oublie qu'ils sont différents.</p>
+    <p><strong>Claude Cowork</strong> agit sur <strong>votre ordinateur</strong> et vos fichiers locaux : ranger, organiser, planifier.</p>
+    <p><strong>Claude sur le web (et dans le navigateur)</strong> va chercher de l'information <strong>en ligne</strong>, navigue sur des pages, fait des recherches sur internet.</p>
+    <div class="highlight-box">
+      Ce ne sont pas les mêmes outils, et surtout <strong>ils ne partagent pas leur mémoire</strong>. Ce que vous construisez avec l'un ne se retrouve pas automatiquement chez l'autre. C'est déroutant au début, et c'est normal de confondre. Mais une fois que vous avez compris ça, vous arrêtez de vous demander pourquoi « il ne se souvient pas ».
+    </div>
+  </div>
+
+  <!-- 5. MON VRAI RATÉ -->
+  <div class="section-card dark">
+    <div class="section-header">
+      <div class="section-icon">💻</div>
+      <h2><span style="color: var(--bleu-clair);">Mon vrai raté</span>Le plantage qui m'a tout fait perdre</h2>
+    </div>
+    <p>Voici ce qui m'est arrivé, et que je préfère vous raconter avant que ça vous arrive.</p>
+    <p>J'avais créé plusieurs outils dans Cowork sur un de mes ordinateurs. L'application a planté. Et là, surprise : <strong>tout était perdu.</strong> Rien à récupérer, rien sur mes autres ordinateurs, et — le pire — j'ai dû <strong>recommencer toute la configuration de zéro.</strong> Des heures de travail envolées.</p>
+    <p>La raison, je l'ai comprise après : Cowork est rattaché à <strong>un ordinateur bien précis</strong>. Ce que vous créez reste en local, sur ce poste-là. Il n'existe aujourd'hui aucune sauvegarde automatique sur votre compte, aucun moyen de récupérer une session sur une autre machine.</p>
+    <div class="highlight-box">
+      <strong>La leçon :</strong> Cowork est puissant <em>là où il est installé</em>, mais ce n'est pas un outil « partout, tout le temps » comme Claude sur le web. Une astuce limite la casse : si vous demandez à Cowork de travailler dans un dossier déjà synchronisé sur iCloud ou Dropbox, au moins les fichiers produits vous suivront. Mais la configuration et le travail en cours, eux, restent sur la machine. À anticiper dès le départ — sinon, comme moi, vous risquez de tout refaire.
+    </div>
+  </div>
+
+  <!-- 6. POINT CONFIANCE -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <h2><span>Point confiance</span>Vous gardez la main sur votre machine</h2>
+    </div>
+    <p>Cowork agit sur votre ordinateur, mais <strong>uniquement avec les autorisations que vous lui donnez.</strong> C'est vous qui décidez à quels dossiers il a accès et quelles actions il peut effectuer. Rien ne se fait dans votre dos.</p>
+    <div class="highlight-box">
+      Pour des artisans, des commerçants, des dirigeants de TPE qui manipulent des fichiers sensibles — devis, données clients, factures — c'est une garantie importante : l'outil reste sous votre contrôle, sur votre poste, sans envoyer vos dossiers on ne sait où.
+    </div>
+  </div>
+
+  <!-- 7. POUR QUI -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <h2><span>Soyons clairs</span>Pour qui c'est vraiment utile ? (et pour qui pas encore)</h2>
+    </div>
+    <p>Soyons clairs, parce que c'est mon rôle de vous le dire honnêtement.</p>
+    <p>Cowork est génial <strong>si</strong> vous prenez le temps de bien le configurer : autorisations posées, tâches récurrentes programmées, usages cadrés. C'est là qu'il devient un assistant fidèle.</p>
+    <p>En revanche, si vous attendez un outil « magique » qui devine tout, tout seul, du premier coup — vous allez être déçu, comme je l'ai été au début. La valeur de Cowork ne vient pas de l'outil seul : elle vient de <strong>la façon dont on le paramètre</strong>. Et ça, c'est exactement le genre de chose qu'on met en place ensemble.</p>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="conclusion">
+    <h2>Et concrètement, par où commencer ?</h2>
+    <p>Cowork peut vous faire gagner des heures chaque semaine — à condition de bien démarrer. Mal configuré, il vous fait perdre du temps ; bien pensé, il travaille pour vous pendant que vous faites autre chose.</p>
+    <p>Si vous voulez voir ce que Cowork pourrait automatiser dans <strong>votre</strong> quotidien — votre rangement, votre veille, vos tâches répétitives — c'est exactement le type de sujet qu'on explore lors d'un premier échange.</p>
+    <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" class="btn-cta">Prendre un rendez-vous découverte →</a>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Questions fréquentes sur Claude Cowork</h2>
+
+    <details class="faq-item">
+      <summary>Qu'est-ce que Claude Cowork exactement ?</summary>
+      <p>C'est une application de bureau qui permet à Claude d'agir directement sur votre ordinateur : ranger des fichiers, organiser votre bureau, préparer une veille, exécuter des tâches planifiées. Contrairement à Claude sur le web qui vous répond, Cowork passe à l'action sur vos dossiers locaux.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Quelle est la différence entre Cowork et Claude sur le web ?</summary>
+      <p>Cowork agit sur votre ordinateur et vos fichiers locaux. Claude sur le web (et dans le navigateur) cherche de l'information en ligne et navigue sur internet. Ce sont deux outils différents qui ne partagent pas leur mémoire.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Cowork se souvient-il de mes conversations ?</summary>
+      <p>Sa mémoire est courte : il se souvient sur l'instant mais oublie d'une fois à l'autre. C'est pourquoi il vaut mieux programmer les tâches récurrentes plutôt que les redemander à chaque fois — chaque exécution planifiée est alors cadrée d'avance.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Mes fichiers et mes données sont-ils en sécurité avec Cowork ?</summary>
+      <p>Cowork n'accède qu'aux dossiers et aux actions que vous autorisez explicitement. Vous gardez le contrôle total : rien ne se fait sans votre permission, et vos fichiers restent sur votre poste.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Faut-il être informaticien pour utiliser Cowork ?</summary>
+      <p>Non, mais il faut le configurer correctement pour qu'il soit utile. C'est précisément l'étape où un accompagnement fait la différence : poser les bonnes autorisations et programmer les bonnes tâches dès le départ.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary>Cowork fonctionne-t-il sur tous mes ordinateurs ?</summary>
+      <p>Non. Il est rattaché à l'ordinateur sur lequel il est installé. Ce que vous créez sur une machine ne se retrouve pas automatiquement sur une autre, et en cas de plantage vous pouvez tout perdre, y compris votre configuration. Si vous travaillez sur plusieurs postes, c'est à anticiper dès le départ.</p>
+    </details>
+  </div>
+
+</div><!-- fin content-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="https://mia-intelligence.com/assets/images/LogoMIAFBC.png" alt="MIA Médiation Intelligence Appliquée" />
+      <p>Consultante &amp; Formatrice Digital &amp; IA — MIA accompagne les PME et professions libérales dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/laetitia-colore/" title="LinkedIn" class="footer-icon">in</a>
+        <a href="mailto:contact@mia-intelligence.com" title="Email" class="footer-icon">@</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="https://mia-intelligence.com/je-comprends.html">Je comprends</a></li>
+        <li><a href="https://mia-intelligence.com/j-automatise.html">J'automatise</a></li>
+        <li><a href="https://mia-intelligence.com/je-maitrise.html">Je maîtrise</a></li>
+        <li><a href="https://mia-intelligence.com/comment-ca-fonctionne.html">Comment c'est construit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="https://mia-intelligence.com/capsule-ia-1.html">Capsule IA #1</a></li>
+        <li><a href="https://mia-intelligence.com/capsule-ia-2.html">Capsule IA #2</a></li>
+        <li><a href="https://mia-intelligence.com/capsule-ia-3.html">Capsule IA #3</a></li>
+        <li><a href="https://mia-intelligence.com/capsule-ia-4.html">Capsule IA #4</a></li>
+        <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form">Diagnostic gratuit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0617813305">06 17 81 33 05</a></li>
+        <li><a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></li>
+        <li><a href="https://mia-intelligence.com">mia-intelligence.com</a></li>
+        <li>Saint-Maximin-la-Sainte-Baume</li>
+        <li>Var — 83</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 MIA — Médiation Intelligence Appliquée</span>
+    <div>
+      <a href="https://mia-intelligence.com/mentions-legales.html">Mentions légales</a>
+      <a href="https://mia-intelligence.com/politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="https://mia-intelligence.com/cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('nav-links');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+</script>
+
+</body>
+</html>
