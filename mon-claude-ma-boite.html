@@ -34,12 +34,22 @@
     "name": "MIA — Médiation Intelligence Appliquée",
     "url": "https://mia-intelligence.com",
     "logo": "https://mia-intelligence.com/assets/images/mia-logo.png",
-    "founder": { "@type": "Person", "name": "Laetitia Coloré" },
+    "founder": {
+      "@type": "Person",
+      "name": "Laetitia Coloré",
+      "jobTitle": "Consultante & Formatrice — Digital & IA"
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Saint-Maximin-la-Sainte-Baume",
       "addressRegion": "Var",
+      "postalCode": "83470",
       "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.4553,
+      "longitude": 5.8653
     },
     "telephone": "+33617813305",
     "email": "contact@mia-intelligence.com",
@@ -194,35 +204,67 @@
   .section-tag { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mia-marine); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-tag::before { content: ""; display: block; width: 28px; height: 1px; background: var(--mia-marine); }
 
-  /* ===== HERO / RÉPONSE DIRECTE ===== */
-  .page-hero { padding: 10rem 6rem 5rem; background: var(--mia-marine); position: relative; overflow: hidden; }
+  /* ===== HERO ===== */
+  .page-hero { padding: 9rem 6rem 4.5rem; background: var(--mia-marine); position: relative; overflow: hidden; }
   .page-hero::after { content: ""; position: absolute; right: -100px; top: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(168,213,226,0.15) 0%, transparent 70%); pointer-events: none; }
-  .page-hero-inner { position: relative; z-index: 2; max-width: 760px; }
+  .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center; }
   .page-tag { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mia-clair); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.75rem; }
   .page-tag::before { content: ""; display: block; width: 28px; height: 1px; background: var(--mia-clair); }
-  .page-hero h1 { font-family: "Cormorant Garamond", serif; font-size: 3.2rem; font-weight: 300; color: white; line-height: 1.15; margin-bottom: 1.6rem; }
+  .page-hero h1 { font-family: "Cormorant Garamond", serif; font-size: 3rem; font-weight: 300; color: white; line-height: 1.15; margin-bottom: 1.4rem; }
   .page-hero h1 em { font-style: italic; color: var(--mia-clair); }
-  .page-hero p { font-size: 1rem; line-height: 1.85; color: rgba(255,255,255,0.78); margin-bottom: 1.1rem; }
-  .page-hero p strong { color: var(--mia-clair); font-weight: 500; }
+  .hero-sub { font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.78); margin-bottom: 1.6rem; max-width: 540px; }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; padding: 0.5rem 1.1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; background: rgba(168,213,226,0.15); color: var(--mia-clair); border: 1px solid rgba(168,213,226,0.3); }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .btn-cta { display: inline-block; background: var(--mia-clair); color: var(--mia-marine); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.95rem 2.2rem; text-decoration: none; border-radius: 2px; border: 2px solid var(--mia-clair); transition: all 0.3s; }
+  .btn-cta:hover { background: white; border-color: white; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(168,213,226,0.3); }
+  .btn-cta-light { display: inline-block; background: transparent; color: white; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.95rem 2.2rem; text-decoration: none; border-radius: 2px; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; }
+  .btn-cta-light:hover { background: white; color: var(--mia-marine); border-color: white; }
+  .hero-photo { position: relative; }
+  .hero-photo img { width: 100%; max-height: 480px; object-fit: cover; object-position: top; display: block; border-radius: 4px; box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+  .hero-photo::after { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid rgba(168,213,226,0.4); border-radius: 4px; z-index: -1; }
 
   /* ===== SECTIONS ===== */
-  .section { padding: 6rem; }
-  .section h2 { font-family: "Cormorant Garamond", serif; font-size: 2.6rem; font-weight: 300; color: var(--mia-marine); line-height: 1.2; margin-bottom: 1.5rem; }
-  .section h2 em { font-style: italic; color: var(--mia-marine); }
-  .section p { font-size: 0.95rem; line-height: 1.85; color: #5a6a8a; margin-bottom: 1.2rem; max-width: 720px; }
+  .section { padding: 5rem 6rem; }
+  .section h2 { font-family: "Cormorant Garamond", serif; font-size: 2.4rem; font-weight: 300; color: var(--mia-marine); line-height: 1.2; margin-bottom: 1.3rem; }
+  .section h2 em { font-style: italic; }
+  .section p { font-size: 0.95rem; line-height: 1.8; color: #5a6a8a; margin-bottom: 1rem; max-width: 720px; }
   .section p strong { color: var(--mia-marine); font-weight: 500; }
 
+  /* L'essentiel (réponse directe GEO) */
+  .section-essentiel { background: white; }
+  .maj-date { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bleu-moyen); margin-bottom: 1.5rem; }
+  .essentiel-box { border-left: 4px solid var(--mia-clair); padding: 0.4rem 0 0.4rem 2rem; max-width: 780px; }
+  .essentiel-box p { font-size: 1rem; line-height: 1.85; color: var(--texte); }
+  .essentiel-box p strong { color: var(--mia-marine); }
+
+  /* Compteurs */
+  .section-chiffres { background: var(--mia-marine); padding: 4rem 6rem; }
+  .chiffres-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+  .chiffre-num { font-family: "Cormorant Garamond", serif; font-size: 3.2rem; font-weight: 600; color: var(--mia-clair); line-height: 1; }
+  .chiffre-suffix { font-size: 1.4rem; }
+  .chiffre-label { font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-top: 0.6rem; line-height: 1.5; }
+
   /* Pour qui */
-  .section-pourqui { background: white; }
+  .section-pourqui { background: var(--mia-fond); }
   .cible-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2.5rem; }
-  .cible-card { background: var(--mia-fond); border-left: 3px solid var(--mia-clair); padding: 1.8rem; }
+  .cible-card { background: white; border-left: 3px solid var(--mia-clair); padding: 1.8rem; }
   .cible-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.4rem; font-weight: 600; color: var(--mia-marine); margin-bottom: 0.7rem; }
   .cible-card p { font-size: 0.88rem; line-height: 1.7; margin: 0; }
 
   /* Problème */
-  .section-probleme { background: var(--mia-fond); }
-  .citation { background: white; border-left: 4px solid var(--mia-marine); padding: 2rem 2.5rem; max-width: 720px; margin: 2rem 0; }
+  .section-probleme { background: white; }
+  .citation { background: var(--mia-fond); border-left: 4px solid var(--mia-marine); padding: 2rem 2.5rem; max-width: 720px; margin: 1.6rem 0; }
   .citation p { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-style: italic; color: var(--mia-marine); line-height: 1.5; margin: 0; }
+
+  /* Exemples de séances */
+  .section-exemples { background: var(--mia-fond); }
+  .exemples-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+  .exemple-card { background: white; padding: 1.8rem 2rem; border-top: 3px solid var(--mia-clair); transition: transform 0.3s, box-shadow 0.3s; }
+  .exemple-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,37,64,0.1); }
+  .exemple-num { font-family: "Cormorant Garamond", serif; font-size: 2rem; font-weight: 600; color: var(--mia-clair); line-height: 1; margin-bottom: 0.8rem; }
+  .exemple-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.45rem; font-weight: 600; color: var(--mia-marine); margin-bottom: 0.7rem; }
+  .exemple-card p { font-size: 0.88rem; line-height: 1.7; margin: 0; }
 
   /* Inclus / pas inclus */
   .section-contenu { background: white; }
@@ -252,8 +294,7 @@
   .tarif-badge { display: inline-flex; align-items: baseline; gap: 0.5rem; background: rgba(168,213,226,0.15); border: 1px solid rgba(168,213,226,0.35); border-radius: 100px; padding: 0.7rem 1.8rem; margin: 1.2rem auto 2rem; }
   .tarif-num { font-family: "Cormorant Garamond", serif; font-size: 2.2rem; font-weight: 600; color: var(--mia-clair); }
   .tarif-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
-  .btn-cta { display: inline-block; background: var(--mia-clair); color: var(--mia-marine); font-size: 0.95rem; font-weight: 500; letter-spacing: 0.04em; padding: 1rem 2.4rem; text-decoration: none; border-radius: 2px; transition: all 0.3s; }
-  .btn-cta:hover { background: white; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(168,213,226,0.3); }
+  .tarif-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
   .tarif-reassurance { display: block; font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 1.2rem; }
 
   /* FAQ */
@@ -271,8 +312,11 @@
   .section-ctafinal { background: var(--mia-fond); text-align: center; }
   .section-ctafinal h2 { margin-bottom: 1rem; }
   .section-ctafinal p { margin-left: auto; margin-right: auto; margin-bottom: 2rem; }
-  .btn-cta-marine { display: inline-block; background: var(--mia-marine); color: white; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.04em; padding: 1rem 2.4rem; text-decoration: none; border-radius: 2px; border: 2px solid var(--mia-marine); transition: all 0.3s; }
+  .ctafinal-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  .btn-cta-marine { display: inline-block; background: var(--mia-marine); color: white; font-size: 0.92rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.95rem 2.2rem; text-decoration: none; border-radius: 2px; border: 2px solid var(--mia-marine); transition: all 0.3s; }
   .btn-cta-marine:hover { background: transparent; color: var(--mia-marine); }
+  .btn-cta-outline { display: inline-block; background: transparent; color: var(--mia-marine); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.95rem 2.2rem; text-decoration: none; border-radius: 2px; border: 2px solid var(--mia-marine); transition: all 0.3s; }
+  .btn-cta-outline:hover { background: var(--mia-marine); color: white; }
 
   /* ===== FOOTER ===== */
   footer { background: var(--bleu-tres-fonce); color: rgba(255,255,255,0.6); padding: 4rem 6rem 2rem; }
@@ -294,12 +338,19 @@
 
   /* ===== ANIMATIONS ===== */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-  .page-hero-inner > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
-  .page-tag { animation-delay: 0.1s; }
-  .page-hero h1 { animation-delay: 0.3s; }
-  .page-hero p:nth-of-type(1) { animation-delay: 0.5s; }
-  .page-hero p:nth-of-type(2) { animation-delay: 0.6s; }
-  .page-hero p:nth-of-type(3) { animation-delay: 0.7s; }
+  .hero-grid > div > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
+  .hero-grid .page-tag { animation-delay: 0.1s; }
+  .hero-grid h1 { animation-delay: 0.25s; }
+  .hero-grid .hero-sub { animation-delay: 0.4s; }
+  .hero-grid .hero-badges { animation-delay: 0.55s; }
+  .hero-grid .hero-btns { animation-delay: 0.7s; }
+  .hero-photo { animation: fadeUp 0.9s ease forwards 0.4s; opacity: 0; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
@@ -320,17 +371,25 @@
     }
     .nav-links.open { display: flex; }
 
-    .page-hero { padding: 8rem 1.5rem 3rem; }
-    .page-hero h1 { font-size: 2.2rem; }
+    .page-hero { padding: 7.5rem 1.5rem 3rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .page-hero h1 { font-size: 2.1rem; }
+    .hero-photo::after { display: none; }
 
-    .section { padding: 4rem 1.5rem; }
-    .section h2 { font-size: 2rem; }
+    .section { padding: 3.5rem 1.5rem; }
+    .section h2 { font-size: 1.9rem; }
+
+    .section-chiffres { padding: 3rem 1.5rem; }
+    .chiffres-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
+    .chiffre-num { font-size: 2.4rem; }
 
     .cible-grid { grid-template-columns: 1fr; }
+    .exemples-grid { grid-template-columns: 1fr; }
     .contenu-grid { grid-template-columns: 1fr; }
     .conditions-grid { grid-template-columns: 1fr; }
     .citation { padding: 1.5rem; }
     .citation p { font-size: 1.25rem; }
+    .essentiel-box { padding-left: 1.2rem; }
 
     footer { padding: 3rem 1.5rem 2rem; }
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -340,8 +399,10 @@
 
   @media (min-width: 769px) and (max-width: 1024px) {
     nav { padding: 0.8rem 2rem; }
-    .page-hero { padding: 9rem 3rem 4rem; }
-    .section { padding: 5rem 3rem; }
+    .page-hero { padding: 8.5rem 3rem 4rem; }
+    .hero-grid { gap: 2.5rem; }
+    .section { padding: 4.5rem 3rem; }
+    .section-chiffres { padding: 3.5rem 3rem; }
     .cible-grid { grid-template-columns: 1fr 1fr; }
     .conditions-grid { grid-template-columns: 1fr 1fr; }
     footer { padding: 3rem 3rem 2rem; }
@@ -371,117 +432,207 @@
   </button>
 </nav>
 
-<!-- HERO + RÉPONSE DIRECTE -->
+<!-- HERO -->
 <section class="page-hero">
-  <div class="page-hero-inner">
-    <p class="page-tag">Accompagnement mensuel</p>
-    <h1>Mon Claude, ma boîte — l'accompagnement mensuel pour utiliser <em>Claude au quotidien</em></h1>
-    <p>Mon Claude, ma boîte est un accompagnement mensuel proposé par Laëtitia Coloré, fondatrice de MIA — Médiation Intelligence Appliquée, à Saint-Maximin-la-Sainte-Baume, dans le Var. Il s'adresse aux <strong>dirigeants de TPE, artisans et indépendants</strong> qui utilisent déjà Claude — ou veulent s'y mettre — sans savoir s'ils en tirent vraiment le meilleur.</p>
-    <p>Le principe est simple : pour <strong>120 € HT par mois</strong>, vous avancez avec quelqu'un qui connaît Claude en profondeur et qui comprend votre réalité de terrain. Chaque mois, une visio de 45 à 60 minutes fait le bilan de vos usages, répond à vos questions, vous présente les nouveautés utiles et fixe les objectifs du mois suivant. Entre deux rendez-vous, vous posez vos questions sur WhatsApp et recevez une réponse sous 24 h ouvrées.</p>
-    <p>Aucun prérequis technique, aucun projet réalisé avec MIA en amont : vous venez avec votre quotidien, vos vraies questions, votre façon de travailler. L'accompagnement démarre après un premier entretien gratuit d'une heure, pour vérifier que la formule correspond à votre besoin. Engagement minimum recommandé : trois mois, puis résiliable avec un préavis de 30 jours.</p>
+  <div class="hero-grid">
+    <div>
+      <p class="page-tag">Accompagnement mensuel</p>
+      <h1>Mon Claude, ma boîte — l'accompagnement mensuel pour utiliser <em>Claude au quotidien</em></h1>
+      <p class="hero-sub">Vous utilisez Claude — ou vous voulez vous y mettre — sans savoir si vous en tirez le meilleur ? Chaque mois, on avance ensemble, sur vos vrais sujets.</p>
+      <div class="hero-badges">
+        <span class="hero-badge">120 € HT / mois</span>
+        <span class="hero-badge">1 visio par mois</span>
+        <span class="hero-badge">WhatsApp entre les séances</span>
+        <span class="hero-badge">1er entretien gratuit</span>
+      </div>
+      <div class="hero-btns">
+        <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-cta" onclick="gtag('event', 'clic_rdv', { event_category: 'conversion', event_label: 'Hero Mon Claude ma boîte' })">Réserver mon entretien gratuit</a>
+        <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="btn-cta-light">Poser ma question via le formulaire</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/images/mon-claude-ma-boite.jpg" alt="Laëtitia Coloré, consultante IA et fondatrice de MIA, travaille avec Claude sur son ordinateur portable à Saint-Maximin-la-Sainte-Baume (Var)" onerror="var g=this.closest('.hero-grid'); this.closest('.hero-photo').style.display='none'; if(g){g.style.gridTemplateColumns='1fr';}">
+    </div>
+  </div>
+</section>
+
+<!-- L'ESSENTIEL — RÉPONSE DIRECTE -->
+<section class="section section-essentiel">
+  <p class="maj-date">Dernière mise à jour : juillet 2026</p>
+  <p class="section-tag">L'essentiel en 30 secondes</p>
+  <h2>Qu'est-ce que <em>Mon Claude, ma boîte</em> ?</h2>
+  <div class="essentiel-box">
+    <p>Mon Claude, ma boîte est un accompagnement mensuel à <strong>120 € HT par mois</strong>, proposé par Laëtitia Coloré, fondatrice de MIA — Médiation Intelligence Appliquée, à Saint-Maximin-la-Sainte-Baume (Var). Il s'adresse aux <strong>dirigeants de TPE, artisans et indépendants</strong> qui utilisent Claude — ou veulent s'y mettre — sans savoir s'ils en tirent vraiment le meilleur.</p>
+    <p>Chaque mois, une <strong>visio de 45 à 60 minutes</strong> fait le bilan de vos usages, répond à vos questions, présente les nouveautés utiles et fixe les objectifs du mois suivant. Entre deux rendez-vous, vous posez vos questions sur <strong>WhatsApp</strong> et recevez une réponse sous 24 h ouvrées.</p>
+    <p>Aucun prérequis technique, usage professionnel ou personnel. L'accompagnement démarre après un <strong>premier entretien gratuit d'une heure</strong>. Engagement minimum recommandé : trois mois, puis résiliable avec un préavis de 30 jours.</p>
+  </div>
+</section>
+
+<!-- CHIFFRES CLÉS -->
+<section class="section-chiffres">
+  <div class="chiffres-grid">
+    <div class="reveal">
+      <div class="chiffre-num"><span class="compteur" data-target="120">0</span><span class="chiffre-suffix"> €</span></div>
+      <div class="chiffre-label">HT par mois, tout compris</div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="chiffre-num"><span class="compteur" data-target="60">0</span><span class="chiffre-suffix"> min</span></div>
+      <div class="chiffre-label">de visio chaque mois, sur vos sujets</div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="chiffre-num"><span class="compteur" data-target="24">0</span><span class="chiffre-suffix"> h</span></div>
+      <div class="chiffre-label">de délai de réponse sur WhatsApp (jours ouvrés)</div>
+    </div>
+    <div class="reveal reveal-delay-3">
+      <div class="chiffre-num"><span class="compteur" data-target="1">0</span><span class="chiffre-suffix"> h</span></div>
+      <div class="chiffre-label">d'entretien gratuit pour démarrer</div>
+    </div>
   </div>
 </section>
 
 <!-- POUR QUI -->
 <section class="section section-pourqui">
-  <p class="section-tag">Pour qui ?</p>
-  <h2>Pensé pour ceux qui font <em>tourner leur boîte</em></h2>
-  <p>Vous n'avez ni service informatique ni temps à perdre en théorie. Vous voulez que Claude vous serve concrètement, dans votre métier comme dans votre organisation personnelle. C'est exactement le point de départ de cet accompagnement.</p>
+  <div class="reveal">
+    <p class="section-tag">Pour qui ?</p>
+    <h2>Pensé pour ceux qui font <em>tourner leur boîte</em></h2>
+  </div>
   <div class="cible-grid">
-    <div class="cible-card">
+    <div class="cible-card reveal">
       <h3>Dirigeants de TPE</h3>
-      <p>Vous portez tout : commercial, devis, organisation, communication. Claude peut vous épauler sur chacun de ces fronts — encore faut-il savoir comment lui demander.</p>
+      <p>Vous portez tout : commercial, devis, organisation, communication. Claude peut vous épauler sur chaque front — encore faut-il savoir comment lui demander.</p>
     </div>
-    <div class="cible-card">
+    <div class="cible-card reveal reveal-delay-1">
       <h3>Artisans et commerçants</h3>
-      <p>Votre valeur est sur le terrain, pas derrière un écran. L'objectif : que Claude vous fasse gagner du temps sur la paperasse et les écrits, sans vous compliquer la vie.</p>
+      <p>Votre valeur est sur le terrain, pas derrière un écran. Objectif : que Claude vous libère de la paperasse et des écrits, sans vous compliquer la vie.</p>
     </div>
-    <div class="cible-card">
+    <div class="cible-card reveal reveal-delay-2">
       <h3>Indépendants et professions libérales</h3>
-      <p>Vous travaillez seul et personne ne peut valider vos usages de Claude. L'accompagnement vous donne ce regard extérieur, chaque mois, sur vos cas réels.</p>
+      <p>Vous travaillez seul, personne ne peut valider vos usages de Claude. Ici, vous avez ce regard extérieur, chaque mois, sur vos cas réels.</p>
     </div>
   </div>
-  <p style="margin-top: 2rem;">Usage professionnel ou personnel, les deux sont les bienvenus. Et il n'est pas nécessaire d'avoir déjà travaillé avec MIA pour commencer.</p>
+  <p class="reveal" style="margin-top: 2rem;">Usage professionnel ou personnel, les deux sont les bienvenus. Pas besoin d'avoir déjà travaillé avec MIA.</p>
 </section>
 
 <!-- LE PROBLÈME -->
 <section class="section section-probleme">
-  <p class="section-tag">Le problème qu'on résout</p>
-  <h2>Utiliser Claude, oui. <em>Bien</em> l'utiliser, c'est autre chose.</h2>
-  <div class="citation">
+  <div class="reveal">
+    <p class="section-tag">Le problème qu'on résout</p>
+    <h2>Utiliser Claude, oui. <em>Bien</em> l'utiliser, c'est autre chose.</h2>
+  </div>
+  <div class="citation reveal">
     <p>« J'utilise Claude, mais je ne sais pas si je l'utilise bien. Et je n'ai personne à qui poser mes questions. »</p>
   </div>
-  <p>C'est la phrase qui revient le plus souvent. Vous avez un compte, vous posez des questions, vous obtenez des réponses correctes — mais vous sentez que vous passez à côté de quelque chose. Les nouveautés sortent vite, personne autour de vous ne pratique vraiment, et les tutoriels en ligne ne parlent jamais de votre métier.</p>
-  <p><strong>Mon Claude, ma boîte comble exactement ce vide :</strong> un interlocuteur régulier, qui connaît votre activité, suit vos progrès d'un mois sur l'autre et vous évite de chercher seul pendant des heures.</p>
+  <p class="reveal">C'est la phrase qui revient le plus souvent. Les nouveautés sortent vite, personne autour de vous ne pratique vraiment, et les tutoriels ne parlent jamais de votre métier. <strong>Mon Claude, ma boîte comble ce vide :</strong> un interlocuteur régulier, qui connaît votre activité et suit vos progrès d'un mois sur l'autre.</p>
+</section>
+
+<!-- EXEMPLES DE SÉANCES -->
+<section class="section section-exemples">
+  <div class="reveal">
+    <p class="section-tag">Concrètement</p>
+    <h2>Ce qu'on met en place <em>pendant les séances</em></h2>
+    <p>Chaque visio part de votre situation du moment. Voici des exemples de ce qu'on construit ensemble, mois après mois :</p>
+  </div>
+  <div class="exemples-grid">
+    <div class="exemple-card reveal">
+      <div class="exemple-num">01</div>
+      <h3>Structurer Claude pour qu'il vous assiste tous les jours</h3>
+      <p>Projets, instructions personnalisées, modèles de travail : on configure Claude pour qu'il connaisse votre activité et vous réponde dans votre contexte, sans tout réexpliquer à chaque fois.</p>
+    </div>
+    <div class="exemple-card reveal reveal-delay-1">
+      <div class="exemple-num">02</div>
+      <h3>Créer vos premières automatisations avec Cowork</h3>
+      <p>Les tâches répétitives qui vous prennent du temps chaque semaine — tri, rédaction, suivi — on les confie à Claude Cowork, pas à pas, à votre rythme.</p>
+    </div>
+    <div class="exemple-card reveal reveal-delay-2">
+      <div class="exemple-num">03</div>
+      <h3>Élaborer votre stratégie d'utilisation de l'IA</h3>
+      <p>Par où commencer, quoi déléguer à Claude, quoi garder pour vous, comment mesurer le temps gagné : on construit une feuille de route adaptée à votre activité.</p>
+    </div>
+    <div class="exemple-card reveal reveal-delay-3">
+      <div class="exemple-num">04</div>
+      <h3>Débloquer vos cas concrets du mois</h3>
+      <p>Un devis compliqué, un courrier délicat, un document à analyser : on traite ensemble vos situations réelles, pour que chaque séance vous fasse gagner du temps dès le lendemain.</p>
+    </div>
+  </div>
 </section>
 
 <!-- CE QUI EST INCLUS / PAS INCLUS -->
 <section class="section section-contenu">
-  <p class="section-tag">Le contenu</p>
-  <h2>Ce qui est inclus — <em>et ce qui ne l'est pas</em></h2>
+  <div class="reveal">
+    <p class="section-tag">Le contenu</p>
+    <h2>Ce qui est inclus — <em>et ce qui ne l'est pas</em></h2>
+  </div>
   <div class="contenu-grid">
-    <div class="contenu-card">
+    <div class="contenu-card reveal">
       <h3>Inclus chaque mois</h3>
       <ul>
-        <li>Une visio de 45 à 60 minutes : bilan du mois écoulé, nouveautés de Claude utiles pour vous, cas pratiques sur vos situations réelles, objectifs du mois suivant</li>
-        <li>Une disponibilité WhatsApp entre les sessions, avec une réponse sous 24 h ouvrées</li>
-        <li>Un suivi dans la durée : on reprend là où on s'était arrêté, rien ne se perd d'un mois sur l'autre</li>
+        <li>1 visio de 45 à 60 minutes : bilan, nouveautés de Claude, cas pratiques, objectifs du mois suivant</li>
+        <li>Disponibilité WhatsApp entre les séances — réponse sous 24 h ouvrées</li>
+        <li>Un suivi dans la durée : rien ne se perd d'un mois sur l'autre</li>
       </ul>
-      <p>La disponibilité WhatsApp n'est pas un service d'urgence : c'est un fil de questions-réponses au rythme de votre activité.</p>
+      <p>Le WhatsApp n'est pas un service d'urgence : c'est un fil de questions-réponses au rythme de votre activité.</p>
     </div>
-    <div class="contenu-card exclu-card">
+    <div class="contenu-card exclu-card reveal reveal-delay-1">
       <h3>Non inclus</h3>
       <ul>
-        <li>La création d'agents ou de systèmes sur mesure pour votre activité — cela fait l'objet d'un devis séparé</li>
-        <li>Une formation structurée avec support pédagogique — pour cela, découvrez <a href="je-maitrise.html" style="color: var(--mia-marine); font-weight: 500;">les formations MIA</a></li>
+        <li>La création d'agents ou de systèmes sur mesure — devis séparé</li>
+        <li>Une formation structurée avec support pédagogique — voir <a href="je-maitrise.html" style="color: var(--mia-marine); font-weight: 500;">les formations MIA</a></li>
       </ul>
-      <p>Cette frontière est volontaire : l'accompagnement reste léger, personnel et centré sur votre pratique quotidienne de Claude.</p>
+      <p>Cette frontière est volontaire : l'accompagnement reste léger, personnel et centré sur votre pratique quotidienne.</p>
     </div>
   </div>
 </section>
 
 <!-- CONDITIONS -->
 <section class="section section-conditions">
-  <p class="section-tag">Comment ça marche</p>
-  <h2>Des conditions <em>simples et claires</em></h2>
+  <div class="reveal">
+    <p class="section-tag">Comment ça marche</p>
+    <h2>Des conditions <em>simples et claires</em></h2>
+  </div>
   <div class="conditions-grid">
-    <div class="condition-item">
+    <div class="condition-item reveal">
       <h4>Démarrage</h4>
-      <p>Un premier entretien gratuit d'une heure pour faire le point sur votre besoin, sans engagement.</p>
+      <p>Un premier entretien gratuit d'une heure, sans engagement.</p>
     </div>
-    <div class="condition-item">
+    <div class="condition-item reveal reveal-delay-1">
       <h4>Engagement</h4>
-      <p>Trois mois minimum recommandés — le temps d'installer de vraies habitudes de travail avec Claude.</p>
+      <p>3 mois minimum recommandés — le temps d'installer de vraies habitudes.</p>
     </div>
-    <div class="condition-item">
+    <div class="condition-item reveal reveal-delay-2">
       <h4>Résiliation</h4>
-      <p>À tout moment, avec un préavis de 30 jours. Pas de reconduction forcée, pas de piège.</p>
+      <p>À tout moment, avec un préavis de 30 jours. Pas de piège.</p>
     </div>
-    <div class="condition-item">
+    <div class="condition-item reveal reveal-delay-3">
       <h4>Facturation</h4>
-      <p>Mensuelle, à 120 € HT par mois. Vous savez exactement ce que vous payez, chaque mois.</p>
+      <p>Mensuelle, 120 € HT par mois. Pas de surprise.</p>
     </div>
   </div>
 </section>
 
 <!-- TARIF + CTA -->
 <section class="section section-tarif">
-  <h2>Un tarif unique, <em>sans surprise</em></h2>
-  <p>Tout est compris : la visio mensuelle, le suivi WhatsApp et la veille sur les nouveautés de Claude qui comptent pour vous.</p>
-  <div class="tarif-badge">
-    <span class="tarif-num">120 €</span>
-    <span class="tarif-label">HT / mois</span>
+  <div class="reveal">
+    <h2>Un tarif unique, <em>sans surprise</em></h2>
+    <p>Tout est compris : la visio mensuelle, le suivi WhatsApp et la veille sur les nouveautés de Claude qui comptent pour vous.</p>
+    <div class="tarif-badge">
+      <span class="tarif-num">120 €</span>
+      <span class="tarif-label">HT / mois</span>
+    </div>
+    <div class="tarif-btns">
+      <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-cta" onclick="gtag('event', 'clic_rdv', { event_category: 'conversion', event_label: 'CTA Mon Claude ma boîte' })">Réserver mon entretien gratuit</a>
+      <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="btn-cta-light">Remplir le formulaire de contact</a>
+    </div>
+    <span class="tarif-reassurance">Premier entretien d'1 h offert · Sans engagement · Réponse sous 24 h</span>
   </div>
-  <br>
-  <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-cta" onclick="gtag('event', 'clic_rdv', { event_category: 'conversion', event_label: 'CTA Mon Claude ma boîte' })">Réserver mon entretien gratuit</a>
-  <span class="tarif-reassurance">Premier entretien d'1 h offert · Sans engagement · Réponse sous 24 h</span>
 </section>
 
 <!-- FAQ -->
 <section class="section section-faq">
-  <p class="section-tag">Questions fréquentes</p>
-  <h2>Vos questions, <em>nos réponses</em></h2>
-  <div class="faq-list">
+  <div class="reveal">
+    <p class="section-tag">Questions fréquentes</p>
+    <h2>Vos questions, <em>nos réponses</em></h2>
+  </div>
+  <div class="faq-list reveal">
     <details class="faq-item">
       <summary>Combien coûte l'accompagnement Mon Claude, ma boîte ?</summary>
       <div><p>L'accompagnement coûte 120 € HT par mois, facturés chaque mois. Il n'y a aucuns frais de démarrage et le premier entretien d'une heure est gratuit et sans engagement.</p></div>
@@ -519,10 +670,15 @@
 
 <!-- CTA FINAL -->
 <section class="section section-ctafinal">
-  <p class="section-tag" style="justify-content: center;">On commence ?</p>
-  <h2>Parlons de <em>votre</em> usage de Claude</h2>
-  <p>Un entretien d'une heure, gratuit et sans engagement, pour voir ensemble si Mon Claude, ma boîte est fait pour vous.</p>
-  <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-cta-marine" onclick="gtag('event', 'clic_rdv', { event_category: 'conversion', event_label: 'CTA final Mon Claude ma boîte' })">Réserver mon entretien gratuit</a>
+  <div class="reveal">
+    <p class="section-tag" style="justify-content: center;">On commence ?</p>
+    <h2>Parlons de <em>votre</em> usage de Claude</h2>
+    <p>Un entretien d'une heure, gratuit et sans engagement, pour voir ensemble si Mon Claude, ma boîte est fait pour vous.</p>
+    <div class="ctafinal-btns">
+      <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-cta-marine" onclick="gtag('event', 'clic_rdv', { event_category: 'conversion', event_label: 'CTA final Mon Claude ma boîte' })">Réserver mon entretien gratuit</a>
+      <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="btn-cta-outline">Remplir le formulaire de contact</a>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -592,6 +748,37 @@
         navLinks.classList.remove('open');
       });
     });
+
+    // Apparition au défilement
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Compteurs animés
+    const compteurObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        compteurObserver.unobserve(el);
+        const target = parseInt(el.dataset.target, 10);
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(target * eased);
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.compteur').forEach(el => compteurObserver.observe(el));
   });
 </script>
 
