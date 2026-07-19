@@ -834,6 +834,64 @@ body {
 
 .app-footer a { color: var(--clair); text-decoration: none; }
 
+/* Écran email */
+#screen-email { display: none; }
+.email-gate {
+  max-width: 540px;
+  margin: 70px auto;
+  padding: 0 20px;
+}
+.email-gate-card {
+  background: var(--blanc-pur);
+  border-radius: 18px;
+  padding: 42px 38px;
+  box-shadow: 0 10px 40px rgba(26,37,64,0.08);
+  text-align: center;
+}
+.email-gate-card h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--bleu);
+  margin-bottom: 10px;
+}
+.gate-sub {
+  font-size: 14px;
+  color: var(--texte);
+  line-height: 1.6;
+  margin-bottom: 26px;
+}
+#lead-email {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  border: 1.5px solid var(--gris);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  color: var(--texte);
+  background: var(--blanc);
+  box-sizing: border-box;
+}
+#lead-email:focus { outline: none; border-color: var(--clair); }
+.rgpd-label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 22px;
+  cursor: pointer;
+}
+.rgpd-label input {
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--bleu);
+}
+#lead-submit { opacity: 1; animation: none; }
+
 /* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
@@ -972,6 +1030,27 @@ body {
       Dimension suivante
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
+  </div>
+</div>
+
+<!-- ========== ÉCRAN EMAIL (affiché uniquement si le webhook est configuré) ========== -->
+<div id="screen-email">
+  <div class="email-gate">
+    <div class="email-gate-card">
+      <h2>Vos résultats sont prêts</h2>
+      <p class="gate-sub">Indiquez votre adresse email pour découvrir votre score et votre analyse détaillée, dimension par dimension.</p>
+      <form id="lead-form" onsubmit="submitLead(event)">
+        <input type="email" id="lead-email" placeholder="votre@email.fr" required autocomplete="email">
+        <label class="rgpd-label">
+          <input type="checkbox" id="lead-consent" required>
+          <span>J'accepte que MIA — Médiation Intelligence Appliquée conserve mon adresse email pour me transmettre mon analyse et me recontacter au sujet de ce diagnostic. Vos données ne sont jamais transmises à des tiers et vous pouvez demander leur suppression à tout moment en écrivant à contact@mia-intelligence.com.</span>
+        </label>
+        <button type="submit" class="btn-start" id="lead-submit" style="width:100%;justify-content:center;">
+          Voir mes résultats
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
   </div>
 </div>
 
@@ -1229,6 +1308,10 @@ const dimensions = [
 // ========================
 // STATE
 // ========================
+// URL du webhook Make.com pour la collecte des emails.
+// Tant qu'elle est vide, les résultats s'affichent directement sans demander d'email.
+const MAKE_WEBHOOK_URL = '';
+
 let currentDim = 0;
 let answers = Array(6).fill(null).map(() => Array(3).fill(null));
 
@@ -1326,8 +1409,81 @@ function nextDim() {
   if (currentDim < dimensions.length - 1) {
     renderDimension(currentDim + 1);
   } else {
-    showResults();
+    finishTest();
   }
+}
+
+function finishTest() {
+  if (!MAKE_WEBHOOK_URL) {
+    showResults();
+    return;
+  }
+  document.getElementById('screen-test').style.display = 'none';
+  document.getElementById('screen-email').style.display = 'block';
+  window.scrollTo(0, 0);
+  gtag('event', 'diagnostic_email_affiche', { event_category: 'diagnostic', event_label: 'Écran email affiché' });
+}
+
+function computeScores() {
+  const dimScores = dimensions.map((dim, di) => {
+    return answers[di].reduce((sum, optIdx, qi) => {
+      if (optIdx === null) return sum;
+      return sum + dim.questions[qi].options[optIdx].score;
+    }, 0);
+  });
+  const totalScore = dimScores.reduce((a, b) => a + b, 0);
+  return { dimScores, totalScore };
+}
+
+function levelLabel(totalScore) {
+  if (totalScore <= 24) return 'Pas encore prêt';
+  if (totalScore <= 44) return 'En bonne voie';
+  if (totalScore <= 60) return 'Prêt à démarrer';
+  return 'Prêt à accélérer';
+}
+
+async function submitLead(event) {
+  event.preventDefault();
+  const email = document.getElementById('lead-email').value.trim();
+  const btn = document.getElementById('lead-submit');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+
+  const { dimScores, totalScore } = computeScores();
+  const payload = {
+    email: email,
+    score_total: totalScore,
+    score_max: 72,
+    niveau: levelLabel(totalScore),
+    scores_dimensions: Object.fromEntries(dimensions.map((dim, i) => [dim.titre, dimScores[i]])),
+    consentement_rgpd: true,
+    date: new Date().toISOString(),
+    source: 'Diagnostic IA — mia-intelligence.com'
+  };
+
+  try {
+    await fetch(MAKE_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    gtag('event', 'diagnostic_email_capture', { event_category: 'conversion', event_label: 'Email collecté' });
+  } catch (e) {
+    // L'affichage des résultats ne doit jamais être bloqué par un échec d'envoi
+  }
+  showResults();
+}
+
+function restartTest() {
+  currentDim = 0;
+  answers = Array(6).fill(null).map(() => Array(3).fill(null));
+  document.getElementById('screen-results').style.display = 'none';
+  document.getElementById('screen-email').style.display = 'none';
+  document.getElementById('screen-intro').style.display = 'block';
+  const btn = document.getElementById('lead-submit');
+  btn.disabled = false;
+  btn.textContent = 'Voir mes résultats';
+  window.scrollTo(0, 0);
 }
 
 function prevDim() {
@@ -1350,19 +1506,13 @@ function updateProgress() {
 // ========================
 function showResults() {
   document.getElementById('screen-test').style.display = 'none';
+  document.getElementById('screen-email').style.display = 'none';
   document.getElementById('screen-results').style.display = 'block';
   window.scrollTo(0, 0);
   gtag('event', 'diagnostic_termine', { event_category: 'diagnostic', event_label: 'Résultats affichés' });
 
   // Calcul scores
-  const dimScores = dimensions.map((dim, di) => {
-    return answers[di].reduce((sum, optIdx, qi) => {
-      if (optIdx === null) return sum;
-      return sum + dim.questions[qi].options[optIdx].score;
-    }, 0);
-  });
-
-  const totalScore = dimScores.reduce((a, b) => a + b, 0);
+  const { dimScores, totalScore } = computeScores();
 
   // Score ring
   const circumference = 2 * Math.PI * 65;
@@ -1442,3 +1592,11 @@ function animateNumber(id, target, duration) {
     const eased = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.round(start + (target - start) * eased);
     if (progress < 1)
+ requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+</script>
+
+</body>
+</html>
