@@ -407,18 +407,26 @@
     <h2>Et chez vous, ça donne quoi ?</h2>
     <p>Le métier change, la mécanique ne change pas. Il y a toujours un devis à faire, des clients à relancer, des achats à décider et des chiffres à lire le soir. Trois exemples pour vous situer.</p>
 
-    <div class="grille-2">
-      <div class="bloc">
-        <h3>Artisan du bâtiment</h3>
-        <p>Le devis chiffré depuis la visite, sur le chantier, au lieu du dimanche soir. La relance automatique des devis sans réponse à sept jours — c'est là que se perd le plus de chiffre d'affaires. Le suivi des chantiers en cours et des acomptes encaissés, sans tableur.</p>
+    <div data-onglets>
+      <div class="onglets" role="tablist" aria-label="Trois métiers, trois transpositions">
+        <button type="button" class="onglet" role="tab" id="onglet-m1" aria-controls="panneau-m1" data-libelle="Artisan du bâtiment">Artisan du bâtiment</button>
+        <button type="button" class="onglet" role="tab" id="onglet-m2" aria-controls="panneau-m2" data-libelle="Restaurant">Restaurant</button>
+        <button type="button" class="onglet" role="tab" id="onglet-m3" aria-controls="panneau-m3" data-libelle="Profession libérale">Profession libérale</button>
       </div>
-      <div class="bloc">
-        <h3>Restaurant</h3>
-        <p>La commande fournisseurs calée sur les couverts réels et la météo du week-end. Les avis clients à traiter chaque jour, avec une réponse préparée, jamais publiée sans relecture. Le pilotage du coût matière plat par plat, mis à jour tout seul.</p>
-      </div>
-      <div class="bloc">
-        <h3>Profession libérale</h3>
-        <p>Les rendez-vous confirmés et rappelés sans y penser, ce qui fait fondre les annulations de dernière minute. Les comptes-rendus rédigés à partir de vos notes. La facturation et les relances d'impayés, qui sont rarement le moment préféré de la semaine.</p>
+
+      <div class="panneaux">
+        <div class="panneau" role="tabpanel" id="panneau-m1" aria-labelledby="onglet-m1" tabindex="0">
+          <h3>Artisan du bâtiment</h3>
+          <p>Le devis chiffré depuis la visite, sur le chantier, au lieu du dimanche soir. La relance automatique des devis sans réponse à sept jours — c'est là que se perd le plus de chiffre d'affaires. Le suivi des chantiers en cours et des acomptes encaissés, sans tableur.</p>
+        </div>
+        <div class="panneau" role="tabpanel" id="panneau-m2" aria-labelledby="onglet-m2" tabindex="0">
+          <h3>Restaurant</h3>
+          <p>La commande fournisseurs calée sur les couverts réels et la météo du week-end. Les avis clients à traiter chaque jour, avec une réponse préparée, jamais publiée sans relecture. Le pilotage du coût matière plat par plat, mis à jour tout seul.</p>
+        </div>
+        <div class="panneau" role="tabpanel" id="panneau-m3" aria-labelledby="onglet-m3" tabindex="0">
+          <h3>Profession libérale</h3>
+          <p>Les rendez-vous confirmés et rappelés sans y penser, ce qui fait fondre les annulations de dernière minute. Les comptes-rendus rédigés à partir de vos notes. La facturation et les relances d'impayés, qui sont rarement le moment préféré de la semaine.</p>
+        </div>
       </div>
     </div>
 
