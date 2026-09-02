@@ -490,7 +490,7 @@
       <div id="calendrier-embed" hidden></div>
 
       <div class="boutons" id="rdv-boutons">
-        <a class="bouton bouton-plein" id="rdv-calendrier" href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','rdv_recap_aim',{event_category:'conversion'});}">Choisir un créneau</a>
+        <a class="bouton bouton-plein" id="rdv-calendrier" href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','rdv_recap_aim',{event_category:'conversion'});}">Choisir un créneau</a>
         <a class="bouton bouton-ligne" href="mailto:contact@mia-intelligence.com?subject=Suite%20au%20workshop%20AIM%202026">Écrire un mail</a>
       </div>
 
@@ -549,7 +549,8 @@
 // VIDEO_URL : l'URL d'intégration de la vidéo du workshop (YouTube ou Vimeo),
 //   à coller après le montage. Vide → la section vidéo reste masquée.
 // ---------------------------------------------------------------------------
-const CALENDRIER_URL = '';
+const CALENDRIER_URL = 'https://calendly.com/mia-intelligence/audit-act-ia?hide_gdpr_banner=1&primary_color=3d5080&background_color=ffffff&text_color=2a3550&embed_domain=mia-intelligence.com&embed_type=Inline';
+const CALENDRIER_LIEN = 'https://calendly.com/mia-intelligence/audit-act-ia';
 const VIDEO_URL = '';
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -560,7 +561,7 @@ document.addEventListener('DOMContentLoaded', function () {
     iframe.title = 'Choisir un créneau avec Laëtitia Coloré';
     cadre.appendChild(iframe);
     cadre.hidden = false;
-    document.getElementById('rdv-calendrier').href = CALENDRIER_URL;
+    document.getElementById('rdv-calendrier').href = CALENDRIER_LIEN;
     document.getElementById('rdv-calendrier').target = '_blank';
   }
 
