@@ -144,6 +144,90 @@
 
   .grille-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
 
+
+  /* ---------- Onglets agents ---------- */
+  .onglets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+  .onglet {
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.95rem;
+    color: var(--bleu-fonce);
+    background: var(--blanc);
+    border: 1px solid var(--bleu-moyen);
+    border-radius: 999px;
+    padding: 11px 22px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .onglet .rang {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bleu-moyen);
+    transition: color 0.2s ease;
+  }
+  .onglet:hover { border-color: var(--bleu-fonce); }
+  .onglet[aria-selected="true"] {
+    background: var(--bleu-fonce);
+    border-color: var(--bleu-fonce);
+    color: var(--blanc);
+  }
+  .onglet[aria-selected="true"] .rang { color: var(--bleu-clair); }
+  .onglet:focus-visible { outline: 2px solid var(--bleu-fonce); outline-offset: 3px; }
+
+  .panneaux { margin-top: 20px; }
+  .panneau {
+    background: var(--blanc);
+    border: 1px solid var(--bleu-clair);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .panneau + .panneau { margin-top: 16px; }
+  .js-onglets .panneau + .panneau { margin-top: 0; }
+  .panneau h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .panneau p:last-child { margin-bottom: 0; }
+  .panneau .moment {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bleu-moyen);
+    display: block;
+    margin-bottom: 10px;
+  }
+  .panneau .gain {
+    display: block;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--bleu-clair);
+    font-size: 0.93rem;
+    color: var(--bleu-fonce);
+  }
+  .js-onglets .panneau[aria-hidden="true"] { display: none; }
+  .js-onglets .panneau { animation: apparition-panneau 0.32s ease both; }
+  @keyframes apparition-panneau {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js-onglets .panneau { animation: none; }
+  }
+  @media (max-width: 560px) {
+    .onglet { padding: 10px 16px; font-size: 0.9rem; }
+    .panneau { padding: 22px; }
+  }
+
   /* ---------- Échéances ---------- */
   .echeances { margin-top: 22px; border-top: 1px solid var(--bleu-clair); }
   .echeance {
@@ -280,32 +364,40 @@
     <h2>Ce que vous avez vu sur scène</h2>
     <p>Chantal tient une boutique de fleurs, seule 80 % du temps, avec une associée sur une seconde adresse. Une assistante IA travaille avec elle toute la journée. Rien n'était enregistré : tout ce qui s'est affiché à l'écran a été produit en direct devant vous.</p>
 
-    <div class="bloc">
-      <span class="num">Agent 1 — le matin</span>
-      <h3>Le devis et la facture électronique</h3>
-      <p>Une demande de mariage arrive au téléphone : bouquet de mariée, huit centres de table, une arche, dans un domaine viticole. Le devis complet est chiffré <strong>pendant l'appel</strong> — 1 412 € HT — et la facture Factur-X conforme se génère derrière. Quand la mariée rappelle pour dire qu'elle n'aime pas le violet, la composition est refaite en blanc, crème et vieux rose, prix recalculé, sans repartir de zéro.</p>
-      <span class="gain">Ce que ça change : le devis part pendant que le client est encore au téléphone, au lieu d'être fait le soir à 21 h — quand il est fait.</span>
-    </div>
+    <div data-onglets>
+      <div class="onglets" role="tablist" aria-label="Les quatre agents du workshop">
+        <button type="button" class="onglet" role="tab" id="onglet-r1" aria-controls="panneau-r1" data-libelle="Devis et facture"><span class="rang">Agent 1</span> Devis et facture</button>
+        <button type="button" class="onglet" role="tab" id="onglet-r2" aria-controls="panneau-r2" data-libelle="Relance clients"><span class="rang">Agent 2</span> Relance clients</button>
+        <button type="button" class="onglet" role="tab" id="onglet-r3" aria-controls="panneau-r3" data-libelle="Commandes fournisseurs"><span class="rang">Agent 3</span> Commandes fournisseurs</button>
+        <button type="button" class="onglet" role="tab" id="onglet-r4" aria-controls="panneau-r4" data-libelle="Pilotage"><span class="rang">Agent 4</span> Pilotage</button>
+      </div>
 
-    <div class="bloc">
-      <span class="num">Agent 2 — la journée</span>
-      <h3>La relance clients</h3>
-      <p>Une cliente commande des pivoines chaque année pour l'anniversaire de sa mère. L'agent le sait, prépare le message huit jours avant, et l'écrit du ton de la commerçante. C'est le point critique : un message qui sent le robot abîme vingt ans de relation. Un message bien écrit, envoyé au bon moment, déclenche une commande à 30 € qui n'aurait jamais eu lieu.</p>
-      <span class="gain">Ce que ça change : les occasions récurrentes ne se perdent plus dans la charge mentale.</span>
-    </div>
-
-    <div class="bloc">
-      <span class="num">Agent 3 — l'après-midi</span>
-      <h3>La commande fournisseurs</h3>
-      <p>La fleur est un produit périssable : trop peu, on ne vend pas ; trop, on jette. Dans ce métier, <strong>12 % du stock part à la poubelle chaque année</strong>, soit environ 13 000 € pour deux boutiques. L'agent prépare la liste du marché de gros à partir des ventes réelles et du week-end qui arrive : fleurs nommées, quantités à la botte, total chiffré. La commerçante valide, la liste arrive sur son téléphone pour le marché de 5 h 30.</p>
-      <span class="gain">Ce que ça change : moins d'invendus, et c'est de la marge nette — pas du chiffre d'affaires en plus.</span>
-    </div>
-
-    <div class="bloc">
-      <span class="num">Agent 4 — le soir</span>
-      <h3>Le pilotage</h3>
-      <p>À la fermeture, le bilan arrive tout seul, boutique par boutique : 685 € et 21 clients d'un côté, 445 € et 14 clients de l'autre, 1 130 € au total, en hausse de 8 % sur le vendredi précédent. Et l'alerte qui compte : six créations invendues sur la seconde boutique. Pas un tableau de bord de plus — trois phrases, ce qui va et ce qui coince.</p>
-      <span class="gain">Ce que ça change : la deuxième journée de travail, celle du soir, disparaît.</span>
+      <div class="panneaux">
+        <div class="panneau" role="tabpanel" id="panneau-r1" aria-labelledby="onglet-r1" tabindex="0">
+          <span class="moment">le matin</span>
+          <h3>Le devis et la facture électronique</h3>
+          <p>Une demande de mariage arrive au téléphone : bouquet de mariée, huit centres de table, une arche, dans un domaine viticole. Le devis complet est chiffré <strong>pendant l'appel</strong> — 1 412 € HT — et la facture Factur-X conforme se génère derrière. Quand la mariée rappelle pour dire qu'elle n'aime pas le violet, la composition est refaite en blanc, crème et vieux rose, prix recalculé, sans repartir de zéro.</p>
+          <span class="gain">Ce que ça change : le devis part pendant que le client est encore au téléphone, au lieu d'être fait le soir à 21 h — quand il est fait.</span>
+        </div>
+        <div class="panneau" role="tabpanel" id="panneau-r2" aria-labelledby="onglet-r2" tabindex="0">
+          <span class="moment">la journée</span>
+          <h3>La relance clients</h3>
+          <p>Une cliente commande des pivoines chaque année pour l'anniversaire de sa mère. L'agent le sait, prépare le message huit jours avant, et l'écrit du ton de la commerçante. C'est le point critique : un message qui sent le robot abîme vingt ans de relation. Un message bien écrit, envoyé au bon moment, déclenche une commande à 30 € qui n'aurait jamais eu lieu.</p>
+          <span class="gain">Ce que ça change : les occasions récurrentes ne se perdent plus dans la charge mentale.</span>
+        </div>
+        <div class="panneau" role="tabpanel" id="panneau-r3" aria-labelledby="onglet-r3" tabindex="0">
+          <span class="moment">l'après-midi</span>
+          <h3>La commande fournisseurs</h3>
+          <p>La fleur est un produit périssable : trop peu, on ne vend pas ; trop, on jette. Dans ce métier, <strong>12 % du stock part à la poubelle chaque année</strong>, soit environ 13 000 € pour deux boutiques. L'agent prépare la liste du marché de gros à partir des ventes réelles et du week-end qui arrive : fleurs nommées, quantités à la botte, total chiffré. La commerçante valide, la liste arrive sur son téléphone pour le marché de 5 h 30.</p>
+          <span class="gain">Ce que ça change : moins d'invendus, et c'est de la marge nette — pas du chiffre d'affaires en plus.</span>
+        </div>
+        <div class="panneau" role="tabpanel" id="panneau-r4" aria-labelledby="onglet-r4" tabindex="0">
+          <span class="moment">le soir</span>
+          <h3>Le pilotage</h3>
+          <p>À la fermeture, le bilan arrive tout seul, boutique par boutique : 685 € et 21 clients d'un côté, 445 € et 14 clients de l'autre, 1 130 € au total, en hausse de 8 % sur le vendredi précédent. Et l'alerte qui compte : six créations invendues sur la seconde boutique. Pas un tableau de bord de plus — trois phrases, ce qui va et ce qui coince.</p>
+          <span class="gain">Ce que ça change : la deuxième journée de travail, celle du soir, disparaît.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -468,6 +560,58 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('video-iframe').src = VIDEO_URL;
     document.getElementById('video-section').hidden = false;
   }
+});
+</script>
+
+<script>
+// Onglets des agents : le contenu des quatre panneaux est toujours dans la page.
+// Sans JavaScript, les quatre s'affichent l'un sous l'autre — rien n'est perdu,
+// ni pour un visiteur, ni pour un moteur de recherche.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('[data-onglets]').forEach(function (groupe) {
+    const onglets = Array.from(groupe.querySelectorAll('.onglet'));
+    const panneaux = Array.from(groupe.querySelectorAll('.panneau'));
+    if (onglets.length === 0) return;
+
+    groupe.classList.add('js-onglets');
+
+    function activer(index, donnerLeFocus) {
+      onglets.forEach(function (onglet, i) {
+        onglet.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        onglet.setAttribute('tabindex', i === index ? '0' : '-1');
+      });
+      panneaux.forEach(function (panneau, i) {
+        panneau.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+      });
+      if (donnerLeFocus) onglets[index].focus();
+    }
+
+    onglets.forEach(function (onglet, i) {
+      onglet.addEventListener('click', function () {
+        activer(i, false);
+        if (typeof gtag === 'function') {
+          gtag('event', 'onglet_agent', { event_category: 'engagement', event_label: onglet.dataset.libelle || ('Onglet ' + (i + 1)) });
+        }
+      });
+      onglet.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          activer((i + 1) % onglets.length, true);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          activer((i - 1 + onglets.length) % onglets.length, true);
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          activer(0, true);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          activer(onglets.length - 1, true);
+        }
+      });
+    });
+
+    activer(0, false);
+  });
 });
 </script>
 
