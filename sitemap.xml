@@ -113,4 +113,12 @@
     <priority>0.2</priority>
   </url>
 
+
+  <url>
+    <loc>https://mia-intelligence.com/aim/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

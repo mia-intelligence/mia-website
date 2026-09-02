@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F2ZTMXY1S1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F2ZTMXY1S1');
+</script>
+<title>Votre récap du workshop — Le Commerce de Demain | MIA</title>
+<meta name="description" content="Le récap complet du workshop « Le Commerce de Demain » à l'AIM Marseille : les quatre agents IA, les chiffres, la transposition à votre métier et le calendrier de la facture électronique.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../../assets/images/mia-favicon.png">
+<link rel="apple-touch-icon" href="../../assets/images/mia-favicon.png">
+<meta name="theme-color" content="#3d5080">
+
+<style>
+  :root {
+    --bleu-clair: #e8effd;
+    --bleu-moyen: #7a90bd;
+    --bleu-fonce: #3d5080;
+    --bleu-tres-fonce: #1a2540;
+    --blanc: #ffffff;
+    --texte: #2a3550;
+    --gris-doux: #f5f7fc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--texte);
+    background: var(--blanc);
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Navigation ---------- */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 18px 32px;
+    background: var(--blanc);
+    border-bottom: 1px solid var(--bleu-clair);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .nav-logo img { height: 46px; display: block; }
+  .nav-links { list-style: none; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .nav-links a { color: var(--texte); text-decoration: none; font-size: 0.95rem; }
+  .nav-links a:hover { color: var(--bleu-fonce); }
+  .nav-links .nav-cta {
+    background: var(--bleu-fonce);
+    color: var(--blanc);
+    padding: 10px 20px;
+    border-radius: 999px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--bleu-tres-fonce); color: var(--blanc); padding: 64px 0 56px; }
+  .hero .eyebrow {
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bleu-moyen);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .hero p { color: #dbe3f5; max-width: 62ch; }
+
+  /* ---------- Sommaire ---------- */
+  .sommaire {
+    background: var(--gris-doux);
+    border-bottom: 1px solid var(--bleu-clair);
+    padding: 18px 0;
+  }
+  .sommaire ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    font-size: 0.92rem;
+  }
+  .sommaire a { color: var(--bleu-fonce); text-decoration: none; }
+  .sommaire a:hover { text-decoration: underline; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 58px 0; }
+  .section-gris { background: var(--gris-doux); }
+  h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    color: var(--bleu-tres-fonce);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  h3 { font-size: 1.05rem; font-weight: 500; color: var(--bleu-tres-fonce); margin-bottom: 8px; }
+  p { margin-bottom: 16px; max-width: 72ch; }
+  strong { font-weight: 500; color: var(--bleu-tres-fonce); }
+
+  .bloc {
+    background: var(--blanc);
+    border: 1px solid var(--bleu-clair);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .bloc:last-child { margin-bottom: 0; }
+  .bloc .num {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--bleu-moyen);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .bloc p { margin-bottom: 0; }
+  .bloc .gain {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: var(--bleu-fonce);
+    border-top: 1px solid var(--bleu-clair);
+    padding-top: 12px;
+  }
+
+  .grille-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 24px; }
+
+  /* ---------- Échéances ---------- */
+  .echeances { margin-top: 22px; border-top: 1px solid var(--bleu-clair); }
+  .echeance {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--bleu-clair);
+  }
+  .echeance .date {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.3rem;
+    color: var(--bleu-fonce);
+  }
+  .echeance p { margin: 0; }
+
+  /* ---------- Questions ---------- */
+  .questions { counter-reset: q; margin-top: 20px; }
+  .question {
+    border-left: 3px solid var(--bleu-moyen);
+    padding: 4px 0 4px 22px;
+    margin-bottom: 24px;
+  }
+  .question h3::before {
+    counter-increment: q;
+    content: counter(q) ". ";
+    color: var(--bleu-moyen);
+  }
+  .question p { margin-bottom: 0; }
+
+  /* ---------- Rendez-vous ---------- */
+  .rdv {
+    background: var(--bleu-tres-fonce);
+    color: var(--blanc);
+    border-radius: 18px;
+    padding: 42px;
+  }
+  .rdv h2 { color: var(--blanc); }
+  .rdv p { color: #dbe3f5; }
+  .boutons { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+  .bouton { display: inline-block; padding: 14px 26px; border-radius: 999px; text-decoration: none; font-size: 1rem; }
+  .bouton-plein { background: var(--blanc); color: var(--bleu-tres-fonce); }
+  .bouton-plein:hover { background: var(--bleu-clair); }
+  .bouton-ligne { border: 1px solid var(--bleu-moyen); color: var(--blanc); }
+  .bouton-ligne:hover { border-color: var(--blanc); }
+  .mention { font-size: 0.85rem; color: var(--bleu-moyen); margin-top: 18px; }
+  .mention a { color: var(--bleu-clair); }
+  #calendrier-embed { margin-top: 22px; background: var(--blanc); border-radius: 12px; overflow: hidden; }
+  #calendrier-embed iframe { width: 100%; height: 680px; border: 0; display: block; }
+
+  /* ---------- Vidéo ---------- */
+  .video-cadre { position: relative; padding-top: 56.25%; border-radius: 14px; overflow: hidden; margin-top: 20px; }
+  .video-cadre iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .maj { font-size: 0.85rem; color: var(--bleu-moyen); margin-top: 26px; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--bleu-tres-fonce); color: #cdd7ee; padding: 52px 32px 24px; }
+  .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; }
+  .footer-brand img { height: 54px; margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.9rem; }
+  .footer-col h4 { color: var(--blanc); font-size: 0.95rem; margin-bottom: 12px; font-weight: 500; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .footer-col a, .footer-col li { color: #cdd7ee; text-decoration: none; font-size: 0.9rem; }
+  .footer-col a:hover { color: var(--blanc); }
+  .footer-bottom {
+    max-width: 1000px;
+    margin: 34px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(205, 215, 238, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.85rem;
+  }
+  .footer-legal-links { display: flex; gap: 16px; }
+  .footer-legal-links a { color: #cdd7ee; text-decoration: none; }
+
+  @media (max-width: 860px) {
+    nav { padding: 14px 18px; }
+    .nav-links { gap: 14px; font-size: 0.9rem; }
+    .rdv { padding: 28px 22px; }
+    .echeance { grid-template-columns: 1fr; gap: 6px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="../../index.html"><img src="../../assets/images/LogoMIASSF.png" alt="MIA — Laëtitia Coloré, consultante et formatrice en IA"></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="../">La page du workshop</a></li>
+    <li><a href="../../j-automatise.html">J'automatise</a></li>
+    <li><a href="../../qui-suis-je.html">Qui suis-je ?</a></li>
+    <li><a href="#rendez-vous" class="nav-cta">Prendre rendez-vous</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Workshop du 25 septembre 2026 · AIM Marseille</p>
+    <h1>Votre récap du Commerce de Demain</h1>
+    <p>Merci d'être venu. Voici, au calme, ce qui s'est passé sur scène : les quatre agents, les chiffres, et surtout ce que ça donne dans votre métier à vous — parce que vous n'êtes probablement pas fleuriste.</p>
+  </div>
+</header>
+
+<div class="sommaire">
+  <div class="wrap">
+    <ul>
+      <li><a href="#agents">Ce que vous avez vu</a></li>
+      <li><a href="#chez-vous">Et chez vous, ça donne quoi ?</a></li>
+      <li><a href="#facture">La facture électronique, les vraies dates</a></li>
+      <li><a href="#commencer">Par où commencer</a></li>
+      <li><a href="#rendez-vous">Prendre rendez-vous</a></li>
+    </ul>
+  </div>
+</div>
+
+<section id="video-section" hidden>
+  <div class="wrap">
+    <h2>Le workshop en vidéo</h2>
+    <p>Quarante minutes, en conditions réelles, à l'Orange Vélodrome.</p>
+    <div class="video-cadre"><iframe id="video-iframe" src="" title="Workshop Le Commerce de Demain — AIM Marseille 2026" allowfullscreen></iframe></div>
+  </div>
+</section>
+
+<section id="agents">
+  <div class="wrap">
+    <h2>Ce que vous avez vu sur scène</h2>
+    <p>Chantal tient une boutique de fleurs, seule 80 % du temps, avec une associée sur une seconde adresse. Une assistante IA travaille avec elle toute la journée. Rien n'était enregistré : tout ce qui s'est affiché à l'écran a été produit en direct devant vous.</p>
+
+    <div class="bloc">
+      <span class="num">Agent 1 — le matin</span>
+      <h3>Le devis et la facture électronique</h3>
+      <p>Une demande de mariage arrive au téléphone : bouquet de mariée, huit centres de table, une arche, dans un domaine viticole. Le devis complet est chiffré <strong>pendant l'appel</strong> — 1 412 € HT — et la facture Factur-X conforme se génère derrière. Quand la mariée rappelle pour dire qu'elle n'aime pas le violet, la composition est refaite en blanc, crème et vieux rose, prix recalculé, sans repartir de zéro.</p>
+      <span class="gain">Ce que ça change : le devis part pendant que le client est encore au téléphone, au lieu d'être fait le soir à 21 h — quand il est fait.</span>
+    </div>
+
+    <div class="bloc">
+      <span class="num">Agent 2 — la journée</span>
+      <h3>La relance clients</h3>
+      <p>Une cliente commande des pivoines chaque année pour l'anniversaire de sa mère. L'agent le sait, prépare le message huit jours avant, et l'écrit du ton de la commerçante. C'est le point critique : un message qui sent le robot abîme vingt ans de relation. Un message bien écrit, envoyé au bon moment, déclenche une commande à 30 € qui n'aurait jamais eu lieu.</p>
+      <span class="gain">Ce que ça change : les occasions récurrentes ne se perdent plus dans la charge mentale.</span>
+    </div>
+
+    <div class="bloc">
+      <span class="num">Agent 3 — l'après-midi</span>
+      <h3>La commande fournisseurs</h3>
+      <p>La fleur est un produit périssable : trop peu, on ne vend pas ; trop, on jette. Dans ce métier, <strong>12 % du stock part à la poubelle chaque année</strong>, soit environ 13 000 € pour deux boutiques. L'agent prépare la liste du marché de gros à partir des ventes réelles et du week-end qui arrive : fleurs nommées, quantités à la botte, total chiffré. La commerçante valide, la liste arrive sur son téléphone pour le marché de 5 h 30.</p>
+      <span class="gain">Ce que ça change : moins d'invendus, et c'est de la marge nette — pas du chiffre d'affaires en plus.</span>
+    </div>
+
+    <div class="bloc">
+      <span class="num">Agent 4 — le soir</span>
+      <h3>Le pilotage</h3>
+      <p>À la fermeture, le bilan arrive tout seul, boutique par boutique : 685 € et 21 clients d'un côté, 445 € et 14 clients de l'autre, 1 130 € au total, en hausse de 8 % sur le vendredi précédent. Et l'alerte qui compte : six créations invendues sur la seconde boutique. Pas un tableau de bord de plus — trois phrases, ce qui va et ce qui coince.</p>
+      <span class="gain">Ce que ça change : la deuxième journée de travail, celle du soir, disparaît.</span>
+    </div>
+  </div>
+</section>
+
+<section class="section-gris" id="chez-vous">
+  <div class="wrap">
+    <h2>Et chez vous, ça donne quoi ?</h2>
+    <p>Le métier change, la mécanique ne change pas. Il y a toujours un devis à faire, des clients à relancer, des achats à décider et des chiffres à lire le soir. Trois exemples pour vous situer.</p>
+
+    <div class="grille-2">
+      <div class="bloc">
+        <h3>Artisan du bâtiment</h3>
+        <p>Le devis chiffré depuis la visite, sur le chantier, au lieu du dimanche soir. La relance automatique des devis sans réponse à sept jours — c'est là que se perd le plus de chiffre d'affaires. Le suivi des chantiers en cours et des acomptes encaissés, sans tableur.</p>
+      </div>
+      <div class="bloc">
+        <h3>Restaurant</h3>
+        <p>La commande fournisseurs calée sur les couverts réels et la météo du week-end. Les avis clients à traiter chaque jour, avec une réponse préparée, jamais publiée sans relecture. Le pilotage du coût matière plat par plat, mis à jour tout seul.</p>
+      </div>
+      <div class="bloc">
+        <h3>Profession libérale</h3>
+        <p>Les rendez-vous confirmés et rappelés sans y penser, ce qui fait fondre les annulations de dernière minute. Les comptes-rendus rédigés à partir de vos notes. La facturation et les relances d'impayés, qui sont rarement le moment préféré de la semaine.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:24px">Dans les trois cas, la règle reste celle du workshop : l'agent prend l'administratif, jamais la relation. Ce que vos clients viennent chercher chez vous ne s'automatise pas, et n'a pas à l'être.</p>
+  </div>
+</section>
+
+<section id="facture">
+  <div class="wrap">
+    <h2>La facture électronique : les vraies dates</h2>
+    <p>C'est le sujet qui inquiète le plus les dirigeants que je rencontre, et celui sur lequel circulent le plus d'informations fausses. Voilà le calendrier officiel.</p>
+
+    <div class="echeances">
+      <div class="echeance">
+        <span class="date">1<sup>er</sup> septembre 2026</span>
+        <p><strong>Réception obligatoire pour toutes les entreprises</strong>, quelle que soit leur taille — y compris les micro-entrepreneurs en franchise de TVA. Vous devez être en mesure de recevoir une facture électronique, même si vous n'êtes pas encore tenu d'en émettre.</p>
+      </div>
+      <div class="echeance">
+        <span class="date">1<sup>er</sup> septembre 2026</span>
+        <p><strong>Émission obligatoire pour les grandes entreprises et les ETI.</strong> Si vous facturez l'une d'elles, elle vous demandera très vite de suivre.</p>
+      </div>
+      <div class="echeance">
+        <span class="date">1<sup>er</sup> septembre 2027</span>
+        <p><strong>Émission obligatoire pour les PME, TPE et micro-entreprises.</strong> C'est votre échéance si vous êtes commerçant, artisan ou indépendant.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:24px">Le format montré sur scène s'appelle <strong>Factur-X</strong> : un PDF parfaitement lisible par un humain, qui embarque en plus les données lisibles par une machine, conforme à la norme européenne EN 16931. C'est le format le plus simple à adopter pour une petite structure, parce que rien ne change visuellement pour votre client.</p>
+    <p>La bonne nouvelle : bien posée, cette obligation ne coûte pas de temps, elle en rend. La facture conforme sort du devis, sans double saisie.</p>
+  </div>
+</section>
+
+<section class="section-gris" id="commencer">
+  <div class="wrap">
+    <h2>Par où commencer</h2>
+    <p>Avant de choisir un outil, trois questions. Elles prennent dix minutes et évitent des mois d'erreur.</p>
+
+    <div class="questions">
+      <div class="question">
+        <h3>Quelles heures perdez-vous réellement chaque semaine ?</h3>
+        <p>Pas une impression : une liste. Notez pendant une semaine ce que vous faites après la fermeture. Devis, relances, commandes, saisie, réseaux sociaux. Ce sont ces heures-là qu'on récupère, et elles seules justifient l'investissement.</p>
+      </div>
+      <div class="question">
+        <h3>Qu'est-ce que vous ne voulez pas automatiser ?</h3>
+        <p>Question au moins aussi importante. L'accueil, le conseil, le geste métier, la création : dans le workshop, la tablette à l'entrée de la boutique a été refusée pour cette raison. Posez la limite avant, pas après.</p>
+      </div>
+      <div class="question">
+        <h3>Combien vaut une heure de votre temps ?</h3>
+        <p>Avec votre marge et votre panier moyen, chiffrez-la. Trois heures par jour rendues, ça se compare à un coût. Si le calcul n'est pas favorable, le projet ne se fait pas — c'est aussi une réponse honnête.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rendez-vous">
+  <div class="wrap">
+    <div class="rdv">
+      <h2>Parlons de votre activité</h2>
+      <p>Trente minutes, sans engagement, pour regarder vos heures perdues et dire honnêtement ce qui est automatisable et ce qui ne l'est pas. Si l'IA n'est pas la bonne réponse pour vous, je vous le dirai — c'est plus utile qu'un devis.</p>
+
+      <div id="calendrier-embed" hidden></div>
+
+      <div class="boutons" id="rdv-boutons">
+        <a class="bouton bouton-plein" id="rdv-calendrier" href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','rdv_recap_aim',{event_category:'conversion'});}">Choisir un créneau</a>
+        <a class="bouton bouton-ligne" href="mailto:contact@mia-intelligence.com?subject=Suite%20au%20workshop%20AIM%202026">Écrire un mail</a>
+      </div>
+
+      <p class="mention">MIA — Médiation Intelligence Appliquée · Laëtitia Coloré · Saint-Maximin-la-Sainte-Baume (83470), Var · 06 17 81 33 05 · <a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></p>
+    </div>
+
+    <p class="maj">Récap du workshop « Le Commerce de Demain », AIM Marseille, 25 septembre 2026. Page réservée aux participants. Sources du calendrier de la facture électronique : textes officiels de la réforme, à jour de septembre 2026.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../../assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée">
+      <p>Consultante &amp; Formatrice Digital &amp; IA — MIA accompagne les TPE, commerçants et professions libérales dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Aller plus loin</h4>
+      <ul>
+        <li><a href="../">La page du workshop</a></li>
+        <li><a href="../../je-comprends.html">Je comprends</a></li>
+        <li><a href="../../j-automatise.html">J'automatise</a></li>
+        <li><a href="../../je-maitrise.html">Je maîtrise</a></li>
+        <li><a href="../../diagnostic.html">Diagnostic gratuit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0617813305">06 17 81 33 05</a></li>
+        <li><a href="mailto:contact@mia-intelligence.com">contact@mia-intelligence.com</a></li>
+        <li><a href="https://mia-intelligence.com">mia-intelligence.com</a></li>
+        <li>Saint-Maximin-la-Sainte-Baume</li>
+        <li>Var — 83</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 MIA — Médiation Intelligence Appliquée</span>
+    <div class="footer-legal-links">
+      <a href="../../mentions-legales.html">Mentions légales</a>
+      <a href="../../politique-confidentialite.html">Politique de confidentialité</a>
+      <a href="../../cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---------------------------------------------------------------------------
+// Deux réglages à remplir, et rien d'autre à toucher dans cette page.
+//
+// CALENDRIER_URL : le lien de réservation (Cal.com ou Calendly).
+//   Vide  → le bouton « Choisir un créneau » renvoie vers le formulaire Airtable.
+//   Rempli → le calendrier s'affiche directement dans la page, avec les créneaux.
+//
+// VIDEO_URL : l'URL d'intégration de la vidéo du workshop (YouTube ou Vimeo),
+//   à coller après le montage. Vide → la section vidéo reste masquée.
+// ---------------------------------------------------------------------------
+const CALENDRIER_URL = '';
+const VIDEO_URL = '';
+
+document.addEventListener('DOMContentLoaded', function () {
+  if (CALENDRIER_URL) {
+    const cadre = document.getElementById('calendrier-embed');
+    const iframe = document.createElement('iframe');
+    iframe.src = CALENDRIER_URL;
+    iframe.title = 'Choisir un créneau avec Laëtitia Coloré';
+    cadre.appendChild(iframe);
+    cadre.hidden = false;
+    document.getElementById('rdv-calendrier').href = CALENDRIER_URL;
+    document.getElementById('rdv-calendrier').target = '_blank';
+  }
+
+  if (VIDEO_URL) {
+    document.getElementById('video-iframe').src = VIDEO_URL;
+    document.getElementById('video-section').hidden = false;
+  }
+});
+</script>
+
+</body>
+</html>
