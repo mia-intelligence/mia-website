@@ -792,15 +792,18 @@ async function envoyerRecap(e) {
   bouton.textContent = 'Envoi…';
 
   try {
+    // Envoi en formulaire simple (URL-encoded) et non en JSON : cela évite la
+    // requête OPTIONS de contrôle CORS, que les webhooks Make ne traitent pas.
+    // Make reçoit les champs tels quels, sans module de parsing supplémentaire.
     await fetch(WEBHOOK_RECAP_AIM, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+      body: new URLSearchParams({
         email: email,
-        consentement_rgpd: true,
+        consentement_rgpd: 'oui',
         date: new Date().toISOString(),
         source: 'Workshop AIM Marseille 2026 — mia-intelligence.com/aim'
-      })
+      }).toString()
     });
     if (typeof gtag === 'function') {
       gtag('event', 'recap_aim_email', { event_category: 'conversion', event_label: 'Récap workshop AIM' });
