@@ -3,7 +3,7 @@
 
   <url>
     <loc>https://mia-intelligence.com/</loc>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -87,7 +87,14 @@
 
   <url>
     <loc>https://mia-intelligence.com/capsule-ia-4.html</loc>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mia-intelligence.com/capsule-ia-5.html</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

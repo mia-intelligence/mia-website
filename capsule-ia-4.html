@@ -477,6 +477,38 @@
   }
   .footer-bottom a:hover { color: var(--blanc); }
 
+  /* NAVIGATION ENTRE CAPSULES */
+  .capsule-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .capsule-nav a {
+    flex: 1 1 240px;
+    background: var(--blanc);
+    border-radius: 8px;
+    border-left: 4px solid var(--bleu-clair);
+    padding: 1.1rem 1.4rem;
+    text-decoration: none;
+    color: var(--texte);
+    box-shadow: 0 2px 12px rgba(26,37,64,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .capsule-nav a:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(26,37,64,0.10); }
+  .capsule-nav span {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .capsule-nav strong { font-size: 0.95rem; font-weight: 600; line-height: 1.4; }
+
   @media (max-width: 768px) {
     .footer-inner { grid-template-columns: 1fr 1fr; }
     .resume-box { margin: 0 1rem -2rem; }
@@ -760,6 +792,18 @@
     </details>
   </div>
 
+  <!-- NAVIGATION ENTRE CAPSULES -->
+  <div class="capsule-nav" role="navigation" aria-label="Navigation entre les capsules">
+    <a href="https://mia-intelligence.com/capsule-ia-3.html">
+      <span>← Capsule précédente</span>
+      <strong>Claude, c'est quoi vraiment ? Le guide honnête pour les TPE</strong>
+    </a>
+    <a href="https://mia-intelligence.com/capsule-ia-5.html">
+      <span>Capsule suivante →</span>
+      <strong>Facture électronique : c'est en vigueur. Que faire si vous n'êtes pas prêt ?</strong>
+    </a>
+  </div>
+
 </div><!-- fin content-wrap -->
 
 <!-- FOOTER -->
@@ -790,6 +834,7 @@
         <li><a href="https://mia-intelligence.com/capsule-ia-2.html">Capsule IA #2</a></li>
         <li><a href="https://mia-intelligence.com/capsule-ia-3.html">Capsule IA #3</a></li>
         <li><a href="https://mia-intelligence.com/capsule-ia-4.html">Capsule IA #4</a></li>
+        <li><a href="https://mia-intelligence.com/capsule-ia-5.html">Capsule IA #5</a></li>
         <li><a href="https://mia-intelligence.com/diagnostic.html">Diagnostic gratuit</a></li>
       </ul>
     </div>
