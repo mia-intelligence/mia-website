@@ -3,7 +3,7 @@
 
   <url>
     <loc>https://mia-intelligence.com/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -52,7 +52,7 @@
 
   <url>
     <loc>https://mia-intelligence.com/diagnostic.html</loc>
-    <lastmod>2026-06-17</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -98,28 +98,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://mia-intelligence.com/mentions-legales.html</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-  <url>
-    <loc>https://mia-intelligence.com/politique-confidentialite.html</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
-  <url>
-    <loc>https://mia-intelligence.com/cookies.html</loc>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-
 
   <url>
     <loc>https://mia-intelligence.com/aim/</loc>
