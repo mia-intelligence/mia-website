@@ -35,11 +35,11 @@ TVA non applicable, article 293 B du CGI. Aucun paiement n'est demandé à la r�
 | Audit IA Business TPE (moins de 10 salariés) | 2 h 30 + synthèse sous 48 h + restitution de 30 à 45 min | 350 € |
 | Audit IA Business PME (10 à 249 salariés) | 1 journée (7 h) + synthèse + restitution | 850 € |
 | Stratégie réseaux sociaux | 6 h | 690 € |
-| Automatisation Communication | 4 h | 810 € |
-| Automatisation Administration | 6 h | 1 080 € |
-| Automatisation Relation Client | 8 h | 1 240 € |
-| Dashboard KPI | 8 h | 1 290 € |
-| MIA Apps (application métier sur mesure) | 30 h | À partir de 3 600 € |
+| Automatisation Communication | Sur devis | Entre 800 € et 1 300 € selon le périmètre |
+| Automatisation Administration | Sur devis | Entre 800 € et 1 300 € selon le périmètre |
+| Automatisation Relation Client | Sur devis | Entre 800 € et 1 300 € selon le périmètre |
+| Dashboard KPI | Sur devis | Entre 800 € et 1 300 € selon le périmètre |
+| MIA Apps (application métier sur mesure) | Sur devis | Sur devis, après cadrage |
 | Initiation à l'IA | 2 h | 120 € en visio, 180 € en présentiel + frais de déplacement |
 | Formations en groupe (catalogue, 4 journées) | 7 h par journée | 150 € par personne et par jour |
 | Formation individuelle | À l'heure | 120 € de l'heure |
