@@ -39,7 +39,7 @@ TVA non applicable, article 293 B du CGI. Aucun paiement n'est demandé à la r�
 | Automatisation Administration | Sur devis | Entre 800 € et 1 300 € selon le périmètre |
 | Automatisation Relation Client | Sur devis | Entre 800 € et 1 300 € selon le périmètre |
 | Dashboard KPI | Sur devis | Entre 800 € et 1 300 € selon le périmètre |
-| MIA Apps (application métier sur mesure) | Sur devis | À partir de 3 600 € |
+| MIA Apps (application métier sur mesure) | Sur devis | Sur devis, après cadrage |
 | Initiation à l'IA | 2 h | 120 € en visio, 180 € en présentiel + frais de déplacement |
 | Formations en groupe (catalogue, 4 journées) | 7 h par journée | 150 € par personne et par jour |
 | Formation individuelle | À l'heure | 120 € de l'heure |
