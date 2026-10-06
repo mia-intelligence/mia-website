@@ -1,0 +1,84 @@
+# MIA — Médiation Intelligence Appliquée
+
+> Consultante et formatrice en IA pour les TPE, artisans et commerçants. Saint-Maximin-la-Sainte-Baume, Var (région PACA), France.
+
+## Qui
+
+- Fondatrice : Laëtitia Coloré, plus de 20 ans d'expérience en marketing et communication, spécialisée en intelligence artificielle depuis 2025.
+- Entreprise individuelle. Elle travaille seule.
+- Site : https://mia-intelligence.com
+- Contact : contact@mia-intelligence.com · 06 17 81 33 05
+- LinkedIn : https://www.linkedin.com/in/laetitia-colore/
+
+## Quoi
+
+MIA aide les petites entreprises à utiliser l'intelligence artificielle dans leur stratégie, leur communication et leur organisation : audit de l'activité, accompagnement sur 12 mois, formations, automatisations et applications métier sur mesure. Les clients restent propriétaires de leurs données et de leurs accès. Parcours d'entrée : test gratuit en ligne « Êtes-vous prêt pour l'IA ? » (18 questions, un score, un test et non une analyse), puis appel découverte gratuit de 30 minutes, puis Audit IA Business pour le compte rendu complet.
+
+## Pour qui
+
+TPE (moins de 10 salariés), artisans et commerçants. L'Audit IA Business existe aussi en version PME (10 à 249 salariés).
+
+## Où
+
+- Siège : Saint-Maximin-la-Sainte-Baume, 83470, Var.
+- Présentiel : Var et région Provence-Alpes-Côte d'Azur.
+- Visio : partout en France.
+
+## Offres et prix
+
+TVA non applicable, article 293 B du CGI. Aucun paiement n'est demandé à la réservation d'un audit. Pas de paiement annuel.
+
+| Offre | Durée | Prix |
+| --- | --- | --- |
+| Test gratuit en ligne « Êtes-vous prêt pour l'IA ? » (18 questions) | 5 min | Gratuit |
+| Appel découverte | 30 min | Gratuit |
+| Audit IA Business TPE (moins de 10 salariés) | 2 h 30 + synthèse sous 48 h + restitution de 30 à 45 min | 350 € |
+| Audit IA Business PME (10 à 249 salariés) | 1 journée (7 h) + synthèse + restitution | 850 € |
+| Stratégie réseaux sociaux | 6 h | 690 € |
+| Automatisation Communication | 4 h | 810 € |
+| Automatisation Administration | 6 h | 1 080 € |
+| Automatisation Relation Client | 8 h | 1 240 € |
+| Dashboard KPI | 8 h | 1 290 € |
+| MIA Apps (application métier sur mesure) | 30 h | À partir de 3 600 € |
+| Initiation à l'IA | 2 h | 120 € en visio, 180 € en présentiel + frais de déplacement |
+| Formations en groupe (catalogue, 4 journées) | 7 h par journée | 150 € par personne et par jour |
+| Formation individuelle | À l'heure | 120 € de l'heure |
+| Mon IA, ma boîte | 12 mois | 120 € par mois |
+
+### Mon IA, ma boîte
+
+Accompagnement sur 12 mois, engagement de 12 mois écrit au devis. Une visio d'une heure par mois et une disponibilité par messagerie avec réponse sous 48 heures. Cinq étapes : Installer (mois 1 et 2), Mettre à plat (mois 3 et 4), Construire (mois 5 à 7), Connecter (mois 8 à 10), Devenir autonome (mois 11 et 12). Le client construit lui-même, avec les conseils de Laëtitia Coloré. Résiliable à l'échéance avec un préavis d'un mois ; à défaut, reconduit pour 12 mois. La version appliquée à Claude s'appelle « Mon Claude, ma boîte » ; le même accompagnement existe pour ChatGPT, Mistral, Gemini et d'autres outils.
+
+### Formations en groupe (4 journées, 6 à 12 participants)
+
+1. Communiquer efficacement pour être visible et compris
+2. Structurer sa communication et gagner du temps avec les outils digitaux et l'IA
+3. Piloter sa communication et son marketing comme un dirigeant
+4. Automatiser et piloter son activité avec l'IA
+
+Le participant commence à son niveau, validé par un test d'entrée. Formations finançables par votre OPCO via nos organismes partenaires certifiés Qualiopi. Déclaration d'activité enregistrée sous le numéro 93830896883 auprès du préfet de région Provence-Alpes-Côte d'Azur. Cet enregistrement ne vaut pas agrément de l'État.
+
+### MIA Apps
+
+Application métier construite à partir de modules (commerce, facturation, suivi de chantier, stock), adaptée au corps de métier du client et intégrée à ses outils existants.
+
+## Pages principales
+
+- Accueil : https://mia-intelligence.com/
+- Qui suis-je : https://mia-intelligence.com/qui-suis-je.html
+- Je comprends (audits) : https://mia-intelligence.com/je-comprends.html
+- J'automatise (automatisations, MIA Apps) : https://mia-intelligence.com/j-automatise.html
+- Je maîtrise (formations) : https://mia-intelligence.com/je-maitrise.html
+- Mon Claude, ma boîte : https://mia-intelligence.com/mon-claude-ma-boite.html
+- Initiation à l'IA : https://mia-intelligence.com/formation-claude-mensuel.html
+- Questions fréquentes : https://mia-intelligence.com/questions-frequentes.html
+- Diagnostic gratuit « Mon entreprise est-elle prête pour l'IA ? » : https://mia-intelligence.com/diagnostic.html
+- Comment c'est construit : https://mia-intelligence.com/comment-ca-fonctionne.html
+- Capsule IA (veille mensuelle) : https://mia-intelligence.com/capsule-ia-5.html
+
+## Prendre contact
+
+- Appel découverte de 30 min : https://calendar.app.google/S4BXzZDGD834A9uy6
+- Réserver un Audit IA Business : https://calendar.app.google/AxR7LXX2EUcbA9YY6
+- Démarrer Mon IA, ma boîte : https://checkout.revolut.com/subscription/3236be64-fe89-46ec-a23b-ba8fb6be8c1f
+- Laisser un message : https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form

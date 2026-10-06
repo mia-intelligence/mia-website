@@ -11,8 +11,8 @@
   gtag('js', new Date());
   gtag('config', 'G-F2ZTMXY1S1');
 </script>
-<title>J'automatise — Agents IA pour TPE et artisans | MIA Saint-Maximin Var</title>
-<meta name="description" content="MIA conçoit des agents IA sur mesure pour les TPE et artisans : MIA-Market, MIA-ADV, MIA-Sales, MIA-Prospect, MIA-CRM, MIA-Analytix. Automatisez sans complexité.">
+<title>Consultante IA et automatisation dans le Var | MIA</title>
+<meta name="description" content="Automatisations sur mesure pour TPE, artisans et commerçants dans le Var : communication 810 €, administration 1 080 €, relation client 1 240 €, tableau de bord 1 290 €. MIA Apps, application métier, à partir de 3 600 €.">
 <link rel="canonical" href="https://mia-intelligence.com/j-automatise.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -23,15 +23,22 @@
 {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Agents IA MIA",
+  "name": "Automatisations et applications métier MIA",
   "provider": {
     "@type": "ProfessionalService",
-    "name": "MIA - Mediation Intelligence Appliquee",
+    "name": "MIA — Médiation Intelligence Appliquée",
     "url": "https://mia-intelligence.com"
   },
-  "description": "Agents IA sur mesure pour automatiser la communication, les devis, la relation client et la prospection des TPE et artisans du Var.",
-  "areaServed": ["Var", "Bouches-du-Rhone", "PACA"],
-  "serviceType": "Automatisation IA"
+  "description": "Automatisations sur mesure pour les TPE, artisans et commerçants du Var : communication, administration, relation client, tableau de bord. Applications métier MIA Apps construites à partir de modules (commerce, facturation, suivi de chantier, stock).",
+  "areaServed": ["Var", "Bouches-du-Rhône", "PACA", "France"],
+  "serviceType": "Automatisation IA et application métier",
+  "offers": [
+    {"@type": "Offer", "name": "Automatisation Communication", "price": "810", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Automatisation Administration", "price": "1080", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Automatisation Relation Client", "price": "1240", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "Dashboard KPI", "price": "1290", "priceCurrency": "EUR"},
+    {"@type": "Offer", "name": "MIA Apps — application métier sur mesure", "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "3600", "priceCurrency": "EUR"}}
+  ]
 }
 </script>
 
@@ -139,7 +146,7 @@
   .agents-header { text-align: center; margin-bottom: 4rem; }
   .agents-header h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-tres-fonce); margin-bottom: 1rem; }
   .agents-header p { font-size: 0.95rem; color: #5a6a8a; max-width: 600px; margin: 0 auto; line-height: 1.8; }
-  .agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .agents-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .agent-card { background: white; padding: 2.5rem; border: 1px solid var(--bleu-clair); transition: all 0.3s; position: relative; }
   .agent-card:hover { box-shadow: 0 8px 40px rgba(61,80,128,0.12); transform: translateY(-4px); }
   .agent-nom { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bleu-moyen); font-weight: 500; margin-bottom: 0.5rem; }
@@ -255,6 +262,39 @@
     footer { padding: 3rem 3rem 2rem; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   }
+
+  /* Prix des automatisations */
+  .agent-prix { font-size: 0.85rem; color: #5a6a8a; margin-bottom: 1.5rem; padding: 0.7rem 1rem; background: var(--gris-doux); border-left: 3px solid var(--bleu-moyen); }
+  .agent-prix strong { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 600; color: var(--bleu-tres-fonce); margin-right: 0.4rem; }
+  .agents-note { text-align: center; font-size: 0.82rem; color: #5a6a8a; margin-top: 2.5rem; line-height: 1.7; }
+  /* MIA Apps */
+  .section-apps { padding: 7rem 6rem; background: white; }
+  .apps-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start; }
+  .apps-content h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-tres-fonce); line-height: 1.2; margin-bottom: 1.5rem; }
+  .apps-content h2 em { font-style: italic; color: var(--bleu-moyen); }
+  .apps-content h3 { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; font-weight: 600; color: var(--bleu-fonce); margin: 2rem 0 0.6rem; }
+  .apps-content p { font-size: 0.95rem; line-height: 1.85; color: #5a6a8a; margin-bottom: 1.2rem; }
+  .apps-content p strong { color: var(--bleu-fonce); font-weight: 500; }
+  .apps-modules { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem 1.5rem; margin: 0 0 1.5rem; }
+  .apps-modules li { font-size: 0.88rem; color: var(--texte); padding-left: 1rem; position: relative; }
+  .apps-modules li::before { content: "→"; position: absolute; left: 0; color: var(--bleu-moyen); font-size: 0.75rem; }
+  .apps-prix { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem; background: var(--gris-doux); border-left: 3px solid var(--bleu-fonce); padding: 1rem 1.5rem; margin-bottom: 2rem; }
+  .apps-prix strong { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; white-space: nowrap; font-weight: 600; color: var(--bleu-tres-fonce); }
+  .apps-prix span { font-size: 0.85rem; color: #5a6a8a; }
+  .apps-captures { display: flex; flex-direction: column; gap: 1.5rem; }
+  .apps-capture { margin: 0; background: var(--gris-doux); border: 1px solid var(--bleu-clair); padding: 1rem; }
+  .apps-capture img { width: 100%; display: block; }
+  .apps-capture figcaption { font-size: 0.75rem; color: #5a6a8a; margin-top: 0.7rem; font-style: italic; }
+  @media (max-width: 768px) {
+    .section-apps { padding: 4rem 1.5rem; }
+    .apps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .apps-content h2 { font-size: 2rem; }
+    .apps-modules { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .section-apps { padding: 5rem 3rem; }
+    .apps-grid { gap: 3rem; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -264,7 +304,7 @@
   "url": "https://mia-intelligence.com",
   "logo": "https://mia-intelligence.com/assets/images/LogoMIAFBC.png",
   "image": "https://mia-intelligence.com/assets/images/PhotoLaetiIA.png",
-  "description": "MIA accompagne les TPE, artisans et commerçants dans leur stratégie digitale et l'automatisation de leur activité grâce à l'intelligence artificielle. Formations, agents IA sur mesure, accompagnement stratégique.",
+  "description": "MIA accompagne les TPE, artisans et commerçants du Var dans leur stratégie, leur communication et l'automatisation de leur activité grâce à l'intelligence artificielle : audit IA, accompagnement sur 12 mois, formations et applications métier sur mesure.",
   "telephone": "+33617813305",
   "email": "contact@mia-intelligence.com",
   "address": {
@@ -288,18 +328,62 @@
   "founder": {
     "@type": "Person",
     "name": "Laëtitia Coloré",
-    "jobTitle": "Consultante & Formatrice — Digital & IA",
+    "jobTitle": "Consultante et formatrice en IA",
     "telephone": "+33617813305",
     "email": "contact@mia-intelligence.com",
     "sameAs": "https://www.linkedin.com/in/laetitia-colore/"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Services MIA",
+    "name": "Offres MIA",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Agents IA sur mesure pour TPE et PME"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Formation communication digitale et IA"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Accompagnement stratégique digital"}}
+      {
+        "@type": "Offer",
+        "name": "Audit IA Business TPE",
+        "price": "350",
+        "priceCurrency": "EUR",
+        "itemOffered": {"@type": "Service", "name": "Audit IA Business TPE (moins de 10 salariés)"}
+      },
+      {
+        "@type": "Offer",
+        "name": "Audit IA Business PME",
+        "price": "850",
+        "priceCurrency": "EUR",
+        "itemOffered": {"@type": "Service", "name": "Audit IA Business PME (10 à 249 salariés)"}
+      },
+      {
+        "@type": "Offer",
+        "name": "Initiation à l'IA",
+        "price": "120",
+        "priceCurrency": "EUR",
+        "itemOffered": {"@type": "Service", "name": "Initiation à l'IA (2 h, en visio)"}
+      },
+      {
+        "@type": "Offer",
+        "name": "Mon IA, ma boîte",
+        "price": "120",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "120",
+          "priceCurrency": "EUR",
+          "unitCode": "MON",
+          "unitText": "mois",
+          "billingIncrement": 1
+        },
+        "itemOffered": {"@type": "Service", "name": "Mon IA, ma boîte — accompagnement sur 12 mois"}
+      },
+      {
+        "@type": "Offer",
+        "name": "MIA Apps",
+        "priceCurrency": "EUR",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "3600",
+          "priceCurrency": "EUR"
+        },
+        "itemOffered": {"@type": "Service", "name": "MIA Apps — application métier sur mesure"}
+      }
     ]
   },
   "sameAs": [
@@ -321,7 +405,7 @@
     <li><a href="je-maitrise.html">Je maîtrise</a></li>
     <li><a href="mon-claude-ma-boite.html">Mon Claude, ma boîte</a></li>
     <li><a href="qui-suis-je.html">Qui suis-je</a></li>
-    <li><a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" class="nav-cta">Prendre contact</a></li>
+    <li><a href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" class="nav-cta">Prendre rendez-vous</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Menu">
     <span></span>
@@ -344,107 +428,128 @@
   <div class="pourquoi-content">
     <p class="section-tag">Pourquoi automatiser ?</p>
     <h2>Chaque heure gagnée est<br><em>une heure investie ailleurs</em></h2>
-    <p>Un dirigeant de TPE passe en moyenne 30 % de son temps sur des tâches répétitives — relances clients, envoi de devis, publications sur les réseaux sociaux, suivi de dossiers. Des tâches indispensables mais chronophages, qui pourraient tourner seules grâce aux <strong>agents IA MIA</strong>.</p>
-    <p>Chaque agent est configuré sur mesure pour votre activité. <strong>Pas de développement complexe</strong> — des processus intelligents que vous comprenez et que vous pilotez.</p>
+    <p>Un dirigeant de TPE passe une bonne partie de son temps sur des tâches répétitives — relances clients, envoi de devis, publications sur les réseaux sociaux, suivi de dossiers. Des tâches indispensables mais chronophages, qui pourraient tourner seules grâce aux <strong>automatisations MIA</strong>.</p>
+    <p>Chaque automatisation est construite sur mesure pour votre activité. <strong>Pas de développement complexe</strong> — des processus intelligents que vous comprenez et que vous pilotez.</p>
     <p>Résultat : moins de temps perdu, moins d'oublis, plus de réactivité client et une activité qui avance même quand vous êtes sur le terrain.</p>
     <div class="btn-group">
-      <a href="#agents" class="btn-primary">Voir les agents MIA</a>
+      <a href="#agents" class="btn-primary">Voir les automatisations</a>
       <a href="comment-ca-fonctionne.html" class="btn-secondary">Comment c'est construit →</a>
     </div>
   </div>
   <div class="pourquoi-img">
-    <img src="assets/images/automatisation-ia-mia-saint-maximin.png" alt="Automatisation IA TPE artisans Var">
+    <img src="assets/images/automatisation-ia-mia-saint-maximin.png" alt="Automatisation IA pour TPE, artisans et commerçants dans le Var">
   </div>
 </section>
 
-<!-- AGENTS -->
+<!-- AUTOMATISATIONS -->
 <section class="section-agents" id="agents">
   <div class="agents-header">
     <p class="section-tag" style="justify-content: center;">Les solutions MIA</p>
-    <h2>Choisissez votre agent</h2>
-    <p>Six agents spécialisés, chacun configuré pour un besoin précis. Déployez-les un par un ou combinez-les selon votre activité.</p>
+    <h2>Combien coûte une automatisation ?</h2>
+    <p>Chaque automatisation a un prix fixe, annoncé à l'avance : de 810 € à 1 290 € selon le périmètre. La durée indiquée correspond au temps de construction et de mise en place avec vous.</p>
   </div>
-
   <div class="agents-grid">
-
     <div class="agent-card">
-      <p class="agent-nom">MIA-Market</p>
+      <p class="agent-nom">Automatisation Communication</p>
       <h3 class="agent-titre">Vos réseaux tournent seuls</h3>
-      <p class="agent-desc">L'IA génère vos contenus à partir de vos thématiques, les adapte à chaque réseau social et les diffuse selon votre planning.</p>
+      <p class="agent-desc">L'IA prépare vos contenus à partir de vos thématiques, les adapte à chaque réseau social et les diffuse selon votre planning. Vous validez, le reste se fait sans vous.</p>
+      <p class="agent-prix"><strong>810&nbsp;€</strong> 4 h de construction</p>
       <ul class="agent-liste">
-        <li>Génération automatique de contenus</li>
+        <li>Génération de contenus à partir de vos thématiques</li>
         <li>Adaptation par réseau social</li>
         <li>Diffusion programmée</li>
         <li>Rapport de performance hebdomadaire</li>
       </ul>
-      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
+      <a href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" class="btn-primary">Réserver un appel de 30 min</a>
     </div>
-
     <div class="agent-card">
-      <p class="agent-nom">MIA-ADV</p>
+      <p class="agent-nom">Automatisation Administration</p>
       <h3 class="agent-titre">Vos devis partent automatiquement</h3>
-      <p class="agent-desc">Un client remplit un formulaire, l'IA analyse ses besoins et génère un devis personnalisé. Vous validez en un clic, le devis part seul.</p>
+      <p class="agent-desc">Un client remplit un formulaire, l'IA analyse ses besoins et prépare un devis personnalisé. Vous validez en un clic, le devis part seul et les relances suivent.</p>
+      <p class="agent-prix"><strong>1&nbsp;080&nbsp;€</strong> 6 h de construction</p>
       <ul class="agent-liste">
         <li>Formulaire de demande intelligent</li>
-        <li>Devis généré par l'IA</li>
+        <li>Devis préparé par l'IA</li>
         <li>Validation en un clic</li>
-        <li>Relances automatiques à 24h et 72h</li>
+        <li>Relances automatiques à 24 h et 72 h</li>
       </ul>
-      <a href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" class="btn-primary">Demander un devis</a>
+      <a href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" class="btn-primary">Réserver un appel de 30 min</a>
     </div>
-
     <div class="agent-card">
-      <p class="agent-nom">MIA-Sales</p>
+      <p class="agent-nom">Automatisation Relation Client</p>
       <h3 class="agent-titre">Vos clients reviennent d'eux-mêmes</h3>
-      <p class="agent-desc">L'agent répond aux demandes de vos clients sur email et site internet, 7j/7, sur la base de vos informations. Il vous alerte quand il ne peut pas traiter.</p>
+      <p class="agent-desc">Réponses aux demandes reçues par email ou depuis votre site, suivi de chaque client dans son parcours, messages déclenchés au bon moment. Vous recevez une alerte dès qu'un cas sort du cadre.</p>
+      <p class="agent-prix"><strong>1&nbsp;240&nbsp;€</strong> 8 h de construction</p>
       <ul class="agent-liste">
-        <li>Réponses automatiques aux demandes</li>
-        <li>Disponible 7j/7 sans intervention</li>
+        <li>Réponses automatiques aux demandes, 7 j/7</li>
+        <li>Suivi du parcours client et messages aux bonnes étapes</li>
         <li>Alerte pour les cas complexes</li>
-        <li>Prise de rendez-vous automatique</li>
-      </ul>
-      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
-    </div>
-
-    <div class="agent-card">
-      <p class="agent-nom">MIA-Prospect</p>
-      <h3 class="agent-titre">Trouvez de nouveaux clients sans chercher</h3>
-      <p class="agent-desc">L'agent identifie vos prospects idéaux sur votre zone géographique et prépare une séquence de contact personnalisée.</p>
-      <ul class="agent-liste">
-        <li>Identification automatique de prospects</li>
-        <li>Ciblage par secteur et zone</li>
-        <li>Séquence email personnalisée</li>
-        <li>Liste qualifiée prête à l'emploi</li>
-      </ul>
-      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
-    </div>
-
-    <div class="agent-card">
-      <p class="agent-nom">MIA-CRM</p>
-      <h3 class="agent-titre">Suivez chaque client sans effort</h3>
-      <p class="agent-desc">L'agent suit vos clients dans leur parcours, déclenche les bonnes communications au bon moment et vous prépare les réponses à valider.</p>
-      <ul class="agent-liste">
-        <li>Suivi automatisé du parcours client</li>
-        <li>Emails déclenchés selon les étapes</li>
-        <li>Réponses préparées à valider</li>
         <li>Historique centralisé</li>
       </ul>
-      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
+      <a href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" class="btn-primary">Réserver un appel de 30 min</a>
     </div>
-
     <div class="agent-card">
-      <p class="agent-nom">MIA-Analytix</p>
+      <p class="agent-nom">Dashboard KPI</p>
       <h3 class="agent-titre">Pilotez votre activité en un coup d'œil</h3>
       <p class="agent-desc">Un tableau de bord hebdomadaire connecté à vos plateformes pour suivre vos indicateurs clés sans passer des heures sur les statistiques.</p>
+      <p class="agent-prix"><strong>1&nbsp;290&nbsp;€</strong> 8 h de construction</p>
       <ul class="agent-liste">
         <li>Connexion Google Analytics, Meta, LinkedIn</li>
         <li>Rapport hebdomadaire automatique</li>
         <li>Indicateurs clés identifiés</li>
         <li>Lecture simple et actionnable</li>
       </ul>
-      <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-primary">Demander un devis</a>
+      <a href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" class="btn-primary">Réserver un appel de 30 min</a>
     </div>
+  </div>
+  <p class="agents-note">Prix fixes, TVA non applicable, article 293 B du CGI. La maintenance est définie en fin de projet, selon le périmètre mis en place. Vous restez propriétaire de vos données et de vos accès.</p>
+</section>
 
+<!-- MIA APPS -->
+<section class="section-apps" id="mia-apps">
+  <div class="apps-grid">
+    <div class="apps-content">
+      <p class="section-tag">MIA Apps</p>
+      <h2>Une application métier<br><em>construite pour votre activité</em></h2>
+      <p>Quand une automatisation ne suffit plus, je construis une <strong>application métier sur mesure</strong> à partir de modules éprouvés, adaptée à votre corps de métier et intégrée à vos outils existants.</p>
+      <ul class="apps-modules">
+        <li>Commerce : devis, commandes, suivi des ventes</li>
+        <li>Facturation : factures, relances, export comptable</li>
+        <li>Suivi de chantier : planning, photos, avancement</li>
+        <li>Stock : entrées, sorties, alertes de réassort</li>
+      </ul>
+      <div class="apps-prix">
+        <strong>À partir de 3&nbsp;600&nbsp;€</strong>
+        <span>30 h de construction · TVA non applicable, article 293 B du CGI</span>
+      </div>
+      <h3>Qui construit l'application ?</h3>
+      <p>Moi, à partir de modules déjà en place, ce qui évite de repartir de zéro. Vous participez au cadrage et aux tests, et vous restez propriétaire de vos données et de vos accès.</p>
+      <div class="btn-group">
+        <a href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" class="btn-primary">Réserver un appel de 30 min</a>
+        <a href="https://airtable.com/appgdkmjo0vWIVZYH/pagKnwjhUbcF061uf/form" target="_blank" rel="noopener" class="btn-secondary">Me laisser un message</a>
+      </div>
+    </div>
+    <div class="apps-captures">
+      <!-- À COMPLÉTER PAR LAËTITIA : capture d'écran avec données fictives, nom et couleurs modifiés.
+           Retirer les balises de commentaire autour de la figure ci-dessous une fois l'image ajoutée.
+      <figure class="apps-capture">
+        <img src="assets/images/mia-apps-exemple-1.png" alt="Exemple d'application métier MIA Apps : écran de devis et de commandes">
+        <figcaption>Exemple réalisé. Nom et données modifiés pour confidentialité.</figcaption>
+      </figure>
+      -->
+      <!-- À COMPLÉTER PAR LAËTITIA : capture d'écran avec données fictives, nom et couleurs modifiés.
+      <figure class="apps-capture">
+        <img src="assets/images/mia-apps-exemple-2.png" alt="Exemple d'application métier MIA Apps : écran de suivi de chantier">
+        <figcaption>Exemple réalisé. Nom et données modifiés pour confidentialité.</figcaption>
+      </figure>
+      -->
+      <!-- À COMPLÉTER PAR LAËTITIA : capture d'écran avec données fictives, nom et couleurs modifiés.
+      <figure class="apps-capture">
+        <img src="assets/images/mia-apps-exemple-3.png" alt="Exemple d'application métier MIA Apps : écran de gestion du stock">
+        <figcaption>Exemple réalisé. Nom et données modifiés pour confidentialité.</figcaption>
+      </figure>
+      -->
+    </div>
   </div>
 </section>
 
@@ -452,8 +557,8 @@
 <section class="section-action">
   <p class="section-tag" style="justify-content: center; color: var(--bleu-moyen);">Passer à l'action</p>
   <h2>Prêt à gagner du temps<br><em>dès cette semaine ?</em></h2>
-  <p>Réservez un échange de 30 minutes. On analyse ensemble ce qui peut tourner seul dans votre activité — sans engagement, sans jargon.</p>
-  <a href="https://calendly.com/mia-intelligence/echangeons-sur-vos-besoins" target="_blank" class="btn-white">Réserver mon créneau →</a>
+  <p>Réservez un échange de 30 minutes, gratuit. On analyse ensemble ce qui peut tourner seul dans votre activité — sans jargon.</p>
+  <a href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" class="btn-white">Réserver mon créneau →</a>
   <p class="action-detail">Dès que vous réservez, je reçois vos informations et je prépare notre échange. Pas de formulaire en double.</p>
 </section>
 
@@ -467,22 +572,22 @@
     <div class="methode-card">
       <div class="methode-num">01</div>
       <h3>L'audit</h3>
-      <p>On analyse votre activité, vos processus actuels et vos outils. On identifie ensemble ce qui peut être automatisé et dans quel ordre agir.</p>
+      <p>On part d'un appel découverte ou de l'Audit IA Business : on analyse votre activité, vos processus et vos outils, et on décide ce qui s'automatise en premier.</p>
     </div>
     <div class="methode-card">
       <div class="methode-num">02</div>
       <h3>La conception</h3>
-      <p>On conçoit les workflows avec vous — vous comprenez ce qu'on construit, pourquoi et comment ça va fonctionner dans votre quotidien.</p>
+      <p>On conçoit les automatisations avec vous — vous comprenez ce qu'on construit, pourquoi et comment ça va fonctionner dans votre quotidien.</p>
     </div>
     <div class="methode-card">
       <div class="methode-num">03</div>
       <h3>Le déploiement</h3>
-      <p>On met en place les automatisations, on les teste en conditions réelles et on s'assure que tout fonctionne avant de vous remettre les clés.</p>
+      <p>Je mets en place les automatisations, je les teste en conditions réelles et je m'assure que tout fonctionne avant de vous remettre les clés.</p>
     </div>
     <div class="methode-card">
       <div class="methode-num">04</div>
       <h3>Le suivi</h3>
-      <p>La maintenance est assurée, les bugs corrigés sous 24h, questions par email. Et si votre activité évolue, on fait évoluer les outils avec vous.</p>
+      <p>La maintenance est définie en fin de projet, selon le périmètre mis en place. Et si votre activité évolue, on fait évoluer les outils avec vous.</p>
     </div>
   </div>
 </section>
@@ -492,9 +597,9 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <img src="assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée">
-      <p>Consultante & Formatrice Digital & IA — MIA accompagne les TPE, artisans et commerçants dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <p>Consultante et formatrice en IA — j'accompagne les TPE, artisans et commerçants dans leur stratégie, leur communication et l'automatisation de leur activité, à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
       <div class="footer-social">
-        <a href="https://www.linkedin.com/in/laetitia-colore" title="LinkedIn" aria-label="LinkedIn">in</a>
+        <a href="https://www.linkedin.com/in/laetitia-colore/" title="LinkedIn" aria-label="LinkedIn">in</a>
         <a href="mailto:contact@mia-intelligence.com" title="Email" aria-label="Email">@</a>
       </div>
     </div>
@@ -517,6 +622,7 @@
         <li><a href="capsule-ia-4.html">Capsule IA #4</a></li>
         <li><a href="capsule-ia-5.html">Capsule IA #5</a></li>
         <li><a href="diagnostic.html">Diagnostic gratuit</a></li>
+        <li><a href="questions-frequentes.html">Questions fréquentes</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -531,7 +637,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 MIA — Médiation Intelligence Appliquée</span>
+    <span>© 2026 MIA — Médiation Intelligence Appliquée · TVA non applicable, article 293 B du CGI</span>
     <div class="footer-legal-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="politique-confidentialite.html">Politique de confidentialité</a>
