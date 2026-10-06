@@ -329,11 +329,10 @@
     border-radius: 12px;
     overflow: hidden;
   }
-  /* Le widget Calendly ajuste lui-même sa hauteur : on ne fixe qu'un plancher,
-     sinon l'iframe garde une grande zone blanche sous le calendrier. */
-  .calendly-inline-widget { min-width: 100%; height: 700px; }
+  /* Calendrier Google Agenda intégré : on ne fixe qu'un plancher de hauteur. */
+  .agenda-inline { width: 100%; min-height: 700px; border: 0; display: block; }
   @media (max-width: 700px) {
-    .calendly-inline-widget { height: 900px; }
+    .agenda-inline { min-height: 900px; }
   }
 
   /* ---------- Vidéo ---------- */
@@ -548,12 +547,12 @@
   <div class="wrap">
     <div class="rdv">
       <h2>Parlons de votre activité</h2>
-      <p>Trente minutes, sans engagement, pour regarder vos heures perdues et dire honnêtement ce qui est automatisable et ce qui ne l'est pas. Si l'IA n'est pas la bonne réponse pour vous, je vous le dirai — c'est plus utile qu'un devis.</p>
+      <p>Trente minutes offertes pour regarder vos heures perdues et dire honnêtement ce qui est automatisable et ce qui ne l'est pas. Si l'IA n'est pas la bonne réponse pour vous, je vous le dirai — c'est plus utile qu'un devis.</p>
 
       <div id="calendrier-embed" hidden></div>
 
       <div class="boutons" id="rdv-boutons">
-        <a class="bouton bouton-plein" id="rdv-calendrier" href="https://calendly.com/mia-intelligence/audit-act-ia" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','rdv_recap_aim',{event_category:'conversion'});}">Choisir un créneau</a>
+        <a class="bouton bouton-plein" id="rdv-calendrier" href="https://calendar.app.google/S4BXzZDGD834A9uy6" target="_blank" rel="noopener" onclick="if(typeof gtag==='function'){gtag('event','rdv_recap_aim',{event_category:'conversion'});}">Choisir un créneau</a>
         <a class="bouton bouton-ligne" href="mailto:contact@mia-intelligence.com?subject=Suite%20au%20workshop%20AIM%202026">Écrire un mail</a>
       </div>
 
@@ -568,7 +567,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <img src="../../assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée">
-      <p>Consultante &amp; Formatrice Digital &amp; IA — MIA accompagne les TPE, commerçants et professions libérales dans leur transformation digitale à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <p>Consultante et formatrice en IA — j'accompagne les TPE, artisans et commerçants dans leur stratégie, leur communication et l'automatisation de leur activité, à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
     </div>
     <div class="footer-col">
       <h4>Aller plus loin</h4>
@@ -578,6 +577,7 @@
         <li><a href="../../j-automatise.html">J'automatise</a></li>
         <li><a href="../../je-maitrise.html">Je maîtrise</a></li>
         <li><a href="../../diagnostic.html">Diagnostic gratuit</a></li>
+        <li><a href="../../questions-frequentes.html">Questions fréquentes</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -592,7 +592,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 MIA — Médiation Intelligence Appliquée</span>
+    <span>© 2026 MIA — Médiation Intelligence Appliquée · TVA non applicable, article 293 B du CGI</span>
     <div class="footer-legal-links">
       <a href="../../mentions-legales.html">Mentions légales</a>
       <a href="../../politique-confidentialite.html">Politique de confidentialité</a>
@@ -605,36 +605,32 @@
 // ---------------------------------------------------------------------------
 // Deux réglages à remplir, et rien d'autre à toucher dans cette page.
 //
-// CALENDRIER_URL : le lien de réservation (Cal.com ou Calendly).
-//   Vide  → le bouton « Choisir un créneau » renvoie vers le formulaire Airtable.
-//   Rempli → le calendrier s'affiche directement dans la page, avec les créneaux.
+// CALENDRIER_EMBED : l'URL d'intégration Google Agenda (menu « Intégrer » de la page
+//   de prise de rendez-vous, elle se termine par ?gv=true).
+//   Vide    → le bouton « Choisir un créneau » ouvre la page Google Agenda dans un nouvel onglet.
+//   Remplie → le calendrier s'affiche directement dans la page, avec les créneaux.
 //
 // VIDEO_URL : l'URL d'intégration de la vidéo du workshop (YouTube ou Vimeo),
 //   à coller après le montage. Vide → la section vidéo reste masquée.
 // ---------------------------------------------------------------------------
-const CALENDRIER_URL = 'https://calendly.com/mia-intelligence/audit-act-ia?hide_gdpr_banner=1&primary_color=3d5080&background_color=ffffff&text_color=2a3550';
-const CALENDRIER_LIEN = 'https://calendly.com/mia-intelligence/audit-act-ia';
+const CALENDRIER_EMBED = '';
+const CALENDRIER_LIEN = 'https://calendar.app.google/S4BXzZDGD834A9uy6';
 const VIDEO_URL = '';
 
 document.addEventListener('DOMContentLoaded', function () {
-  if (CALENDRIER_URL) {
+  const bouton = document.getElementById('rdv-calendrier');
+  bouton.href = CALENDRIER_LIEN;
+  bouton.target = '_blank';
+
+  if (CALENDRIER_EMBED) {
     const cadre = document.getElementById('calendrier-embed');
-
-    // Conteneur attendu par le widget Calendly, qui gère seul sa hauteur
-    // et l'affichage mobile.
-    const widget = document.createElement('div');
-    widget.className = 'calendly-inline-widget';
-    widget.setAttribute('data-url', CALENDRIER_URL);
-    cadre.appendChild(widget);
+    const iframe = document.createElement('iframe');
+    iframe.className = 'agenda-inline';
+    iframe.src = CALENDRIER_EMBED;
+    iframe.title = 'Prendre rendez-vous avec Laëtitia Coloré';
+    iframe.loading = 'lazy';
+    cadre.appendChild(iframe);
     cadre.hidden = false;
-
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    document.getElementById('rdv-calendrier').href = CALENDRIER_LIEN;
-    document.getElementById('rdv-calendrier').target = '_blank';
   }
 
   if (VIDEO_URL) {
