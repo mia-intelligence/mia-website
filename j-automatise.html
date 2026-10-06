@@ -30,7 +30,23 @@
     "url": "https://mia-intelligence.com"
   },
   "description": "Automatisations sur mesure pour les TPE, artisans et commerçants du Var : communication, administration, relation client, tableau de bord. Applications métier MIA Apps construites à partir de modules (commerce, facturation, suivi de chantier, stock).",
-  "areaServed": ["Var", "Bouches-du-Rhône", "PACA", "France"],
+  "areaServed": [
+    {"@type": "State", "name": "Var"},
+    {"@type": "State", "name": "Bouches-du-Rhône"},
+    {"@type": "State", "name": "Vaucluse"},
+    {"@type": "AdministrativeArea", "name": "Provence-Alpes-Côte d'Azur"},
+    {"@type": "Country", "name": "France"},
+    {"@type": "City", "name": "Saint-Maximin-la-Sainte-Baume"},
+    {"@type": "City", "name": "Brignoles"},
+    {"@type": "City", "name": "Rians"},
+    {"@type": "City", "name": "Draguignan"},
+    {"@type": "City", "name": "Pertuis"},
+    {"@type": "City", "name": "Peyrolles-en-Provence"},
+    {"@type": "City", "name": "Aix-en-Provence"},
+    {"@type": "City", "name": "Aubagne"},
+    {"@type": "City", "name": "Marseille"},
+    {"@type": "City", "name": "Toulon"}
+  ],
   "serviceType": "Automatisation IA et application métier",
   "offers": [
     {"@type": "Offer", "name": "Automatisation Communication", "priceCurrency": "EUR", "priceSpecification": {"@type": "PriceSpecification", "minPrice": "800", "maxPrice": "1300", "priceCurrency": "EUR"}},
@@ -269,7 +285,8 @@
   .agents-note { text-align: center; font-size: 0.82rem; color: #5a6a8a; margin-top: 2.5rem; line-height: 1.7; }
   /* MIA Apps */
   .section-apps { padding: 7rem 6rem; background: white; }
-  .apps-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: start; }
+  .apps-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .apps-content { max-width: 820px; }
   .apps-content h2 { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; font-weight: 300; color: var(--bleu-tres-fonce); line-height: 1.2; margin-bottom: 1.5rem; }
   .apps-content h2 em { font-style: italic; color: var(--bleu-moyen); }
   .apps-content h3 { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; font-weight: 600; color: var(--bleu-fonce); margin: 2rem 0 0.6rem; }
@@ -281,19 +298,21 @@
   .apps-prix { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem; background: var(--gris-doux); border-left: 3px solid var(--bleu-fonce); padding: 1rem 1.5rem; margin-bottom: 2rem; }
   .apps-prix strong { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; white-space: nowrap; font-weight: 600; color: var(--bleu-tres-fonce); }
   .apps-prix span { font-size: 0.85rem; color: #5a6a8a; }
-  .apps-captures { display: flex; flex-direction: column; gap: 1.5rem; }
-  .apps-capture { margin: 0; background: var(--gris-doux); border: 1px solid var(--bleu-clair); padding: 1rem; }
-  .apps-capture img { width: 100%; display: block; }
-  .apps-capture figcaption { font-size: 0.75rem; color: #5a6a8a; margin-top: 0.7rem; font-style: italic; }
+  .apps-captures { display: flex; flex-direction: column; gap: 3rem; max-width: 1100px; margin: 3.5rem auto 0; }
+  .apps-capture { margin: 0; }
+  .apps-capture a { display: block; }
+  .apps-capture img { width: 100%; height: auto; display: block; border: 1px solid var(--bleu-clair); border-radius: 6px; box-shadow: 0 24px 60px rgba(26,37,64,0.16); transition: transform 0.3s; }
+  .apps-capture a:hover img { transform: translateY(-3px); }
+  .apps-capture figcaption { font-size: 0.8rem; color: #5a6a8a; margin-top: 1rem; font-style: italic; text-align: center; }
+  .apps-capture figcaption span { display: block; font-style: normal; font-size: 0.75rem; margin-top: 0.3rem; }
   @media (max-width: 768px) {
     .section-apps { padding: 4rem 1.5rem; }
-    .apps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .apps-captures { margin-top: 2.5rem; gap: 2rem; }
     .apps-content h2 { font-size: 2rem; }
     .apps-modules { grid-template-columns: 1fr; }
   }
   @media (min-width: 769px) and (max-width: 1024px) {
     .section-apps { padding: 5rem 3rem; }
-    .apps-grid { gap: 3rem; }
   }
 </style>
 <script type="application/ld+json">
@@ -322,8 +341,19 @@
   "areaServed": [
     {"@type": "State", "name": "Var"},
     {"@type": "State", "name": "Bouches-du-Rhône"},
+    {"@type": "State", "name": "Vaucluse"},
     {"@type": "AdministrativeArea", "name": "Provence-Alpes-Côte d'Azur"},
-    {"@type": "Country", "name": "France"}
+    {"@type": "Country", "name": "France"},
+    {"@type": "City", "name": "Saint-Maximin-la-Sainte-Baume"},
+    {"@type": "City", "name": "Brignoles"},
+    {"@type": "City", "name": "Rians"},
+    {"@type": "City", "name": "Draguignan"},
+    {"@type": "City", "name": "Pertuis"},
+    {"@type": "City", "name": "Peyrolles-en-Provence"},
+    {"@type": "City", "name": "Aix-en-Provence"},
+    {"@type": "City", "name": "Aubagne"},
+    {"@type": "City", "name": "Marseille"},
+    {"@type": "City", "name": "Toulon"}
   ],
   "founder": {
     "@type": "Person",
@@ -501,7 +531,7 @@
     <div class="apps-content">
       <p class="section-tag">MIA Apps</p>
       <h2>Une application métier<br><em>construite pour votre activité</em></h2>
-      <p>Quand une automatisation ne suffit plus, je construis une <strong>application métier sur mesure</strong> à partir de modules éprouvés, adaptée à votre corps de métier et intégrée à vos outils existants. Ci-contre, un exemple pour une épicerie fine : chaque matin, l'application lit la caisse et les fichiers de la boutique, prépare un résumé, signale ce qu'il faut traiter et rédige la publication de la semaine.</p>
+      <p>Quand une automatisation ne suffit plus, je construis une <strong>application métier sur mesure</strong> à partir de modules éprouvés, adaptée à votre corps de métier et intégrée à vos outils existants. Ci-dessous, un exemple pour une épicerie fine : chaque matin, l'application lit la caisse et les fichiers de la boutique, prépare un résumé, signale ce qu'il faut traiter et rédige la publication de la semaine.</p>
       <ul class="apps-modules">
         <li>Commerce : devis, commandes, suivi des ventes</li>
         <li>Facturation : factures, relances, export comptable</li>
@@ -524,8 +554,10 @@
     </div>
     <div class="apps-captures">
       <figure class="apps-capture">
-        <img src="assets/images/mia-apps-exemple-1.png" alt="Exemple d'application métier MIA Apps : tableau de bord d'une épicerie fine avec ventes du jour, stock, factures et publication préparée par l'IA" loading="lazy" width="1280" height="1060">
-        <figcaption>Exemple réalisé. Nom et données modifiés pour confidentialité.</figcaption>
+        <a href="assets/images/mia-apps-exemple-1.png" target="_blank" rel="noopener" title="Ouvrir la capture en grand">
+          <img src="assets/images/mia-apps-exemple-1.png" alt="Exemple d'application métier MIA Apps : tableau de bord d'une épicerie fine avec ventes du jour, stock, factures et publication préparée par l'IA" loading="lazy" width="1280" height="1060">
+        </a>
+        <figcaption>Exemple réalisé. Nom et données modifiés pour confidentialité.<span>Cliquer sur l'image pour l'ouvrir en grand.</span></figcaption>
       </figure>
       <!-- À COMPLÉTER PAR LAËTITIA : capture d'écran avec données fictives, nom et couleurs modifiés.
       <figure class="apps-capture">
@@ -588,6 +620,7 @@
     <div class="footer-brand">
       <img src="assets/images/LogoMIAFBF.png" alt="MIA Médiation Intelligence Appliquée">
       <p>Consultante et formatrice en IA — j'accompagne les TPE, artisans et commerçants dans leur stratégie, leur communication et l'automatisation de leur activité, à Saint-Maximin-la-Sainte-Baume et dans tout le Var.</p>
+      <p class="footer-zone">Consultante IA à Saint-Maximin-la-Sainte-Baume (Var) · Haut-Var, Centre-Var, Pays d'Aix, Pertuis, Toulon, Marseille · Partout en France en visio</p>
       <div class="footer-social">
         <a href="https://www.linkedin.com/in/laetitia-colore/" title="LinkedIn" aria-label="LinkedIn">in</a>
         <a href="mailto:contact@mia-intelligence.com" title="Email" aria-label="Email">@</a>
