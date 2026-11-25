@@ -74,7 +74,9 @@ Application métier construite à partir de modules (commerce, facturation, suiv
 - Questions fréquentes : https://mia-intelligence.com/questions-frequentes.html
 - Diagnostic gratuit « Mon entreprise est-elle prête pour l'IA ? » : https://mia-intelligence.com/diagnostic.html
 - Comment c'est construit : https://mia-intelligence.com/comment-ca-fonctionne.html
-- Capsule IA (veille mensuelle) : https://mia-intelligence.com/capsule-ia-5.html
+- Capsule IA (veille mensuelle), n°7 — Passer à l'IA sans changer d'outils : https://mia-intelligence.com/capsule-ia-7.html
+- Capsule IA n°6 — Pourquoi passer à l'IA… et pourquoi pas tout de suite : https://mia-intelligence.com/capsule-ia-6.html
+- Capsule IA n°5 — Facture électronique : c'est en vigueur. Que faire si vous n'êtes pas prêt ? : https://mia-intelligence.com/capsule-ia-5.html
 
 ## Prendre contact
 
